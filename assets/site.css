@@ -1,0 +1,133 @@
+/* Tokumaru Labs — shared site styles.
+   Static only: no JavaScript, no external fonts, no analytics, no CDN. */
+
+:root {
+  --ink: #1c1f23;
+  --ink-soft: #4b5563;
+  --ink-faint: #8a919c;
+  --line: #e6e8ec;
+  --surface: #ffffff;
+  --surface-sunken: #f5f6f8;
+  --accent: #2f6fd0;
+  /* Progress Sidecar segment palette: blue -> cyan -> amber -> orange */
+  --seg-blue: #2563eb;
+  --seg-cyan: #22a5e6;
+  --seg-amber: #ffd23f;
+  --seg-orange: #ff8a1f;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP", Meiryo, sans-serif;
+  line-height: 1.7;
+}
+
+a { color: var(--accent); }
+a:hover { text-decoration: underline; }
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 20px 72px;
+}
+
+/* A restrained nod to the product's segmented progress indicator. */
+.seg {
+  display: flex;
+  gap: 4px;
+  height: 6px;
+  margin-bottom: 24px;
+}
+.seg span {
+  flex: 1;
+  border-radius: 3px;
+  background: var(--line);
+}
+.seg span:nth-child(1) { background: var(--seg-blue); }
+.seg span:nth-child(2) { background: var(--seg-cyan); }
+.seg span:nth-child(3) { background: var(--seg-amber); }
+.seg span:nth-child(4) { background: var(--seg-orange); }
+
+.site-head { margin-bottom: 8px; }
+.brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin: 0 0 6px;
+}
+.tagline { color: var(--ink-soft); margin: 0; }
+
+h1 { font-size: 1.5rem; margin: 0 0 10px; }
+h2 {
+  font-size: 1.15rem;
+  margin: 32px 0 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+h3 { font-size: 1rem; margin: 20px 0 4px; }
+
+.meta { color: var(--ink-soft); font-size: 0.9rem; margin: 0; }
+.meta strong { color: var(--ink); }
+
+ul { padding-left: 1.3em; }
+li { margin: 4px 0; }
+
+.card {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin: 20px 0;
+  text-decoration: none;
+  color: inherit;
+  background: var(--surface);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card h2 { border: 0; padding: 0; margin: 0 0 6px; }
+.card p { margin: 0; color: var(--ink-soft); }
+
+.pill {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-top: 6px;
+}
+
+code {
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.88em;
+}
+
+.lang-note { color: var(--ink-soft); font-size: 0.9rem; }
+section.en { margin-top: 8px; }
+
+nav.crumbs { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 18px; }
+nav.crumbs a { color: var(--ink-soft); }
+
+footer {
+  margin-top: 48px;
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+@media (max-width: 480px) {
+  .wrap { padding: 28px 16px 56px; }
+  .brand { font-size: 1.35rem; }
+}
