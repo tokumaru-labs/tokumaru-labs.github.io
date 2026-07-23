@@ -3,32 +3,190 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tokumaru Labs — Small tools. Clear purpose.</title>
+<meta name="description" content="Tokumaru Labs builds small, focused Chrome extensions and themes for everyday work, learning, and play. Local-first, privacy-respecting, made to be used.">
 <meta name="robots" content="index, follow">
-<title>Tokumaru Labs</title>
+<meta name="theme-color" content="#0f1720">
+<link rel="canonical" href="https://tokumaru-labs.github.io/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tokumaru Labs">
+<meta property="og:title" content="Tokumaru Labs — Small tools. Clear purpose.">
+<meta property="og:description" content="Small, focused Chrome extensions and themes for everyday work, learning, and play. Local-first and privacy-respecting.">
+<meta property="og:url" content="https://tokumaru-labs.github.io/">
+<meta property="og:image" content="https://tokumaru-labs.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Tokumaru Labs",
+  "url": "https://tokumaru-labs.github.io/",
+  "sameAs": ["https://github.com/tokumaru-labs"]
+}
+</script>
 </head>
 <body>
-<div class="wrap">
-  <div class="seg" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-head">
-    <p class="brand">Tokumaru Labs</p>
-    <p class="tagline">Software made for focused, everyday use.</p>
-  </header>
-
-  <main>
-    <h1>Products</h1>
-
-    <a class="card" href="/progress-sidecar/">
-      <h2>Progress Sidecar</h2>
-      <p>A Chrome side panel that shows total, completed, remaining, and estimated remaining time at a glance.</p>
-      <span class="pill">version 0.1.0</span>
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="topbar__brand" href="/">
+      <span class="topbar__mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      Tokumaru Labs
     </a>
-  </main>
+    <nav class="topnav" aria-label="Primary">
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="https://github.com/tokumaru-labs">GitHub</a>
+    </nav>
+  </div>
+</header>
 
-  <footer>
-    Tokumaru Labs
-  </footer>
-</div>
+<section class="hero">
+  <div class="hero__inner">
+    <div class="hero__seg" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <h1>Small tools.<br>Clear purpose.</h1>
+    <p class="hero__lead">Tokumaru Labs builds focused browser tools and themes for everyday work, learning, and play.</p>
+    <p class="hero__lead-ja" lang="ja">集中する毎日に、静かに馴染む小さな道具。仕事にも、学びにも、遊びにも。</p>
+  </div>
+</section>
+
+<main id="main">
+  <div class="wrap wrap--wide">
+
+    <section class="section" id="products">
+      <h2>Products</h2>
+      <p class="section__sub">Four small things, each built to do one job well. <span lang="ja">ひとつの目的に絞った、小さな道具たち。</span></p>
+
+      <div class="products">
+
+        <!-- Transcript Sidecar -->
+        <article class="pcard">
+          <div class="pcard__media">
+            <div class="visual visual--transcript" aria-hidden="true">
+              <div class="visual__lines"><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="pcard__body">
+            <p class="pcard__kind">Chrome Extension</p>
+            <h3 class="pcard__title"><a href="/transcript-sidecar/">Transcript Sidecar</a></h3>
+            <p class="pcard__desc">View, copy, format, and export YouTube transcripts from Chrome's Side Panel — no account, tracking, ads, or transcript server.</p>
+            <p class="pcard__desc-ja" lang="ja">YouTube の字幕を Side Panel で表示・整形・書き出し。アカウントも、収集も、広告もありません。</p>
+            <div class="pcard__actions">
+              <a class="btn btn--primary" href="/transcript-sidecar/">Overview</a>
+              <a class="btn" href="https://github.com/tokumaru-labs/transcript-sidecar">GitHub</a>
+              <a class="btn" href="https://chromewebstore.google.com/detail/transcript-sidecar/flkfcafidkoihgaikkihnaggophndgng">Chrome Web Store</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Arcade Counter Timer -->
+        <article class="pcard">
+          <div class="pcard__media">
+            <img src="/assets/products/arcade-counter-timer/screenshot-main-1280x800.png"
+                 width="1280" height="800" loading="lazy" decoding="async"
+                 alt="Arcade Counter Timer: a count-up timer reading 00:12:34 and a large count of 18, with START and COUNT buttons.">
+          </div>
+          <div class="pcard__body">
+            <p class="pcard__kind">Chrome Extension</p>
+            <h3 class="pcard__title"><a href="/arcade-counter-timer/">Arcade Counter Timer</a></h3>
+            <p class="pcard__desc">A count-up timer and tally counter that stays out of your way, then turns into a small arcade machine when you hit a milestone.</p>
+            <p class="pcard__desc-ja" lang="ja">邪魔をしないカウントアップタイマーとタリーカウンター。節目にだけ、少しだけアーケードになります。</p>
+            <div class="pcard__actions">
+              <a class="btn btn--primary" href="/arcade-counter-timer/">Overview</a>
+              <a class="btn" href="https://github.com/tokumaru-labs/arcade-counter-timer">GitHub</a>
+              <span class="btn btn--soon" aria-disabled="true">Chrome Web Store · Coming soon</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Midnight Cockpit -->
+        <article class="pcard">
+          <div class="pcard__media">
+            <div class="visual visual--cockpit" aria-hidden="true">
+              <div class="visual__tabs"><i></i><i class="active"></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div class="pcard__body">
+            <p class="pcard__kind">Chrome Theme</p>
+            <h3 class="pcard__title"><a href="/midnight-cockpit/">Midnight Cockpit</a></h3>
+            <p class="pcard__desc">A calm, deep-navy Chrome theme with a cyan-to-blue accent on the active tab. Colors only — no scripts, no permissions.</p>
+            <p class="pcard__desc-ja" lang="ja">深いネイビーに、アクティブタブだけシアン〜ブルー。色だけで作られた、静かな Chrome テーマです。</p>
+            <div class="pcard__actions">
+              <a class="btn btn--primary" href="/midnight-cockpit/">Overview</a>
+              <a class="btn" href="https://github.com/tokumaru-labs/tokumaru-midnight-cockpit">GitHub</a>
+              <span class="btn btn--soon" aria-disabled="true">Chrome Web Store · Coming soon</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Progress Sidecar -->
+        <article class="pcard">
+          <div class="pcard__media">
+            <img src="/assets/products/progress-sidecar/screenshot-task-list-1280x800.png"
+                 width="1280" height="800" loading="lazy" decoding="async"
+                 alt="Progress Sidecar: a task list showing total, completed, remaining, and estimated remaining time, with an overall progress indicator.">
+          </div>
+          <div class="pcard__body">
+            <p class="pcard__kind">Chrome Extension</p>
+            <h3 class="pcard__title"><a href="/progress-sidecar/">Progress Sidecar</a></h3>
+            <p class="pcard__desc">See total, completed, remaining, and estimated remaining time at a glance, and update progress right in the side panel.</p>
+            <p class="pcard__desc-ja" lang="ja">総量・完了・残り・推定残り時間をひと目で。サイドパネルの一覧のまま進捗を更新できます。</p>
+            <div class="pcard__actions">
+              <a class="btn btn--primary" href="/progress-sidecar/">Overview</a>
+              <a class="btn" href="/progress-sidecar/privacy/">Privacy</a>
+              <span class="btn btn--soon" aria-disabled="true">Chrome Web Store · Coming soon</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <h2>Philosophy</h2>
+      <p class="section__sub">A few rules that every Tokumaru Labs tool follows.</p>
+      <div class="philosophy">
+        <div class="phil">
+          <h3>Focused</h3>
+          <p>One clear purpose, done well.<span class="ja" lang="ja">一つの目的を明確に。</span></p>
+        </div>
+        <div class="phil">
+          <h3>Local-first</h3>
+          <p>Your data stays on your device wherever possible.<span class="ja" lang="ja">可能な限り、端末の中で。</span></p>
+        </div>
+        <div class="phil">
+          <h3>Built to be used</h3>
+          <p>Tools we actually want to reach for every day.<span class="ja" lang="ja">毎日ほんとうに使いたいものを。</span></p>
+        </div>
+      </div>
+
+      <p class="about-note">
+        Tokumaru Labs is an independent software studio building small, focused tools.
+        <span class="ja" lang="ja">Tokumaru Labs は、小さく焦点の合ったソフトウェアをつくる個人開発スタジオです。</span>
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap wrap--wide" style="padding-bottom:0;">
+    <div class="foot-grid">
+      <a href="https://github.com/tokumaru-labs">GitHub Organization</a>
+      <a href="https://github.com/tokumaru-labs/tokumaru-labs.github.io/issues">Support / Issues</a>
+      <a href="/progress-sidecar/privacy/">Progress Sidecar Privacy</a>
+    </div>
+    <p class="foot-note">© <span id="year">2026</span> Tokumaru Labs · No analytics, no tracking, no cookies.</p>
+  </div>
+</footer>
+
 </body>
 </html>

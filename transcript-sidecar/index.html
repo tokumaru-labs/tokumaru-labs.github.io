@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript Sidecar — Tokumaru Labs</title>
+<meta name="description" content="Transcript Sidecar is a Chrome Side Panel extension to view, copy, format, and export YouTube transcripts. No account, tracking, ads, or transcript server.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0f1720">
+<link rel="canonical" href="https://tokumaru-labs.github.io/transcript-sidecar/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tokumaru Labs">
+<meta property="og:title" content="Transcript Sidecar — Tokumaru Labs">
+<meta property="og:description" content="View, copy, format, and export YouTube transcripts from Chrome's Side Panel. No account, tracking, or ads.">
+<meta property="og:url" content="https://tokumaru-labs.github.io/transcript-sidecar/">
+<meta property="og:image" content="https://tokumaru-labs.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Transcript Sidecar",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "softwareVersion": "0.4.0",
+  "publisher": { "@type": "Organization", "name": "Tokumaru Labs" },
+  "url": "https://tokumaru-labs.github.io/transcript-sidecar/"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="topbar__brand" href="/">
+      <span class="topbar__mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      Tokumaru Labs
+    </a>
+    <nav class="topnav" aria-label="Primary">
+      <a href="/#products">Products</a>
+      <a href="/#about">About</a>
+      <a href="https://github.com/tokumaru-labs">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <nav class="crumbs"><a href="/">Tokumaru Labs</a> / Transcript Sidecar</nav>
+
+    <div class="seg" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+    <header class="site-head">
+      <p class="brand">Transcript Sidecar</p>
+      <p class="tagline">Chrome Extension · version 0.4.0 · Tokumaru Labs</p>
+    </header>
+
+    <p class="lead">View, copy, format, and export YouTube transcripts — right in Chrome's Side Panel.</p>
+    <p class="lead-ja" lang="ja">YouTube の字幕を、Chrome の Side Panel で表示・整形・書き出し。</p>
+
+    <div class="pcard__media shot" style="aspect-ratio:16/6;border-radius:10px;overflow:hidden;">
+      <div class="visual visual--transcript" aria-hidden="true">
+        <div class="visual__lines"><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+
+    <h2>Key features</h2>
+    <ul class="feature-list">
+      <li>Opens in the Chrome Side Panel, next to the video.</li>
+      <li>Reads the available caption tracks from the current YouTube video.</li>
+      <li>One-click <strong>Copy full transcript</strong>, with artificial caption line breaks removed.</li>
+      <li><strong>Readable copy</strong> that keeps the wording but adds paragraph breaks; export as <code>.txt</code> or <code>.md</code>.</li>
+      <li>Copy with timestamps, or as Markdown with the video title, URL, and caption language.</li>
+      <li>Click a transcript timestamp to seek the video. Switch the interface between <strong>Japanese and English</strong> at any time.</li>
+    </ul>
+
+    <h2>Privacy</h2>
+    <ul>
+      <li>No account, no analytics, no ads, and no developer-operated transcript server.</li>
+      <li>Requests only <code>scripting</code>, <code>sidePanel</code>, and YouTube-only host access — never <code>&lt;all_urls&gt;</code>.</li>
+      <li>The interface-language choice is stored in extension-origin <code>localStorage</code> and is never sent anywhere.</li>
+      <li>Caption text, titles, and URLs are shown as received and never transmitted by the extension.</li>
+    </ul>
+    <p class="lang-note" lang="ja">アカウント・分析・広告・字幕サーバーなし。権限は <code>scripting</code> / <code>sidePanel</code> と YouTube ドメインのみで、外部送信は行いません。</p>
+
+    <h2>Links</h2>
+    <p>
+      <a class="btn" href="https://github.com/tokumaru-labs/transcript-sidecar">GitHub repository</a>
+      <a class="btn btn--primary" href="https://chromewebstore.google.com/detail/transcript-sidecar/flkfcafidkoihgaikkihnaggophndgng">Chrome Web Store</a>
+    </p>
+
+    <p style="margin-top:28px;"><a href="/#products">← Back to all products</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="padding-bottom:0;">
+    <div class="foot-grid">
+      <a href="https://github.com/tokumaru-labs">GitHub Organization</a>
+      <a href="https://github.com/tokumaru-labs/transcript-sidecar/issues">Support / Issues</a>
+    </div>
+    <p class="foot-note">© 2026 Tokumaru Labs · No analytics, no tracking, no cookies.</p>
+  </div>
+</footer>
+</body>
+</html>
