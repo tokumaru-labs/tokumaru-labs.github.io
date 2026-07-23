@@ -3,45 +3,108 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="index, follow">
 <title>Progress Sidecar — Tokumaru Labs</title>
+<meta name="description" content="Progress Sidecar is a Chrome side-panel extension that shows total, completed, remaining, and estimated remaining time at a glance. Local-only, no tracking.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0f1720">
+<link rel="canonical" href="https://tokumaru-labs.github.io/progress-sidecar/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tokumaru Labs">
+<meta property="og:title" content="Progress Sidecar — Tokumaru Labs">
+<meta property="og:description" content="See total, completed, remaining, and estimated remaining time at a glance, and update progress in the side panel.">
+<meta property="og:url" content="https://tokumaru-labs.github.io/progress-sidecar/">
+<meta property="og:image" content="https://tokumaru-labs.github.io/assets/products/progress-sidecar/screenshot-task-list-1280x800.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Progress Sidecar",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "softwareVersion": "0.1.0",
+  "publisher": { "@type": "Organization", "name": "Tokumaru Labs" },
+  "url": "https://tokumaru-labs.github.io/progress-sidecar/"
+}
+</script>
 </head>
 <body>
-<div class="wrap">
-  <nav class="crumbs"><a href="/">Tokumaru Labs</a> / Progress Sidecar</nav>
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="seg" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="topbar__brand" href="/">
+      <span class="topbar__mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      Tokumaru Labs
+    </a>
+    <nav class="topnav" aria-label="Primary">
+      <a href="/#products">Products</a>
+      <a href="/#about">About</a>
+      <a href="https://github.com/tokumaru-labs">GitHub</a>
+    </nav>
+  </div>
+</header>
 
-  <header class="site-head">
-    <p class="brand">Progress Sidecar</p>
-    <p class="tagline">See total, completed, remaining, and estimated remaining time at a glance.</p>
-  </header>
+<main id="main">
+  <div class="wrap">
+    <nav class="crumbs"><a href="/">Tokumaru Labs</a> / Progress Sidecar</nav>
 
-  <main>
-    <h1>About</h1>
-    <p>
-      Progress Sidecar is a Chrome side-panel extension for seeing how much work is
-      left on the things you are studying or building. It shows each task's total,
-      completed, remaining, and estimated remaining time, and lets you update
-      progress directly in the list.
-    </p>
-    <p>
-      Your data is stored only in Chrome on your device. Progress Sidecar does not
-      transmit it to external servers, and there is no analytics or advertising.
-    </p>
+    <div class="seg" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
 
-    <h2>Links</h2>
-    <ul>
-      <li><a href="/progress-sidecar/privacy/">Privacy Policy / プライバシーポリシー</a></li>
+    <header class="site-head">
+      <p class="brand">Progress Sidecar</p>
+      <p class="tagline">Chrome Extension · version 0.1.0 · Tokumaru Labs</p>
+    </header>
+
+    <p class="lead">See total, completed, remaining, and estimated remaining time at a glance — and update progress right in the side panel.</p>
+    <p class="lead-ja" lang="ja">総量・完了・残り・推定残り時間をひと目で。サイドパネルの一覧のまま進捗を更新できます。</p>
+
+    <img class="shot"
+         src="/assets/products/progress-sidecar/screenshot-task-list-1280x800.png"
+         width="1280" height="800" loading="lazy" decoding="async"
+         alt="Progress Sidecar: a task list showing total, completed, remaining, and estimated remaining time, with an overall progress indicator.">
+
+    <h2>Key features</h2>
+    <ul class="feature-list">
+      <li>Total, completed, remaining, and estimated remaining time for each task, at a glance.</li>
+      <li>Update progress directly in the list with <code>−</code> / current / total / <code>＋</code>.</li>
+      <li>Add, edit, and delete tasks, and restore a deleted task from a local snapshot.</li>
+      <li>Export a JSON backup, and import one with a validated preview and a safe Merge.</li>
+      <li>Japanese and English interface, consistent across multiple side panels.</li>
     </ul>
 
-    <p class="pill">version 0.1.0</p>
-  </main>
+    <h2>Privacy</h2>
+    <ul>
+      <li>Tasks, progress, settings, and recovery snapshots are stored only in <code>chrome.storage.local</code> on your device.</li>
+      <li>No external transmission, no analytics, no advertising, and no account.</li>
+      <li>Requests only the <code>sidePanel</code> and <code>storage</code> permissions.</li>
+      <li>Full details: <a href="/progress-sidecar/privacy/">Privacy Policy / プライバシーポリシー</a>.</li>
+    </ul>
+    <p class="lang-note" lang="ja">タスク・進捗・設定・復元用スナップショットは端末内の <code>chrome.storage.local</code> にのみ保存。外部送信・分析・広告はありません。</p>
 
-  <footer>
-    Progress Sidecar &middot; Tokumaru Labs
-  </footer>
-</div>
+    <h2>Links</h2>
+    <p>
+      <a class="btn" href="/progress-sidecar/privacy/">Privacy Policy</a>
+      <span class="btn btn--soon" aria-disabled="true">Chrome Web Store · Coming soon</span>
+    </p>
+
+    <p style="margin-top:28px;"><a href="/#products">← Back to all products</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="padding-bottom:0;">
+    <div class="foot-grid">
+      <a href="https://github.com/tokumaru-labs">GitHub Organization</a>
+      <a href="https://github.com/tokumaru-labs/tokumaru-labs.github.io/issues">Support / Issues</a>
+      <a href="/progress-sidecar/privacy/">Privacy</a>
+    </div>
+    <p class="foot-note">© 2026 Tokumaru Labs · No analytics, no tracking, no cookies.</p>
+  </div>
+</footer>
 </body>
 </html>
