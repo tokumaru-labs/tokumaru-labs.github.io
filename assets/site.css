@@ -346,6 +346,18 @@ li { margin: 4px 0; }
 .lead { font-size: 1.1rem; color: var(--ink-soft); }
 .lead-ja { color: var(--ink-faint); margin-top: 4px; }
 
+/* ---------- bilingual product guides ---------- */
+.page-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
+.product-figure { margin: 24px 0; }
+.product-figure .shot { margin: 0; }
+.product-figure figcaption { color: var(--ink-soft); font-size: 0.85rem; margin-top: 8px; }
+.guide-title { font-size: clamp(1.65rem, 4.5vw, 2.5rem); line-height: 1.45; margin: 12px 0; }
+.guide-steps { padding-left: 1.5em; }
+.guide-steps li { margin: 14px 0; padding-left: 4px; }
+.guide-steps strong { display: block; }
+.page-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 18px 0; }
+:lang(ja) .hero h1 { line-height: 1.4; letter-spacing: 0; }
+
 code {
   background: var(--surface-sunken);
   border: 1px solid var(--line);

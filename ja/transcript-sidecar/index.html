@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transcript Sidecar｜YouTube字幕をコピー・保存するChrome拡張機能</title>
+<meta name="description" content="YouTubeの字幕をChromeのサイドパネルで表示し、全文コピーやTXT・Markdown保存ができるTranscript Sidecar。3ステップの使い方、タイムスタンプ付きコピー、対応する字幕と制限を紹介します。アカウント・広告・トラッキングなし。">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0f1720">
+<link rel="canonical" href="https://tokumaru-labs.github.io/ja/transcript-sidecar/">
+<link rel="alternate" hreflang="en" href="https://tokumaru-labs.github.io/transcript-sidecar/">
+<link rel="alternate" hreflang="ja" href="https://tokumaru-labs.github.io/ja/transcript-sidecar/">
+<link rel="alternate" hreflang="x-default" href="https://tokumaru-labs.github.io/transcript-sidecar/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tokumaru Labs">
+<meta property="og:title" content="Transcript Sidecar｜YouTube字幕をコピー・保存">
+<meta property="og:description" content="動画の横で字幕を読み、ノートに残す。字幕の全文コピー、タイムスタンプ付きコピー、TXT・Markdown保存の使い方。">
+<meta property="og:url" content="https://tokumaru-labs.github.io/ja/transcript-sidecar/">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://tokumaru-labs.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Transcript Sidecar",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "softwareVersion": "0.4.2",
+  "publisher": { "@type": "Organization", "name": "Tokumaru Labs" },
+  "url": "https://tokumaru-labs.github.io/ja/transcript-sidecar/"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="topbar__brand" href="/ja/">
+      <span class="topbar__mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      Tokumaru Labs
+    </a>
+    <nav class="topnav" aria-label="メインメニュー">
+      <a href="/ja/#products">ツール一覧</a>
+      <a href="/ja/#about">つくり方</a>
+      <a href="/transcript-sidecar/" lang="en" hreflang="en">English</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <article class="wrap">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="/ja/">Tokumaru Labs</a> / Transcript Sidecar</nav>
+    <div class="seg" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <header class="site-head">
+      <p class="brand">Transcript Sidecar</p>
+      <h1 class="guide-title">YouTubeの字幕を、<br>コピー・保存。</h1>
+      <p class="tagline">Chrome拡張機能 · バージョン0.4.2 · Tokumaru Labs</p>
+    </header>
+    <p class="lead">動画の横で字幕を読み、必要な内容をノートに残す。Transcript Sidecarは、YouTubeで利用できる字幕をChromeのサイドパネルに表示する拡張機能です。</p>
+    <p>全文をコピーしたり、読みやすい段落に整えてTXT・Markdownで保存したりできます。アカウント登録・広告・トラッキングはありません。</p>
+    <div class="page-actions">
+      <a class="btn btn--primary" href="https://chromewebstore.google.com/detail/transcript-sidecar/flkfcafidkoihgaikkihnaggophndgng">Chromeウェブストアで見る</a>
+      <a class="btn" href="#how-to">3ステップの使い方</a>
+    </div>
+    <p class="lang-note">パソコン版Chrome向け。YouTubeが提供する字幕を利用します。字幕のない動画を音声から文字起こしする機能はありません。</p>
+
+    <figure class="product-figure">
+      <img class="shot shot--hero" src="/assets/products/transcript-sidecar/hero-1280x800.webp"
+           width="1280" height="800" decoding="async"
+           alt="動画の横に、タイムスタンプ付きの字幕を並べたサイドパネルのイメージ。">
+      <figcaption>使い方を表した紹介イメージです。実際の操作画面とは異なります。</figcaption>
+    </figure>
+
+    <nav class="page-links" aria-label="このページの目次">
+      <a href="#features">できること</a>
+      <a href="#how-to">使い方</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#privacy">データの扱い</a>
+    </nav>
+
+    <h2 id="features">YouTube字幕でできること</h2>
+    <ul class="feature-list">
+      <li><strong>全文コピー：</strong>字幕の細かな区切りによる改行を取り除き、ひと続きの文章としてコピーできます。</li>
+      <li><strong>読みやすく整形：</strong>字幕の言葉を要約・翻訳せず、段落を付けて読みやすくします。</li>
+      <li><strong>タイムスタンプ付きコピー：</strong>時間を残したまま字幕をコピーできます。パネル上の時間を押すと、動画のその位置へ移動します。</li>
+      <li><strong>TXT・Markdown保存：</strong>字幕をファイルに保存。Markdownには動画タイトル・元のURL・字幕言語の情報も含まれます。</li>
+      <li><strong>日本語・英語UI：</strong>操作画面の言語をJP / ENで切り替えられます。字幕は、その動画で利用可能なトラックから選びます。</li>
+    </ul>
+
+    <h2 id="how-to">字幕をコピー・保存する3ステップ</h2>
+    <ol class="guide-steps">
+      <li><strong>拡張機能を追加し、動画を開く</strong><a href="https://chromewebstore.google.com/detail/transcript-sidecar/flkfcafidkoihgaikkihnaggophndgng">Chromeウェブストアの掲載ページ</a>から追加します。パソコン版Chromeで、字幕のあるYouTube動画を開いてください。</li>
+      <li><strong>Transcript Sidecarを開く</strong>Chromeの拡張機能メニューからTranscript Sidecarのアイコンを選び、サイドパネルを開きます。字幕トラックを選び、必要ならJP / ENで操作画面の言語を切り替えます。</li>
+      <li><strong>コピー形式・保存形式を選ぶ</strong>全文・読みやすい段落・タイムスタンプ付きなど、目的に合う形式でコピーします。動画の出典も残したいときはMarkdown、文章をファイルで残したいときはTXTまたはMarkdownの保存を使います。</li>
+    </ol>
+
+    <h2>動画から、学習ノートへ</h2>
+    <p>講義動画を見ながら字幕を横に置き、気になった箇所は時間を押して聞き直す。あとで振り返りたい内容は、出典付きのMarkdownでノートに残す。そんな使い方を想定しています。</p>
+    <p>整形は段落や空白を整える処理です。字幕の内容を要約したり、誤字を自動で直したりする機能ではありません。ノートに使うときは、必要に応じて動画と照らし合わせてください。</p>
+
+    <h2 id="faq">よくある質問</h2>
+    <h3>字幕のない動画も文字起こしできますか？</h3>
+    <p>できません。YouTubeが提供する字幕を取得する道具で、音声認識は行いません。字幕が利用できない動画や、字幕が安定して取得できないライブ配信などでは使えない場合があります。</p>
+    <h3>JP / ENを切り替えると字幕も翻訳されますか？</h3>
+    <p>切り替わるのは拡張機能のボタンやメッセージです。字幕の言語は、YouTubeがその動画に提供している字幕トラックによって決まります。</p>
+    <h3>動画のタイトルやURLも保存できますか？</h3>
+    <p>Markdown形式でコピー・保存すると、動画タイトル、元のURL、字幕言語の情報と、段落を整えた字幕を一緒に残せます。</p>
+    <h3>字幕が読み込まれないときは？</h3>
+    <p>動画に字幕があるかを確かめ、動画ページを再読み込みしてから拡張機能を開き直してください。動画ごとの字幕の提供状況やYouTube側の変更により、取得できない場合があります。解決しない場合は<a href="https://github.com/tokumaru-labs/transcript-sidecar/issues">不具合報告ページ</a>をご利用ください。</p>
+
+    <h2 id="privacy">データの扱い</h2>
+    <ul>
+      <li>字幕の取得にはYouTubeへの通信を使います。コピー・段落の整形・ファイルへの書き出しはローカルで処理します。</li>
+      <li>字幕本文をTokumaru Labsや開発者が運営する字幕サーバーへ送信しません。</li>
+      <li>アカウント登録、広告、アクセス解析、トラッキングはありません。</li>
+      <li>操作画面の言語設定は端末内に保存します。ウェブサイトへのアクセス権限はYouTubeに限定しています。</li>
+    </ul>
+    <p><a href="https://github.com/tokumaru-labs/transcript-sidecar/blob/main/PRIVACY.md">プライバシーポリシー</a>と<a href="https://github.com/tokumaru-labs/transcript-sidecar">公開ソースコード</a>で詳細を確認できます。</p>
+
+    <div class="page-actions">
+      <a class="btn btn--primary" href="https://chromewebstore.google.com/detail/transcript-sidecar/flkfcafidkoihgaikkihnaggophndgng">Chromeウェブストアで見る</a>
+      <a class="btn" href="/ja/#products">ほかのツールを見る</a>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap" style="padding-bottom:0;">
+    <div class="foot-grid">
+      <a href="/ja/">Tokumaru Labs</a>
+      <a href="https://github.com/tokumaru-labs/transcript-sidecar/issues">お問い合わせ・不具合報告</a>
+      <a href="/transcript-sidecar/" lang="en" hreflang="en">English</a>
+    </div>
+    <p class="foot-note">© 2026 Tokumaru Labs · このサイトはアクセス解析・トラッキング・Cookieを使用しません。</p>
+  </div>
+</footer>
+</body>
+</html>
