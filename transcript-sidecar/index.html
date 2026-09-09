@@ -3,15 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Transcript Sidecar — Tokumaru Labs</title>
+<title>Transcript Sidecar — Copy and save YouTube transcripts | Tokumaru Labs</title>
 <meta name="description" content="Transcript Sidecar is a Chrome Side Panel extension to view, copy, format, and export YouTube transcripts. No account, tracking, ads, or transcript server.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0f1720">
 <link rel="canonical" href="https://tokumaru-labs.github.io/transcript-sidecar/">
+<link rel="alternate" hreflang="en" href="https://tokumaru-labs.github.io/transcript-sidecar/">
+<link rel="alternate" hreflang="ja" href="https://tokumaru-labs.github.io/ja/transcript-sidecar/">
+<link rel="alternate" hreflang="x-default" href="https://tokumaru-labs.github.io/transcript-sidecar/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tokumaru Labs">
-<meta property="og:title" content="Transcript Sidecar — Tokumaru Labs">
+<meta property="og:title" content="Transcript Sidecar — Copy and save YouTube transcripts">
 <meta property="og:description" content="View, copy, format, and export YouTube transcripts from Chrome's Side Panel. No account, tracking, or ads.">
 <meta property="og:url" content="https://tokumaru-labs.github.io/transcript-sidecar/">
 <meta property="og:image" content="https://tokumaru-labs.github.io/assets/og-image.png">
@@ -26,7 +29,7 @@
   "name": "Transcript Sidecar",
   "applicationCategory": "BrowserApplication",
   "operatingSystem": "Chrome",
-  "softwareVersion": "0.4.0",
+  "softwareVersion": "0.4.2",
   "publisher": { "@type": "Organization", "name": "Tokumaru Labs" },
   "url": "https://tokumaru-labs.github.io/transcript-sidecar/"
 }
@@ -44,6 +47,7 @@
     <nav class="topnav" aria-label="Primary">
       <a href="/#products">Products</a>
       <a href="/#about">About</a>
+      <a href="/ja/transcript-sidecar/" lang="ja" hreflang="ja">日本語</a>
       <a href="https://github.com/tokumaru-labs">GitHub</a>
     </nav>
   </div>
@@ -56,16 +60,24 @@
     <div class="seg" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
 
     <header class="site-head">
-      <p class="brand">Transcript Sidecar</p>
-      <p class="tagline">Chrome Extension · version 0.4.0 · Tokumaru Labs</p>
+      <h1 class="brand">Transcript Sidecar</h1>
+      <p class="tagline">Chrome Extension · version 0.4.2 · Tokumaru Labs</p>
     </header>
 
     <p class="lead">View, copy, format, and export YouTube transcripts — right in Chrome's Side Panel.</p>
-    <p class="lead-ja" lang="ja">YouTube の字幕を、Chrome の Side Panel で表示・整形・書き出し。</p>
+    <p class="lead-ja" lang="ja"><a href="/ja/transcript-sidecar/" hreflang="ja">YouTube字幕のコピー・保存方法を日本語で読む</a></p>
 
+    <div class="page-actions">
+      <a class="btn btn--primary" href="https://chromewebstore.google.com/detail/transcript-sidecar/flkfcafidkoihgaikkihnaggophndgng">Get it on the Chrome Web Store</a>
+      <a class="btn" href="#how-to">How to use it</a>
+    </div>
+
+    <figure class="product-figure">
     <img class="shot shot--hero" src="/assets/products/transcript-sidecar/hero-1280x800.webp"
          width="1280" height="800" decoding="async"
-         alt="Transcript Sidecar beside a video player, showing timestamped transcript rows and copy controls in Chrome's Side Panel.">
+         alt="Illustration of a video with timestamped captions in a side panel.">
+      <figcaption>Product illustration. The extension's actual interface may differ.</figcaption>
+    </figure>
 
     <h2>Key features</h2>
     <ul class="feature-list">
@@ -77,14 +89,34 @@
       <li>Click a transcript timestamp to seek the video. Switch the interface between <strong>Japanese and English</strong> at any time.</li>
     </ul>
 
+    <h2 id="how-to">How to copy a YouTube transcript</h2>
+    <ol class="guide-steps">
+      <li><strong>Install and open a video.</strong> Add Transcript Sidecar from the Chrome Web Store, then open a YouTube video with available captions in desktop Chrome.</li>
+      <li><strong>Open the side panel.</strong> Click the Transcript Sidecar extension icon. Choose an available caption track; the JP / EN toggle changes the interface language.</li>
+      <li><strong>Copy or save.</strong> Copy the full transcript, readable paragraphs, or timestamped text. Use Markdown to keep the video title and source URL, or save a TXT or Markdown file.</li>
+    </ol>
+
+    <h2>From a video to your notes</h2>
+    <p>Keep a lecture's captions beside the video while you review. Click a timestamp to return to a passage, or save Markdown with the source URL to organize your study notes. Paragraph formatting keeps the caption wording; it does not summarize or translate it.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Can it transcribe a video without captions?</h3>
+    <p>No. It reads captions made available by YouTube and does not transcribe audio. Caption availability and changes to YouTube can affect whether a transcript loads.</p>
+    <h3>Does switching JP / EN translate the captions?</h3>
+    <p>No. It changes the extension's buttons and messages. Caption languages depend on the tracks YouTube makes available for that video.</p>
+    <h3>Can I keep the video title and link?</h3>
+    <p>Yes. Markdown export includes the title, source URL, caption language information, and paragraph-formatted transcript.</p>
+    <h3>What if the transcript does not load?</h3>
+    <p>Check that the video has captions, reload the video page, and reopen the extension. Some videos and live streams do not expose usable captions. If the problem continues, use the <a href="https://github.com/tokumaru-labs/transcript-sidecar/issues">support page</a>.</p>
+
     <h2>Privacy</h2>
     <ul>
       <li>No account, no analytics, no ads, and no developer-operated transcript server.</li>
-      <li>Requests only <code>scripting</code>, <code>sidePanel</code>, and YouTube-only host access — never <code>&lt;all_urls&gt;</code>.</li>
-      <li>The interface-language choice is stored in extension-origin <code>localStorage</code> and is never sent anywhere.</li>
-      <li>Caption text, titles, and URLs are shown as received and never transmitted by the extension.</li>
+      <li>Captions are retrieved from YouTube. Copying, formatting, and file export are performed locally.</li>
+      <li>Transcript text is not sent to Tokumaru Labs or a developer-operated transcript server.</li>
+      <li>The interface-language preference is saved on your device. Website access is limited to YouTube.</li>
+      <li>Read the <a href="https://github.com/tokumaru-labs/transcript-sidecar/blob/main/PRIVACY.md">privacy policy</a> for details.</li>
     </ul>
-    <p class="lang-note" lang="ja">アカウント・分析・広告・字幕サーバーなし。権限は <code>scripting</code> / <code>sidePanel</code> と YouTube ドメインのみで、外部送信は行いません。</p>
 
     <h2>Links</h2>
     <p>
