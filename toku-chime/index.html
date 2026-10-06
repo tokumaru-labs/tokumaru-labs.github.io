@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09111f">
+  <meta name="description" content="Toku Chime is a tiny local-first interval chime for focused study and work. No account, no tracking, no ads.">
+  <title>Toku Chime — Tokumaru Labs</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="brandline">
+      <a class="brand" href="https://tokumaru-labs.github.io/">Tokumaru Labs</a>
+      <span class="badge">local-first</span>
+    </header>
+
+    <section class="hero" aria-labelledby="app-title">
+      <p class="eyebrow">INTERVAL CHIME</p>
+      <h1 id="app-title">Toku Chime</h1>
+      <p class="lead">30秒ごとに、静かに「チーン」。問題演習や集中作業のテンポを身体に刻む、小さなインターバル・チャイムです。</p>
+    </section>
+
+    <section class="panel timer-panel" aria-label="インターバルタイマー">
+      <div class="display" aria-live="polite">
+        <span class="display__label">NEXT CHIME</span>
+        <strong id="countdown" class="display__time">00:30</strong>
+        <span id="status" class="display__status">停止中</span>
+      </div>
+
+      <div class="preset-row" role="group" aria-label="プリセット">
+        <button class="preset is-active" data-seconds="30" type="button">30秒</button>
+        <button class="preset" data-seconds="45" type="button">45秒</button>
+        <button class="preset" data-seconds="60" type="button">60秒</button>
+      </div>
+
+      <div class="custom-row">
+        <label for="customSeconds">カスタム</label>
+        <div class="input-wrap">
+          <input id="customSeconds" type="number" min="5" max="3600" step="1" inputmode="numeric" value="30" aria-describedby="customHelp">
+          <span>秒</span>
+        </div>
+        <button id="applyCustom" class="text-button" type="button">適用</button>
+      </div>
+      <p id="customHelp" class="hint">5〜3600秒。変更すると次の1回から新しい間隔で始まります。</p>
+
+      <div class="primary-actions">
+        <button id="toggleButton" class="primary" type="button">START</button>
+        <button id="resetButton" class="secondary" type="button">RESET</button>
+        <button id="testButton" class="secondary" type="button">TEST CHIME</button>
+      </div>
+
+      <div class="stats" aria-label="セッション情報">
+        <div><span>CHIMES</span><strong id="chimeCount">0</strong></div>
+        <div><span>INTERVAL</span><strong id="intervalLabel">30s</strong></div>
+        <div><span>ELAPSED</span><strong id="elapsed">00:00</strong></div>
+      </div>
+    </section>
+
+    <section class="panel settings" aria-labelledby="settings-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">SOUND</p>
+          <h2 id="settings-title">音と動作</h2>
+        </div>
+      </div>
+
+      <div class="setting-grid">
+        <label class="field">
+          <span>チャイム</span>
+          <select id="soundMode">
+            <option value="bell">Bell — チーン</option>
+            <option value="soft">Soft — やわらかめ</option>
+            <option value="click">Click — 短い合図</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>音量 <output id="volumeValue">60%</output></span>
+          <input id="volume" type="range" min="0" max="100" step="1" value="60">
+        </label>
+
+        <label class="checkline">
+          <input id="wakeLock" type="checkbox">
+          <span>画面のスリープを防ぐ <small>対応ブラウザのみ</small></span>
+        </label>
+      </div>
+    </section>
+
+    <section class="panel shortcuts" aria-labelledby="shortcut-title">
+      <p class="eyebrow">KEYBOARD</p>
+      <h2 id="shortcut-title">キー操作</h2>
+      <div class="shortcut-grid">
+        <div><kbd>Space</kbd><span>開始 / 一時停止</span></div>
+        <div><kbd>1</kbd><span>30秒</span></div>
+        <div><kbd>2</kbd><span>45秒</span></div>
+        <div><kbd>3</kbd><span>60秒</span></div>
+        <div><kbd>R</kbd><span>リセット</span></div>
+        <div><kbd>T</kbd><span>試聴</span></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>音はブラウザ内で合成。データ送信・アカウント・広告・解析なし。</p>
+      <p><a href="https://github.com/tokumaru-labs/tokumaru-labs.github.io/tree/main/toku-chime">Source</a> · MIT License · © 2026 Tokumaru Labs</p>
+    </footer>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
