@@ -76,8 +76,6 @@
     "editorWidget.background": "#152231",
     "editorWidget.foreground": "#E0EAF3",
     "editorWidget.border": "#2B3D4F",
-    "editorFindMatch.background": "#234C6288",
-    "editorFindMatchHighlightBackground": "#234C6288",
     "list.activeSelectionBackground": "#174A62",
     "list.activeSelectionForeground": "#E0EAF3",
     "list.inactiveSelectionBackground": "#172837",
@@ -152,7 +150,38 @@
     "debugToolBar.background": "#152231",
     "debugIcon.breakpointForeground": "#F39B9B",
     "tree.indentGuidesStroke": "#2B3D4F",
-    "settings.headerForeground": "#68CDE6"
+    "settings.headerForeground": "#68CDE6",
+    "activityBar.activeBackground": "#153348",
+    "activityBar.activeFocusBorder": "#EDC77E",
+    "sideBarSectionHeader.border": "#25485C",
+    "tab.hoverBackground": "#1A3448",
+    "tab.unfocusedActiveBorderTop": "#397E98",
+    "editor.lineHighlightBorder": "#274B6455",
+    "editor.findMatchBackground": "#C48A4199",
+    "editor.findMatchHighlightBackground": "#A877424D",
+    "editorOverviewRuler.findMatchForeground": "#E7AE62",
+    "editorOverviewRuler.errorForeground": "#F39B9B",
+    "editorOverviewRuler.warningForeground": "#EFC77E",
+    "editorBracketHighlight.unexpectedBracket.foreground": "#F39B9B",
+    "inputOption.activeBackground": "#244456",
+    "statusBarItem.warningBackground": "#D6A25A",
+    "statusBarItem.warningForeground": "#0B131D",
+    "statusBarItem.errorBackground": "#B45E68",
+    "statusBarItem.errorForeground": "#FFFFFF",
+    "statusBarItem.hoverBackground": "#1C3C52",
+    "statusBar.noFolderBackground": "#153549",
+    "statusBar.noFolderForeground": "#E0EAF3",
+    "statusBar.debuggingBackground": "#243F53",
+    "statusBar.debuggingForeground": "#E0EAF3",
+    "terminal.findMatchBackground": "#B98A4A88",
+    "terminal.findMatchHighlightBackground": "#8F6B3544",
+    "peekViewTitle.background": "#102537",
+    "peekViewTitleLabel.foreground": "#EDC77E",
+    "peekViewResult.matchHighlightBackground": "#C48A4170",
+    "peekViewEditor.matchHighlightBackground": "#C48A4170",
+    "gitDecoration.conflictingResourceForeground": "#EFC77E",
+    "diffEditor.diagonalFill": "#254354",
+    "editorGutter.commentRangeForeground": "#6DB9C5"
   },
   "tokenColors": [
     {
@@ -162,7 +191,7 @@
         "punctuation.definition.comment"
       ],
       "settings": {
-        "foreground": "#95AFA1",
+        "foreground": "#8FAEAB",
         "fontStyle": "italic"
       }
     },
@@ -205,7 +234,7 @@
         "meta.function-call"
       ],
       "settings": {
-        "foreground": "#8EB8FF"
+        "foreground": "#90C3FA"
       }
     },
     {
@@ -216,7 +245,7 @@
         "support.type"
       ],
       "settings": {
-        "foreground": "#C8ABE8"
+        "foreground": "#C6B3EC"
       }
     },
     {
@@ -235,7 +264,7 @@
         "variable.parameter"
       ],
       "settings": {
-        "foreground": "#80D7CC"
+        "foreground": "#78D7D4"
       }
     },
     {
@@ -281,7 +310,7 @@
         "markup.heading"
       ],
       "settings": {
-        "foreground": "#8EB8FF",
+        "foreground": "#90C3FA",
         "fontStyle": "bold"
       }
     },
@@ -335,25 +364,25 @@
   ],
   "semanticTokenColors": {
     "namespace": "#80D7CC",
-    "type": "#C8ABE8",
-    "class": "#C8ABE8",
-    "enum": "#C8ABE8",
-    "interface": "#C8ABE8",
-    "struct": "#C8ABE8",
-    "typeParameter": "#C8ABE8",
+    "type": "#C6B3EC",
+    "class": "#C6B3EC",
+    "enum": "#C6B3EC",
+    "interface": "#C6B3EC",
+    "struct": "#C6B3EC",
+    "typeParameter": "#C6B3EC",
     "enumMember": "#E9A98B",
-    "function": "#8EB8FF",
-    "method": "#8EB8FF",
-    "parameter": "#80D7CC",
+    "function": "#90C3FA",
+    "method": "#90C3FA",
+    "parameter": "#78D7D4",
     "property": "#E0EAF3",
     "variable": "#E0EAF3",
     "variable.readonly": "#E9A98B",
-    "variable.defaultLibrary": "#8EB8FF",
+    "variable.defaultLibrary": "#90C3FA",
     "keyword": "#7FC9EF",
     "string": "#EDC77E",
     "number": "#E9A98B",
     "regexp": "#80D7CC",
-    "comment": "#95AFA1",
+    "comment": "#8FAEAB",
     "operator": "#91A8B8"
   }
 }
