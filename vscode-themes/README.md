@@ -1,33 +1,55 @@
 # Tokumaru Labs VS Code Themes
 
-Three focused color themes in a single VS Code extension, inspired by [Tokumaru Midnight Cockpit for Chrome](https://tokumaru-labs.github.io/midnight-cockpit/).
+Three focused, readable VS Code color themes in a single extension, inspired by [Tokumaru Midnight Cockpit for Chrome](https://tokumaru-labs.github.io/midnight-cockpit/).
 
-| Theme | Color feel | Editor background | Accent |
+| Theme | Character | Editor background | Primary accent |
 |---|---|---|---|
-| Tokumaru Midnight | Deep navy cockpit | `#101A27` | `#68CDE6` |
-| Tokumaru Daylight | Clear, soft daylight | `#F8FAFD` | `#106B9A` |
-| Tokumaru Radar Green | Quiet green radar room | `#0A1914` | `#86D9A3` |
+| Tokumaru Midnight | Modern cockpit: cool instruments, cyan controls, amber search and warnings | `#101A27` | `#68CDE6` |
+| Tokumaru Daylight | Soft, clear daytime desk | `#F8FAFD` | `#106B9A` |
+| Tokumaru Radar Green | Vintage radar station: quiet phosphor-green focus, amber detection and alerts | `#0A1914` | `#86D9A3` |
 
-Preview all three and obtain the VSIX from the [Tokumaru Labs product page](https://tokumaru-labs.github.io/vscode-themes/).
+**v0.2.0 release candidate** (not yet publicly deployed): Midnight and Radar Green now have different focus treatments, search-match colors, status indicators and syntax hierarchies. **Daylight's color-theme JSON is unchanged from v0.1.0.**
 
 ## Install
 
-1. Download `tokumaru-vscode-themes-0.1.0.vsix`.
-2. In VS Code: **Extensions → ... → Install from VSIX...**.
-3. Open **Preferences: Color Theme** (`Ctrl+K Ctrl+T`, or `Cmd+K Cmd+T` on macOS) and select a Tokumaru theme.
+For the **currently published v0.1.0**, download the signed-off VSIX from the [official Tokumaru Labs page](https://tokumaru-labs.github.io/vscode-themes/). After approval, that page will be updated with the new v0.2.0 VSIX.
 
-Or use `code --install-extension tokumaru-vscode-themes-0.1.0.vsix`. VSIX installs do not automatically update by default.
+1. Download the `.vsix` file.
+2. In VS Code, go to **Extensions → ... → Install from VSIX...**.
+3. Open **Preferences: Color Theme** (`Ctrl+K Ctrl+T`, or `Cmd+K Cmd+T` on macOS) and choose a Tokumaru theme.
+
+CLI installation is also supported: `code --install-extension <filename>.vsix`. Direct VSIX installs do not automatically update by default.
+
+## Design principles
+
+- **Midnight / navigation:** a clean cyan active indicator and cool-blue function colors indicate what is controllable and in focus; amber is reserved for search hits, warnings and significant signals.
+- **Radar Green / observation:** dark green surroundings stay calm, a pale phosphor-green indicates the current cursor, tab and live focus; muted greens recede and amber emphasizes detections and warnings.
+- **Daylight / daylight readability:** deliberately unchanged in this release.
+- Contrast comes before decorative effects. These are **color themes**, not animations or simulated CRT effects. The illustrations on the product page are mockups, not screenshots.
 
 ## Features & privacy
 
-- Workbench, sidebar, tabs, status bar, editor, terminal, and syntax highlighting, including semantic tokens.
-- Dark Midnight / light Daylight / dark Radar Green.
-- No runtime code, permissions, network access, analytics, telemetry, forced font changes, or account required.
+- Editor, tabs, sidebar, status bar, terminal and workbench colors.
+- TextMate syntax and semantic highlighting, plus search-match, diff, diagnostic and terminal colors.
+- No runtime scripts, permissions, forced fonts, telemetry, analytics, accounts or network requests.
 
-## Develop
+## Build and validate
 
-Open the `vscode-themes` directory as an Extension Development Host (F5). For checking and packaging, run `npm run validate` and `npm run package` (Node.js is only required for development; uses official `@vscode/vsce`).
+Run from this directory:
 
-**Marketplace:** The package uses the provisional publisher ID `tokumarulabs`; its availability has not been verified. Currently distributed directly as a VSIX, not claimed to be published to Marketplace.
+```sh
+npm run validate
+npm run package
+```
 
-**License:** MIT © 2026 Tokumaru Labs. [Feedback](https://github.com/tokumaru-labs/tokumaru-labs.github.io/issues).
+Requires Node.js for development and the official `@vscode/vsce` packager. No runtime dependencies are needed for users. For a local test, open this folder in VS Code and press `F5` to launch the Extension Development Host.
+
+## Distribution and Marketplace
+
+The `publisher` field is provisionally `tokumarulabs` and **must be checked** against the actual Marketplace publisher ID before publishing. The official site currently distributes v0.1.0 directly; the v0.2.0 Marketplace listing has **not** been created.
+
+Publisher creation and first upload require the owner's Microsoft account. Do not put Personal Access Tokens or credentials into this repository, CI logs, issues or chat. Use the official [VS Code publishing guide](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
+
+## License and support
+
+MIT © 2026 Tokumaru Labs. [Issues and feedback](https://github.com/tokumaru-labs/tokumaru-labs.github.io/issues).
