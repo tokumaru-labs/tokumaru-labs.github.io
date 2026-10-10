@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tokumaru-labs.github.io/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://tokumaru-labs.github.io/transcript-sidecar/</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://tokumaru-labs.github.io/ja/</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-10-10</lastmod>
   </url>
   <url>
     <loc>https://tokumaru-labs.github.io/ja/transcript-sidecar/</loc>
@@ -36,4 +36,6 @@
     <loc>https://tokumaru-labs.github.io/progress-sidecar/privacy/</loc>
     <lastmod>2026-07-23</lastmod>
   </url>
+  <url><loc>https://tokumaru-labs.github.io/vscode-themes/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://tokumaru-labs.github.io/ja/vscode-themes/</loc><lastmod>2026-10-10</lastmod></url>
 </urlset>
