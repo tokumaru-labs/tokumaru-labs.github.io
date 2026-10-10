@@ -58,5 +58,6 @@
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "package": "npx --yes @vscode/vsce package --no-dependencies --out tokumaru-vscode-themes-0.1.0.vsix"
-  }
+  },
+  "icon": "images/icon.png"
 }
