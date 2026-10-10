@@ -399,3 +399,12 @@ footer {
   html { scroll-behavior: auto; }
   * { animation: none !important; transition: none !important; }
 }
+
+/* VS Code theme collection: three illustrative screenshots */
+.theme-gallery {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:28px 0 8px;}
+.theme-tile {border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0;background:var(--surface);}
+.theme-tile img {width:100%;aspect-ratio:16/10;object-fit:cover;display:block;}
+.theme-tile figcaption {padding:12px 13px;line-height:1.5;}
+.theme-tile figcaption strong {display:block;font-size:.94rem;color:var(--ink);}
+.theme-tile figcaption span {display:block;font-size:.8rem;color:var(--ink-soft);}
+@media (max-width:760px){.theme-gallery{grid-template-columns:1fr;}}

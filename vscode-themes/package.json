@@ -1,0 +1,63 @@
+{
+  "name": "tokumaru-vscode-themes",
+  "displayName": "Tokumaru Labs VS Code Themes",
+  "version": "0.1.0",
+  "publisher": "tokumarulabs",
+  "description": "Three calm, readable VS Code color themes: Midnight, Daylight and Radar Green. No scripts or tracking.",
+  "author": {
+    "name": "Tokumaru Labs"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "Tokumaru",
+    "theme",
+    "color theme",
+    "midnight",
+    "daylight",
+    "radar green",
+    "cockpit"
+  ],
+  "galleryBanner": {
+    "color": "#101A27",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tokumaru-labs/tokumaru-labs.github.io.git",
+    "directory": "vscode-themes"
+  },
+  "homepage": "https://tokumaru-labs.github.io/vscode-themes/",
+  "bugs": {
+    "url": "https://github.com/tokumaru-labs/tokumaru-labs.github.io/issues"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Tokumaru Midnight",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokumaru-midnight-color-theme.json"
+      },
+      {
+        "label": "Tokumaru Daylight",
+        "uiTheme": "vs",
+        "path": "./themes/tokumaru-daylight-color-theme.json"
+      },
+      {
+        "label": "Tokumaru Radar Green",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tokumaru-radar-green-color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "package": "npx --yes @vscode/vsce package --no-dependencies --out tokumaru-vscode-themes-0.1.0.vsix"
+  },
+  "icon": "images/icon.png"
+}

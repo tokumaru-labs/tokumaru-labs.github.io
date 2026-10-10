@@ -1,0 +1,32 @@
+name: Validate VS Code theme package
+on:
+  pull_request:
+    paths:
+      - "vscode-themes/**"
+      - ".github/workflows/validate-vscode-themes.yml"
+  push:
+    paths:
+      - "vscode-themes/**"
+      - ".github/workflows/validate-vscode-themes.yml"
+  workflow_dispatch:
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate theme definitions
+        working-directory: vscode-themes
+        run: npm run validate
+      - name: Build package with official @vscode/vsce
+        working-directory: vscode-themes
+        run: npx --yes @vscode/vsce package --no-dependencies --out /tmp/tokumaru-vscode-themes-0.1.0.vsix
+      - name: Upload VSIX build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: tokumaru-vscode-themes-official-build
+          path: /tmp/tokumaru-vscode-themes-0.1.0.vsix

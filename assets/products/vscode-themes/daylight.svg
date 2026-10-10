@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" role="img" aria-label="Illustrated Tokumaru Daylight VS Code theme mockup, not a screenshot">
+<rect width="1280" height="800" fill="#DBE5ED"/>
+<rect x="0" y="0" width="1280" height="50" fill="#DBE5ED"/>
+<text x="28" y="32" font-size="17" fill="#233344" font-family="Arial,sans-serif">●  ●  ●</text>
+<text x="640" y="32" text-anchor="middle" fill="#233344" font-size="20" font-family="Arial,sans-serif">Tokumaru Daylight — Tokumaru Labs</text>
+<rect x="0" y="50" width="65" height="722" fill="#DBE5ED"/>
+<rect x="65" y="50" width="262" height="722" fill="#EEF3F7"/>
+<rect x="327" y="50" width="953" height="722" fill="#F8FAFD"/>
+<rect x="327" y="50" width="953" height="60" fill="#E8EFF5"/>
+<rect x="327" y="50" width="304" height="60" fill="#F8FAFD"/>
+<rect x="327" y="50" width="304" height="4" fill="#106B9A"/>
+<text x="353" y="88" fill="#233344" font-family="Arial,sans-serif" font-size="20">theme.ts</text>
+<text x="33" y="112" fill="#106B9A" font-size="29" font-family="Arial,sans-serif" text-anchor="middle">▤</text>
+<text x="33" y="185" fill="#233344" font-size="28" font-family="Arial,sans-serif" text-anchor="middle">⌕</text>
+<text x="33" y="252" fill="#233344" font-size="28" font-family="Arial,sans-serif" text-anchor="middle">⑂</text>
+<text x="88" y="93" fill="#233344" font-family="Arial,sans-serif" font-weight="bold" font-size="19">EXPLORER</text>
+<text x="88" y="151" fill="#233344" font-size="17" font-family="Consolas,monospace" xml:space="preserve">TOKUMARU-LABS</text>
+<text x="88" y="196" fill="#233344" font-size="17" font-family="Consolas,monospace" xml:space="preserve">  ▾ vscode-themes</text>
+<text x="88" y="241" fill="#233344" font-size="17" font-family="Consolas,monospace" xml:space="preserve">    ▾ themes</text>
+<text x="88" y="286" fill="#106B9A" font-size="17" font-family="Consolas,monospace" xml:space="preserve">      theme.ts</text>
+<text x="88" y="331" fill="#233344" font-size="17" font-family="Consolas,monospace" xml:space="preserve">    README.md</text>
+<text x="88" y="376" fill="#233344" font-size="17" font-family="Consolas,monospace" xml:space="preserve">    package.json</text>
+<text x="425" y="164" font-family="Consolas,Monaco,monospace" font-size="20" xml:space="preserve"><tspan fill="#657887">01   </tspan><tspan fill="#175E9F">import </tspan><tspan fill="#233344">{ createTheme } </tspan><tspan fill="#175E9F">from </tspan><tspan fill="#8C591F">&quot;@tokumaru/labs&quot;;</tspan></text>
+<text x="425" y="196" font-family="Consolas,Monaco,monospace" font-size="20" xml:space="preserve"><tspan fill="#657887">02   </tspan></text>
+<text x="425" y="228" font-family="Consolas,Monaco,monospace" font-size="20" xml:space="preserve"><tspan fill="#657887">03   </tspan><tspan fill="#175E9F">type </tspan><tspan fill="#75539E">Signal </tspan><tspan fill="#657887">= </tspan><tspan fill="#233344">{ strength: </tspan><tspan fill="#75539E">number</tspan><tspan fill="#233344"> };</tspan></text>
+<text x="425" y="260" font-family="Consolas,Monaco,monospace" font-size="20" xml:space="preserve"><tspan fill="#657887">04   </tspan></text>
+<text x="425" y="292" font-family="Consolas,Monaco,monospace" font-size="20" xml:space="preserve"><tspan fill="#657887">05   </tspan><tspan fill="#175E9F">export const </tspan><tspan fill="#233344">theme </tspan><tspan fill="#657887">= </tspan><tspan fill="#225B8B">createTheme</tspan><tspan fill="#233344">({</tspan></text>
+<text x="425" y="324" font-family="Consolas,Monaco,monospace" font-size="20" xml:space="preserve"><tspan fill="#657887">06   </tspan><tspan fill="#233344">  name: </tspan><tspan fill="#8C591F">&quot;Tokumaru Labs&quot;,</tspan></text>
+<text x="425" y="356" font-family="Consolas,Monaco,monospace" font-size="20" xml:space="preserve"><tspan fill="#657887">07   </tspan><tspan fill="#233344">  mode: </tspan><tspan fill="#8C591F">&quot;Tokumaru Daylight&quot;,</tspan></text>
+<text x="425" y="388" font-family="Consolas,Monaco,monospace" font-size="20" xml:space="preserve"><tspan fill="#657887">08   </tspan><tspan fill="#233344">  accent: </tspan><tspan fill="#8C591F">&quot;#106B9A&quot;,</tspan></text>
+<text x="425" y="420" font-family="Consolas,Monaco,monospace" font-size="20" xml:space="preserve"><tspan fill="#657887">09   </tspan><tspan fill="#233344">  contrast: </tspan><tspan fill="#994E32">true,</tspan></text>
+<text x="425" y="452" font-family="Consolas,Monaco,monospace" font-size="20" xml:space="preserve"><tspan fill="#657887">10   </tspan><tspan fill="#526C5B">  // Focus on what matters.</tspan></text>
+<text x="425" y="484" font-family="Consolas,Monaco,monospace" font-size="20" xml:space="preserve"><tspan fill="#657887">11   </tspan><tspan fill="#233344">});</tspan></text>
+<text x="425" y="516" font-family="Consolas,Monaco,monospace" font-size="20" xml:space="preserve"><tspan fill="#657887">12   </tspan></text>
+<text x="425" y="548" font-family="Consolas,Monaco,monospace" font-size="20" xml:space="preserve"><tspan fill="#657887">13   </tspan><tspan fill="#225B8B">console.log</tspan><tspan fill="#233344">(theme.name);</tspan></text>
+<rect x="327" y="632" width="953" height="140" fill="#E8EFF5"/>
+<rect x="327" y="632" width="953" height="1" fill="#CAD6E0"/>
+<text x="354" y="666" fill="#106B9A" font-size="18" font-family="Arial,sans-serif">TERMINAL</text>
+<text x="354" y="709" fill="#526C5B" font-size="19" font-family="Consolas,monospace">tokumaru@labs</text>
+<text x="559" y="709" fill="#233344" font-size="19" font-family="Consolas,monospace">~ $ npm run validate</text>
+<text x="354" y="743" fill="#106B9A" font-size="18" font-family="Consolas,monospace">✓ Three themes ready</text>
+<rect x="0" y="772" width="1280" height="28" fill="#DBE5ED"/>
+<text x="20" y="792" fill="#233344" font-family="Arial,sans-serif" font-size="14">Tokumaru Labs</text>
+<text x="1245" y="792" text-anchor="end" fill="#233344" font-family="Arial,sans-serif" font-size="14">UTF-8   TypeScript   Illustrated preview</text>
+</svg>
