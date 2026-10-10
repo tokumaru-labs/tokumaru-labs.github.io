@@ -45,7 +45,7 @@
     "editor.selectionBackground": "#28634488",
     "editor.inactiveSelectionBackground": "#28634466",
     "editor.selectionHighlightBackground": "#28634455",
-    "editor.wordHighlightBackground": "#22543B88",
+    "editor.wordHighlightBackground": "#28634444",
     "editor.wordHighlightStrongBackground": "#33784F66",
     "editor.lineHighlightBackground": "#122C1E",
     "editorIndentGuide.background1": "#2B4B37",
@@ -181,8 +181,7 @@
     "peekViewEditor.matchHighlightBackground": "#C39B5470",
     "gitDecoration.conflictingResourceForeground": "#EED092",
     "diffEditor.diagonalFill": "#20422E",
-    "editorGutter.commentRangeForeground": "#699779",
-    "editorWordHighlightBackground": "#28634444"
+    "editorGutter.commentRangeForeground": "#699779"
   },
   "tokenColors": [
     {
