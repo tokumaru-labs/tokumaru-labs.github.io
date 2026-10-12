@@ -24,9 +24,15 @@ jobs:
         run: npm run validate
       - name: Build package with official @vscode/vsce
         working-directory: vscode-themes
-        run: npx --yes @vscode/vsce package --no-dependencies --out /tmp/tokumaru-vscode-themes-0.1.0.vsix
+        run: |
+          set -euo pipefail
+          VERSION="$(node -p 'require("./package.json").version')"
+          VSIX="/tmp/tokumaru-vscode-themes-${VERSION}.vsix"
+          npx --yes @vscode/vsce package --no-dependencies --out "$VSIX"
+          unzip -t "$VSIX"
+          sha256sum "$VSIX"
       - name: Upload VSIX build artifact
         uses: actions/upload-artifact@v4
         with:
           name: tokumaru-vscode-themes-official-build
-          path: /tmp/tokumaru-vscode-themes-0.1.0.vsix
+          path: /tmp/tokumaru-vscode-themes-*.vsix

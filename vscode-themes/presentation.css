@@ -1,0 +1,71 @@
+/* Daylight product pages only; shared site styles remain unchanged. */
+.daylight-page {
+  --ink: #344a68;
+  --ink-soft: #5c6a81;
+  --ink-faint: #5c6a81;
+  --accent: #2f6296;
+  --line: #bac8d9;
+  --surface: #f5f7fb;
+  --surface-sunken: #e8edf5;
+  color-scheme: light;
+  background: linear-gradient(150deg, #f5f7fb, #e8edf5 65%, #e0ecf1);
+}
+.daylight-page .topbar { background: #f5f7fb; }
+.daylight-page .topbar__logo { display: block; width: 32px; height: 32px; }
+.daylight-page .wrap--wide { max-width: 1200px; }
+.daylight-heading { max-width: 860px; margin: 28px 0 24px; }
+.daylight-heading .eyebrow {
+  color: #2f6296;
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  margin-bottom: 12px;
+}
+.daylight-heading h1 {
+  color: #2f6296;
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  line-height: 1.15;
+  letter-spacing: -.04em;
+  margin-bottom: 16px;
+}
+.daylight-heading .tagline {
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+  color: #344a68;
+}
+.daylight-heading .lead { max-width: 780px; margin: 14px 0 20px; }
+.daylight-page .btn--primary {
+  background: #2f6296;
+  border-color: #2f6296;
+  color: #fff;
+}
+.daylight-page .btn--primary:hover { background: #244d76; color: #fff; }
+.daylight-feature { margin: 24px 0 36px; }
+.daylight-feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #bac8d9;
+  border-radius: 16px;
+}
+.daylight-feature figcaption {
+  color: #5c6a81;
+  font-size: .88rem;
+  margin-top: 10px;
+}
+.daylight-page h2 { font-size: 1.35rem; }
+.daylight-page .theme-gallery { margin-top: 24px; }
+.daylight-page .theme-tile { background: #f5f7fb; }
+.daylight-page .theme-tile img { aspect-ratio: auto; object-fit: contain; }
+.daylight-page .theme-tile figcaption { padding: 16px; }
+.daylight-page .theme-tile figcaption span { font-size: .88rem; }
+.daylight-page .guide-steps strong { display: inline; }
+.daylight-page code { overflow-wrap: anywhere; }
+.daylight-page footer { background: #dde5ef; color: #344a68; border-top-color: #bac8d9; }
+.daylight-page footer a, .daylight-page .foot-note { color: #344a68; }
+@media (max-width: 760px) {
+  .daylight-page .wrap { padding: 24px 16px 48px; }
+  .daylight-heading { margin-top: 20px; }
+  .daylight-page .page-actions { align-items: stretch; flex-direction: column; }
+  .daylight-page .page-actions .btn { text-align: center; }
+  .daylight-page .theme-gallery { gap: 22px; }
+}
