@@ -26,7 +26,8 @@ const server=http.createServer((req,res)=>{
    await page.goto(base+route);
    const trigger=page.locator('[data-after-hours-trigger]'),door=page.locator('#after-hours-door');
    ok(await door.isHidden(),route+' entry starts hidden');
-   ok(await page.locator('.pcard').count()===7,route+' existing product cards retained');
+   ok(await page.locator('.pcard').count()===6,route+' six remaining product cards retained');
+   ok(await page.locator('#products a[href="/toku-chime/"]').count()===0,route+' Chime is absent from public products');
    for(let i=0;i<4;i++)await trigger.click();
    ok(await door.isHidden(),route+' four taps cannot open room');
    await page.waitForTimeout(2150);await trigger.click();
