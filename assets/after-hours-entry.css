@@ -1,0 +1,25 @@
+/* A quiet footer detail. The destination supplies its own access control. */
+.after-hours-trigger {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  min-height: 44px;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.after-hours-door[hidden] { display: none; }
+.after-hours-door {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  margin-inline: 4px;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  color: #227b45;
+}
+.after-hours-door svg { width: 20px; height: 20px; }
+.after-hours-door:hover { color: #14572f; }
