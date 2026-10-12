@@ -1,5 +1,5 @@
 /* Tokumaru Labs — shared site styles.
-   Static only: no JavaScript, no external fonts, no analytics, no CDN. */
+   Static pages: no external fonts, analytics or CDN. Optional footer Easter egg is isolated. */
 
 :root {
   --navy: #0f1720;

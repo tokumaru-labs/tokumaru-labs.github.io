@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#07100a">
+  <title>夜の実験室 — Tokumaru Labs</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./room.css">
+  <script src="./room.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#tools">道具を選ぶ</a>
+  <main class="cabinet" aria-labelledby="room-title">
+    <div class="cabinet-top"><span>TOKUMARU LABS</span><span class="serial">TERMINAL · 02</span></div>
+    <div class="screen-bezel">
+      <div class="screen">
+        <header class="terminal-bar"><span><i class="signal" aria-hidden="true"></i> AFTER HOURS</span><button id="motion-toggle" type="button" aria-pressed="true">動き：オン</button></header>
+        <section class="intro">
+          <p class="eyebrow">A SMALL ROOM, AFTER THE LIGHTS GO OUT.</p>
+          <h1 id="room-title">夜の実験室<span class="cursor" aria-hidden="true">_</span></h1>
+          <p class="intro-copy">少し休む。少し進む。<br>ここに、小さな道具をふたつ。</p>
+        </section>
+        <div class="room-art" aria-hidden="true"><canvas id="pixel-room" width="320" height="96"></canvas><span class="art-caption">QUIET SYSTEMS / STILL AWAKE</span></div>
+        <nav class="tools" id="tools" aria-label="実験室の道具">
+          <a class="tool-card" href="https://nemumaru-pixel-worlds.bhpo.chatgpt.site/" rel="noreferrer" id="nemumaru-link">
+            <div class="tool-art"><canvas id="nap-art" width="128" height="72" aria-hidden="true"></canvas><span class="slot">01 / REST</span></div>
+            <div class="tool-body"><p class="tool-code">NEMUMARU</p><h2>ねむまる</h2><p>ひとやすみで、<br>世界が静かに育っていく。</p><span class="open">ひとやすみする <span aria-hidden="true">↗</span></span></div>
+          </a>
+          <a class="tool-card" href="/toku-chime/" id="chime-link">
+            <div class="tool-art"><canvas id="chime-art" width="128" height="72" aria-hidden="true"></canvas><span class="slot">02 / FOCUS</span></div>
+            <div class="tool-body"><p class="tool-code">TOKU CHIME</p><h2>Toku Chime</h2><p>静かなチャイムで、<br>勉強と作業のリズムをつくる。</p><span class="open">リズムをつくる <span aria-hidden="true">↗</span></span></div>
+          </a>
+        </nav>
+        <footer class="terminal-footer"><span><span class="status-square" aria-hidden="true"></span> TWO LITTLE TOOLS</span><a href="/">実験室を出る <span aria-hidden="true">↗</span></a></footer>
+      </div>
+    </div>
+    <div class="cabinet-bottom"><span class="power"><i aria-hidden="true"></i> POWER</span><div class="vents" aria-hidden="true"></div><span class="maker">MADE FOR QUIET HOURS.</span></div>
+  </main>
+  <noscript><p class="noscript-note">道具はそのまま開けます。ドット絵の表示にはJavaScriptを使います。</p></noscript>
+</body>
+</html>
