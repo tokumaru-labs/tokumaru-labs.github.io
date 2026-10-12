@@ -4,7 +4,7 @@ import { readFileSync, existsSync } from "node:fs";
 const root = new URL("../", import.meta.url);
 const read = path => readFileSync(new URL(path, root), "utf8");
 const pkg = JSON.parse(read("package.json"));
-assert.equal(pkg.version, "0.2.0");
+assert.equal(pkg.version, "0.2.1");
 assert.equal(pkg.contributes.themes.length, 3);
 assert.equal(pkg.main, undefined);
 assert.equal(pkg.browser, undefined);
@@ -45,13 +45,43 @@ for (const entry of pkg.contributes.themes) {
     const ratio = contrast(theme.colors["editor.background"], rule.settings.foreground);
     assert.ok(ratio >= 4.5, `${entry.label} ${category} has low contrast: ${ratio.toFixed(2)}`);
   }
+  for (const rule of theme.tokenColors) {
+    const color = rule.settings?.foreground;
+    if (!color) continue;
+    assert.match(color, hex);
+    const ratio = contrast(theme.colors["editor.background"], color);
+    assert.ok(ratio >= 4.5, `${entry.label} TextMate ${rule.name} has low contrast: ${ratio.toFixed(2)}`);
+  }
+  for (const [selector, style] of Object.entries(theme.semanticTokenColors)) {
+    const color = typeof style === "string" ? style : style.foreground;
+    if (!color) continue;
+    assert.match(color, hex);
+    const ratio = contrast(theme.colors["editor.background"], color);
+    assert.ok(ratio >= 4.5, `${entry.label} semantic ${selector} has low contrast: ${ratio.toFixed(2)}`);
+  }
+  for (const [foreground, background] of [
+    ["titleBar.activeForeground", "titleBar.activeBackground"],
+    ["tab.activeForeground", "tab.activeBackground"],
+    ["sideBar.foreground", "sideBar.background"],
+    ["statusBar.foreground", "statusBar.background"],
+  ]) {
+    assert.ok(contrast(theme.colors[foreground], theme.colors[background]) >= 4.5,
+      `${entry.label} workbench contrast is too low: ${foreground}/${background}`);
+  }
   themes[entry.label] = theme;
 }
 
-assert.equal(themes["Tokumaru Midnight"].colors["editor.background"], "#101A27");
-assert.equal(themes["Tokumaru Radar Green"].colors["editor.background"], "#0A1914");
-assert.equal(themes["Tokumaru Daylight"].colors["editor.background"], "#F8FAFD");
-assert.equal(themes["Tokumaru Daylight"].colors["tab.activeBorderTop"], "#106B9A");
+assert.equal(themes["Tokumaru Midnight"].colors["editor.background"], "#141B2E");
+assert.equal(themes["Tokumaru Radar Green"].colors["editor.background"], "#08120E");
+assert.equal(themes["Tokumaru Daylight"].colors["editor.background"], "#E8EDF5");
+assert.equal(themes["Tokumaru Daylight"].colors["tab.activeBorderTop"], "#3F72A7");
+for (const [name, theme] of Object.entries(themes)) {
+  const c = theme.colors;
+  assert.ok(c["editor.findMatchBackground"], `${name} is missing search match colors`);
+  assert.ok(c["editor.findMatchHighlightBackground"]);
+  assert.equal(c["editorFindMatch.background"], undefined);
+  assert.equal(c["editorFindMatchHighlightBackground"], undefined);
+}
 for (const name of ["Tokumaru Midnight", "Tokumaru Radar Green"]) {
   const c = themes[name].colors;
   assert.ok(c["editor.findMatchBackground"]);
@@ -66,4 +96,4 @@ assert.notEqual(
   themes["Tokumaru Radar Green"].tokenColors.find(x => x.name === "Functions").settings.foreground,
 );
 assert.ok(existsSync(new URL(pkg.icon, root)));
-console.log("Validated 3 themes, preserved Daylight, syntax contrast, and cockpit/radar focus colors.");
+console.log("Validated 3 approved palettes, all TextMate/semantic contrast, workbench contrast, search keys, and focus colors.");

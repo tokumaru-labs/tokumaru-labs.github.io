@@ -1,9 +1,9 @@
 {
   "name": "tokumaru-vscode-themes",
   "displayName": "Tokumaru Labs VS Code Themes",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publisher": "tokumarulabs",
-  "description": "Three readable VS Code color themes: a modern navy cockpit, soft daylight, and a vintage green radar station. No scripts or tracking.",
+  "description": "A quiet summer afternoon for your editor. Three readable color themes: Daylight, Citypop Midnight, and phosphor-green Radar Green. No scripts or tracking.",
   "author": {
     "name": "Tokumaru Labs"
   },
@@ -18,18 +18,21 @@
     "Tokumaru",
     "theme",
     "color theme",
-    "midnight",
     "daylight",
+    "light theme",
+    "summer sky",
+    "blue",
+    "teal",
+    "midnight",
     "radar green",
-    "cockpit",
-    "flight deck",
-    "radar station",
+    "citypop",
+    "hacker terminal",
     "phosphor",
     "syntax highlighting"
   ],
   "galleryBanner": {
-    "color": "#101A27",
-    "theme": "dark"
+    "color": "#E8EDF5",
+    "theme": "light"
   },
   "repository": {
     "type": "git",
@@ -61,7 +64,7 @@
   },
   "scripts": {
     "validate": "node scripts/validate.mjs",
-    "package": "npx --yes @vscode/vsce package --no-dependencies --out tokumaru-vscode-themes-0.2.0.vsix"
+    "package": "npx --yes @vscode/vsce package --no-dependencies --out tokumaru-vscode-themes-0.2.1.vsix"
   },
   "icon": "images/icon.png"
 }

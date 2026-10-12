@@ -1,11 +1,21 @@
 # Changelog
 
-## 0.2.0 — release candidate (unpublished)
+## 0.2.1
 
-- Preserved the original Midnight navy background, foreground and core cyan accent while refining cockpit navigation, search-hit amber, diagnostics, status indicators, function colors and focus treatment.
-- Preserved the original Radar Green deep-green background and core mint accent while differentiating observation-focused hierarchy, pale phosphor cursor/focus, muted nonactive surfaces, green syntax and amber detections.
-- Corrected VS Code search highlight color keys in Midnight and Radar Green (`editor.findMatchBackground`, `editor.findMatchHighlightBackground`).
-- Left Tokumaru Daylight's full theme JSON unchanged.
+- Featured Daylight with a summer-afternoon introduction, a rendered hero image, and previews for all three themes.
+- Changed the Marketplace banner to Daylight's light blue-gray palette.
+- Updated the English and Japanese product pages with Daylight-first presentation and Marketplace installation links.
+- Preserved all v0.2.0 theme definitions, syntax colors, theme names, semantic rules, and the extension icon.
+- No runtime code or network usage added.
+
+## 0.2.0
+
+- Refined Midnight into a Citypop night palette: ink-blue surroundings, dusty pink keywords and active tabs, cyan and cool-blue functions, and warm amber strings and search matches.
+- Refined Daylight into a dreamy summer palette with gray-lavender clouds, sky blue, ocean teal, sun gold and restrained rose accents.
+- Refined Radar Green into a near-black hacker terminal with distinct mint and phosphor-green syntax levels and quiet amber numeric signals.
+- Corrected VS Code search highlight color keys in all three themes (`editor.findMatchBackground`, `editor.findMatchHighlightBackground`).
+- Preserved readable contrast, existing TextMate scopes, semantic selectors and font styles across the three palettes.
+- Updated the extension icon to the Tokumaru Labs two-arcs logo and added Marketplace installation instructions.
 - No runtime code or network usage added.
 
 ## 0.1.0 — 2026-10-10
