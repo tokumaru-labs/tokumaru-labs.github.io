@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arcade Counter Timer｜カウントアップタイマーと数取器 | Tokumaru Labs</title>
+<meta name="description" content="Arcade Counter Timerは、ポップアップ・フローティング表示・Chromeのサイドパネルで使えるカウントアップタイマーと数取器。勉強時間や問題数を記録し、統計は端末内に保存。オフラインで動作します。">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0f1720">
+<link rel="canonical" href="https://tokumaru-labs.github.io/ja/arcade-counter-timer/">
+<link rel="alternate" hreflang="en" href="https://tokumaru-labs.github.io/arcade-counter-timer/">
+<link rel="alternate" hreflang="ja" href="https://tokumaru-labs.github.io/ja/arcade-counter-timer/">
+<link rel="alternate" hreflang="x-default" href="https://tokumaru-labs.github.io/arcade-counter-timer/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tokumaru Labs">
+<meta property="og:title" content="Arcade Counter Timer｜カウントアップタイマーと数取器">
+<meta property="og:description" content="勉強時間や解いた問題数を記録するChrome拡張機能。3つの表示方法、端末内の統計、節目の短いアーケード演出。オフラインで動作します。">
+<meta property="og:url" content="https://tokumaru-labs.github.io/ja/arcade-counter-timer/">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://tokumaru-labs.github.io/assets/products/arcade-counter-timer/screenshot-main-1280x800.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Arcade Counter Timer",
+  "description": "ポップアップ・フローティング表示・Chromeのサイドパネルで使えるカウントアップタイマーと数取器。統計は端末内に保存し、オフラインで動作します。",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "softwareVersion": "0.2.0",
+  "installUrl": "https://chromewebstore.google.com/detail/arcade-counter-timer/cfonffmpidgimppooikhhhlceaoipkeb",
+  "publisher": { "@type": "Organization", "name": "Tokumaru Labs" },
+  "url": "https://tokumaru-labs.github.io/ja/arcade-counter-timer/"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="topbar__brand" href="/ja/">
+      <span class="topbar__mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      Tokumaru Labs
+    </a>
+    <nav class="topnav" aria-label="メインメニュー">
+      <a href="/ja/#products">ツール一覧</a>
+      <a href="/ja/#about">つくり方</a>
+      <a href="/arcade-counter-timer/" lang="en" hreflang="en">English</a>
+      <a href="https://github.com/tokumaru-labs">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="/ja/">Tokumaru Labs</a> / Arcade Counter Timer</nav>
+
+    <div class="seg" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+    <header class="site-head">
+      <h1 class="brand">Arcade Counter Timer</h1>
+      <p class="tagline">Chrome拡張機能 · バージョン0.2.0 · Tokumaru Labs</p>
+    </header>
+
+    <p class="lead">カウントアップタイマーと数取器を、ポップアップ・フローティング表示・Chromeのサイドパネルで使えます。勉強時間や解いた問題数を記録し、端末内に統計を保存。節目には短いアーケード風の演出が入ります。</p>
+    <div class="page-actions">
+      <a class="btn btn--primary" href="https://chromewebstore.google.com/detail/arcade-counter-timer/cfonffmpidgimppooikhhhlceaoipkeb">Chromeウェブストアで入手</a>
+      <a class="btn" href="#how-to">導入・使い方</a>
+    </div>
+    <p class="lang-note">パソコン版Chrome向け。拡張機能の操作画面は英語です。</p>
+
+    <img class="shot"
+         src="/assets/products/arcade-counter-timer/screenshot-main-1280x800.png"
+         width="1280" height="800" loading="lazy" decoding="async"
+         alt="Arcade Counter Timerの画面。経過時間00:12:34とカウント数18、STOPボタンとCOUNTボタンを表示。">
+
+    <h2>主な機能</h2>
+    <ul class="feature-list">
+      <li><strong>カウントアップタイマー：</strong><code>HH:MM:SS</code>で経過時間を表示。ポップアップを閉じたり、ブラウザーを再起動したりしても計測を継続します。</li>
+      <li><strong>数取器：</strong>1回押すと1カウント。タイマーとカウントはそれぞれ個別にリセットできます。</li>
+      <li><strong>端末内の統計：</strong><span lang="en">TODAY / WEEK / MONTH / YEAR</span>で、今日・今週・今月・今年の時間とカウント数を確認できます。</li>
+      <li><strong>短いアーケード演出：</strong>テンポよく数えると文字が現れ、10カウントごとにCHAIN演出が入ります。</li>
+      <li><strong>オリジナルの効果音：</strong>Web Audio APIで生成するため、音声ファイルは使いません。</li>
+      <li><strong>演出を個別にオフ：</strong>効果音・文字・CHAIN・CRT走査線を切り替えられます。拡張機能はオフラインで動作します。</li>
+    </ul>
+
+    <h2>使い方に合わせた3つの表示方法</h2>
+    <ul class="feature-list">
+      <li><strong>ポップアップ：</strong>Chromeのツールバーから開く小さな画面で操作します。</li>
+      <li><strong>フローティング表示：</strong>ウェブページ上にタイマーを置き、ドラッグで移動できます。位置の記憶・固定、コンパクト表示への切替にも対応します。</li>
+      <li><strong>サイドパネル：</strong>Chromeのサイドパネルで、ページの横にタイマーとカウンターを表示します。</li>
+    </ul>
+    <p class="lang-note">フローティング表示は、Chromeの設定画面・Chromeウェブストアなどの保護されたページでは使えません。別のページに置くときは、そのページで拡張機能のアイコンをクリックします。</p>
+
+    <h2 id="how-to">ダウンロード・使い方</h2>
+    <ol class="guide-steps">
+      <li><strong>Chromeウェブストアから追加</strong><a href="https://chromewebstore.google.com/detail/arcade-counter-timer/cfonffmpidgimppooikhhhlceaoipkeb">Arcade Counter Timerのストアページ</a>をパソコン版Chromeで開き、「Chromeに追加」から拡張機能を追加します。インストールにはインターネット接続が必要です。</li>
+      <li><strong>表示方法を選ぶ</strong>拡張機能を開き、歯車アイコンから設定へ。<span lang="en">DISPLAY MODE</span>で<span lang="en">POPUP / FLOATING / SIDE PANEL</span>を選び、<span lang="en">OPEN SELECTED VIEW</span>を押します。</li>
+      <li><strong>時間と回数を記録</strong><span lang="en">START / STOP</span>で計測を開始・停止し、<span lang="en">COUNT</span>で1つずつ数えます。歯車アイコンから統計と演出の設定を確認できます。</li>
+    </ol>
+
+    <h2 id="privacy">プライバシーとデータ保存</h2>
+    <ul>
+      <li>拡張機能は完全オフラインで動作し、アカウント登録や外部への通信はありません。</li>
+      <li>タイマーの状態・カウント・統計・設定は、使用中のブラウザープロファイルの端末内ストレージに保存します。クラウド同期はありません。</li>
+      <li>アクセス解析・トラッキング・広告はありません。</li>
+      <li>フローティング表示は、利用者が呼び出したページにタイマーを配置します。ページ本文・フォーム・閲覧履歴は収集しません。</li>
+    </ul>
+    <p>通常のアップデートでは記録を引き継ぎます。アンインストールすると端末内のデータは削除されます。記録を残したい場合は、削除して入れ直さず、インストール済みの拡張機能を更新してください。</p>
+    <p>詳しくは<a href="https://github.com/tokumaru-labs/arcade-counter-timer/blob/main/PRIVACY_JA.md">プライバシーポリシー</a>をご覧ください。</p>
+
+    <h2>関連リンク</h2>
+    <div class="page-actions">
+      <a class="btn" href="https://github.com/tokumaru-labs/arcade-counter-timer">GitHubリポジトリ</a>
+      <a class="btn btn--primary" href="https://chromewebstore.google.com/detail/arcade-counter-timer/cfonffmpidgimppooikhhhlceaoipkeb">Chromeウェブストアで入手</a>
+    </div>
+
+    <p style="margin-top:28px;"><a href="/ja/#products">← ツール一覧へ戻る</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="padding-bottom:0;">
+    <div class="foot-grid">
+      <a href="https://github.com/tokumaru-labs">GitHub Organization</a>
+      <a href="https://github.com/tokumaru-labs/arcade-counter-timer/issues">サポート・不具合報告</a>
+    </div>
+    <p class="foot-note">© 2026 Tokumaru Labs · このサイトはアクセス解析・トラッキング・Cookieを使用しません。</p>
+  </div>
+</footer>
+</body>
+</html>
