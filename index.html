@@ -70,146 +70,183 @@
 
     <section class="section" id="products">
       <h2>Products</h2>
-      <p class="section__sub">Seven small things, each with a clear purpose. <span lang="ja">ひとつの目的に絞った、小さな道具たち。</span></p>
+      <p class="section__sub">Small tools for your desktop, browser, and editor. <span lang="ja">使う場所から、小さな道具を探せます。</span></p>
 
-      <div class="products">
+      <p class="category-label">Browse by type</p>
+      <nav class="category-nav" aria-label="Product categories">
+        <a class="category-link category--apps" href="#windows-apps">
+          <span class="category-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+          <span class="category-link__text"><strong>Windows apps</strong><span>Tools for your desktop</span></span>
+          <span class="category-link__count">1</span>
+        </a>
+        <a class="category-link category--extensions" href="#chrome-extensions">
+          <span class="category-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01M9 14h6M12 11v6"/></svg></span>
+          <span class="category-link__text"><strong>Chrome extensions</strong><span>Tools for your browser</span></span>
+          <span class="category-link__count">4</span>
+        </a>
+        <a class="category-link category--themes" href="#themes">
+          <span class="category-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18h1a2 2 0 0 0 1.5-3.3 1.5 1.5 0 0 1 1.1-2.5H17A4 4 0 0 0 21 11a9 9 0 0 0-9-8Z"/><path d="M7 10h.01M10 6.5h.01M15 6.5h.01M17.5 10h.01"/></svg></span>
+          <span class="category-link__text"><strong>Themes</strong><span>Colors for Chrome &amp; VS Code</span></span>
+          <span class="category-link__count">2</span>
+        </a>
+      </nav>
 
-        <!-- Nagamaru Capture -->
-        <article class="pcard pcard--development">
-          <div class="pcard__media">
-            <img src="/assets/products/nagamaru-capture/hero-1280x800.webp"
-                 width="1280" height="800" loading="eager" decoding="async"
-                 alt="Nagamaru Capture illustration: a cheerful camera mascot stitching several browser screenshots into one long page.">
-            <span class="pcard__status"><strong>In development</strong><span lang="ja">開発中</span></span>
-          </div>
-          <div class="pcard__body">
-            <p class="pcard__kind">Chrome Extension · In development</p>
-            <h3 class="pcard__title">Nagamaru Capture</h3>
-            <p class="pcard__desc">A cheerful, local-first full-page screenshot tool for Chrome, designed around Japanese users and long, changing pages.</p>
-            <p class="pcard__desc-ja" lang="ja">長いページを、かわいくまるっと。遅延読み込みや無限スクロールにも配慮した、日本語UIのローカル完結キャプチャです。</p>
-            <div class="pcard__actions">
-              <span class="btn btn--soon" aria-disabled="true">In development · 開発中</span>
+      <section class="product-group product-group--apps category--apps" id="windows-apps" aria-labelledby="windows-apps-title">
+        <div class="product-group__heading">
+          <h3 id="windows-apps-title">Windows apps</h3>
+          <span class="product-group__count">1 app</span>
+        </div>
+        <p class="product-group__description">Small tools that live on your desktop.</p>
+        <div class="products">
+          <article class="pcard" id="toku-control">
+            <div class="pcard__media">
+              <img src="/assets/products/toku-control/overview.png" width="1512" height="848"
+                   style="object-fit:contain;background:#03070b" loading="eager" decoding="async"
+                   alt="TOKU CONTROL's CRT-style console with a digital clock, audio meter and CRT settings stacked on the right. Demo data.">
             </div>
-          </div>
-        </article>
-
-        <!-- TOKU CONTROL -->
-        <article class="pcard" id="toku-control">
-          <div class="pcard__media">
-            <img src="/assets/products/toku-control/overview.png" width="1512" height="848"
-                 style="object-fit:contain;background:#03070b" loading="lazy" decoding="async"
-                 alt="TOKU CONTROL's CRT-style console with a digital clock, audio meter and CRT settings stacked on the right. Demo data.">
-          </div>
-          <div class="pcard__body">
-            <p class="pcard__kind">Windows App · v0.2.1 · Free</p>
-            <h3 class="pcard__title"><a href="/toku-control/">TOKU CONTROL</a></h3>
-            <p class="pcard__desc">A 1990s-style local control console for playback audio, an LCD clock, peak meters, and Windows system and monitor information.</p>
-            <p class="pcard__desc-ja" lang="ja">音量・時計・システム情報を、90年代風の操作盤に。右の小窓もメインと一緒に動きます。</p>
-            <div class="pcard__actions">
-              <a class="btn btn--primary" href="https://github.com/tokumaru-labs/toku-control/releases/download/v0.2.1/TOKU-CONTROL-v0.2.1-win-x64.zip">Download for Windows (ZIP)</a>
-              <a class="btn" href="/toku-control/">Overview &amp; setup</a>
+            <div class="pcard__body">
+              <p class="pcard__kind">Windows App · v0.2.1 · Free</p>
+              <h4 class="pcard__title"><a href="/toku-control/">TOKU CONTROL</a></h4>
+              <p class="pcard__desc">A 1990s-style local control console for playback audio, an LCD clock, peak meters, and Windows system and monitor information.</p>
+              <p class="pcard__desc-ja" lang="ja">音量・時計・システム情報を、90年代風の操作盤に。右の小窓もメインと一緒に動きます。</p>
+              <div class="pcard__actions">
+                <a class="btn btn--primary" href="https://github.com/tokumaru-labs/toku-control/releases/download/v0.2.1/TOKU-CONTROL-v0.2.1-win-x64.zip">Download for Windows (ZIP)</a>
+                <a class="btn" href="/toku-control/">Overview &amp; setup</a>
+              </div>
+              <p class="meta">Windows x64 · 64.4 MB · Unsigned portable build</p>
             </div>
-            <p class="meta">Windows x64 · 64.4 MB · Unsigned portable build</p>
-          </div>
-        </article>
+          </article>
 
-        <!-- Transcript Sidecar -->
-        <article class="pcard">
-          <div class="pcard__media">
-            <img src="/assets/products/transcript-sidecar/hero-1280x800.webp"
-                 width="1280" height="800" loading="eager" decoding="async"
-                 alt="Transcript Sidecar shown beside a video player, with timestamped transcript rows and copy controls in Chrome's Side Panel.">
-          </div>
-          <div class="pcard__body">
-            <p class="pcard__kind">Chrome Extension</p>
-            <h3 class="pcard__title"><a href="/transcript-sidecar/">Transcript Sidecar</a></h3>
-            <p class="pcard__desc">View, copy, format, and export YouTube transcripts from Chrome's Side Panel — no account, tracking, ads, or transcript server.</p>
-            <p class="pcard__desc-ja" lang="ja">YouTube の字幕をサイドパネルで表示・コピー・保存。アカウント・トラッキング・広告はありません。</p>
-            <div class="pcard__actions">
-              <a class="btn btn--primary" href="/transcript-sidecar/">Overview</a>
-              <a class="btn" href="/ja/transcript-sidecar/" lang="ja" hreflang="ja">日本語の使い方</a>
-              <a class="btn" href="https://github.com/tokumaru-labs/transcript-sidecar">GitHub</a>
-              <a class="btn" href="https://chromewebstore.google.com/detail/transcript-sidecar/flkfcafidkoihgaikkihnaggophndgng">Chrome Web Store</a>
+        </div>
+      </section>
+
+      <section class="product-group product-group--extensions category--extensions" id="chrome-extensions" aria-labelledby="chrome-extensions-title">
+        <div class="product-group__heading">
+          <h3 id="chrome-extensions-title">Chrome extensions</h3>
+          <span class="product-group__count">4 extensions</span>
+        </div>
+        <p class="product-group__description">Subtitles, time, and progress, right beside your tabs. Three available, one in development.</p>
+        <div class="products">
+          <article class="pcard">
+            <div class="pcard__media">
+              <img src="/assets/products/transcript-sidecar/hero-1280x800.webp"
+                   width="1280" height="800" loading="lazy" decoding="async"
+                   alt="Transcript Sidecar shown beside a video player, with timestamped transcript rows and copy controls in Chrome's Side Panel.">
             </div>
-          </div>
-        </article>
-
-
-        <!-- Arcade Counter Timer -->
-        <article class="pcard">
-          <div class="pcard__media">
-            <img src="/assets/products/arcade-counter-timer/screenshot-main-1280x800.png"
-                 width="1280" height="800" loading="lazy" decoding="async"
-                 alt="Arcade Counter Timer: a count-up timer reading 00:12:34 and a large count of 18, with START and COUNT buttons.">
-          </div>
-          <div class="pcard__body">
-            <p class="pcard__kind">Chrome Extension</p>
-            <h3 class="pcard__title"><a href="/arcade-counter-timer/">Arcade Counter Timer</a></h3>
-            <p class="pcard__desc">A count-up timer and tally counter that stays out of your way, then turns into a small arcade machine when you hit a milestone.</p>
-            <p class="pcard__desc-ja" lang="ja">邪魔をしないカウントアップタイマーとタリーカウンター。節目にだけ、少しだけアーケードになります。</p>
-            <div class="pcard__actions">
-              <a class="btn btn--primary" href="/arcade-counter-timer/">Overview</a>
-              <a class="btn" href="https://github.com/tokumaru-labs/arcade-counter-timer">GitHub</a>
-              <a class="btn" href="https://chromewebstore.google.com/detail/arcade-counter-timer/cfonffmpidgimppooikhhhlceaoipkeb">Chrome Web Store</a>
+            <div class="pcard__body">
+              <p class="pcard__kind">Chrome Extension</p>
+              <h4 class="pcard__title"><a href="/transcript-sidecar/">Transcript Sidecar</a></h4>
+              <p class="pcard__desc">View, copy, format, and export YouTube transcripts from Chrome's Side Panel — no account, tracking, ads, or transcript server.</p>
+              <p class="pcard__desc-ja" lang="ja">YouTube の字幕をサイドパネルで表示・コピー・保存。アカウント・トラッキング・広告はありません。</p>
+              <div class="pcard__actions">
+                <a class="btn btn--primary" href="/transcript-sidecar/">Overview</a>
+                <a class="btn" href="/ja/transcript-sidecar/" lang="ja" hreflang="ja">日本語の使い方</a>
+                <a class="btn" href="https://github.com/tokumaru-labs/transcript-sidecar">GitHub</a>
+                <a class="btn" href="https://chromewebstore.google.com/detail/transcript-sidecar/flkfcafidkoihgaikkihnaggophndgng">Chrome Web Store</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Midnight Cockpit -->
-        <article class="pcard">
-          <div class="pcard__media">
-            <img src="/assets/products/midnight-cockpit/hero-1280x800.webp"
-                 width="1280" height="800" loading="lazy" decoding="async"
-                 alt="Midnight Cockpit theme preview with a deep-navy Chrome frame, subdued inactive tabs, and a cyan-accented active tab.">
-          </div>
-          <div class="pcard__body">
-            <p class="pcard__kind">Chrome Theme</p>
-            <h3 class="pcard__title"><a href="/midnight-cockpit/">Tokumaru Midnight Cockpit</a></h3>
-            <p class="pcard__desc">A calm, deep-navy Chrome theme with a cyan-to-blue accent on the active tab. Colors only — no scripts, no permissions.</p>
-            <p class="pcard__desc-ja" lang="ja">深いネイビーに、アクティブタブだけシアン〜ブルー。色だけで作られた、静かな Chrome テーマです。</p>
-            <div class="pcard__actions">
-              <a class="btn btn--primary" href="/midnight-cockpit/">Overview</a>
-              <a class="btn" href="https://github.com/tokumaru-labs/tokumaru-midnight-cockpit">GitHub</a>
-              <a class="btn" href="https://chromewebstore.google.com/detail/tokumaru-midnight-cockpit/beojajgnobiaklkccnjlnpndbdcbebke">Chrome Web Store</a>
+          <article class="pcard">
+            <div class="pcard__media">
+              <img src="/assets/products/arcade-counter-timer/screenshot-main-1280x800.png"
+                   width="1280" height="800" loading="lazy" decoding="async"
+                   alt="Arcade Counter Timer: a count-up timer reading 00:12:34 and a large count of 18, with START and COUNT buttons.">
             </div>
-          </div>
-        </article>
-
-        <!-- Tokumaru Labs VS Code Themes -->
-        <article class="pcard">
-          <div class="pcard__media">
-            <img src="/vscode-themes/images/daylight-hero.png" width="1600" height="1100" style="object-fit:contain;background:#e8edf5" loading="lazy" decoding="async" alt="Rendered Tokumaru Daylight preview with soft blue-gray surroundings and sky-blue syntax.">
-          </div>
-          <div class="pcard__body">
-            <p class="pcard__kind">VS Code Theme · Three themes</p>
-            <h3 class="pcard__title"><a href="/vscode-themes/">Tokumaru Labs VS Code Themes</a></h3>
-            <p class="pcard__desc">A quiet summer afternoon in Daylight, Citypop Midnight, and phosphor-green Radar Green. Three readable color themes in one extension.</p>
-            <p class="pcard__desc-ja" lang="ja">夏の午後を思わせるDaylight、深夜のMidnight、静かなRadar Green。ひとつの拡張で3テーマを切り替えられます。</p>
-            <div class="pcard__actions"><a class="btn btn--primary" href="/vscode-themes/">Explore the themes</a><a class="btn" href="/downloads/tokumaru-vscode-themes-0.2.1.vsix" download>VSIX</a><a class="btn" href="https://github.com/tokumaru-labs/tokumaru-labs.github.io/tree/main/vscode-themes">Source</a></div>
-          </div>
-        </article>
-
-        <!-- Progress Sidecar -->
-        <article class="pcard">
-          <div class="pcard__media">
-            <img src="/assets/products/progress-sidecar/screenshot-task-list-1280x800.png"
-                 width="1280" height="800" loading="lazy" decoding="async"
-                 alt="Progress Sidecar: a task list showing total, completed, remaining, and estimated remaining time, with an overall progress indicator.">
-          </div>
-          <div class="pcard__body">
-            <p class="pcard__kind">Chrome Extension</p>
-            <h3 class="pcard__title"><a href="/progress-sidecar/">Task Meter – Progress Sidecar</a></h3>
-            <p class="pcard__desc">See total, completed, remaining, and estimated remaining time at a glance, and update progress right in the side panel.</p>
-            <p class="pcard__desc-ja" lang="ja">総量・完了・残り・推定残り時間をひと目で。サイドパネルの一覧のまま進捗を更新できます。</p>
-            <div class="pcard__actions">
-              <a class="btn btn--primary" href="/progress-sidecar/">Overview</a>
-              <a class="btn" href="/progress-sidecar/privacy/">Privacy</a>
-              <a class="btn" href="https://chromewebstore.google.com/detail/task-meter-%E2%80%93-progress-sid/imeibpkpldljpgidebhpaphooihlajhf">Chrome Web Store</a>
+            <div class="pcard__body">
+              <p class="pcard__kind">Chrome Extension</p>
+              <h4 class="pcard__title"><a href="/arcade-counter-timer/">Arcade Counter Timer</a></h4>
+              <p class="pcard__desc">A count-up timer and tally counter that stays out of your way, then turns into a small arcade machine when you hit a milestone.</p>
+              <p class="pcard__desc-ja" lang="ja">邪魔をしないカウントアップタイマーとタリーカウンター。節目にだけ、少しだけアーケードになります。</p>
+              <div class="pcard__actions">
+                <a class="btn btn--primary" href="/arcade-counter-timer/">Overview</a>
+                <a class="btn" href="https://github.com/tokumaru-labs/arcade-counter-timer">GitHub</a>
+                <a class="btn" href="https://chromewebstore.google.com/detail/arcade-counter-timer/cfonffmpidgimppooikhhhlceaoipkeb">Chrome Web Store</a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-      </div>
+          <article class="pcard">
+            <div class="pcard__media">
+              <img src="/assets/products/progress-sidecar/screenshot-task-list-1280x800.png"
+                   width="1280" height="800" loading="lazy" decoding="async"
+                   alt="Progress Sidecar: a task list showing total, completed, remaining, and estimated remaining time, with an overall progress indicator.">
+            </div>
+            <div class="pcard__body">
+              <p class="pcard__kind">Chrome Extension</p>
+              <h4 class="pcard__title"><a href="/progress-sidecar/">Task Meter – Progress Sidecar</a></h4>
+              <p class="pcard__desc">See total, completed, remaining, and estimated remaining time at a glance, and update progress right in the side panel.</p>
+              <p class="pcard__desc-ja" lang="ja">総量・完了・残り・推定残り時間をひと目で。サイドパネルの一覧のまま進捗を更新できます。</p>
+              <div class="pcard__actions">
+                <a class="btn btn--primary" href="/progress-sidecar/">Overview</a>
+                <a class="btn" href="/progress-sidecar/privacy/">Privacy</a>
+                <a class="btn" href="https://chromewebstore.google.com/detail/task-meter-%E2%80%93-progress-sid/imeibpkpldljpgidebhpaphooihlajhf">Chrome Web Store</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pcard pcard--development">
+            <div class="pcard__media">
+              <img src="/assets/products/nagamaru-capture/hero-1280x800.webp"
+                   width="1280" height="800" loading="lazy" decoding="async"
+                   alt="Nagamaru Capture illustration: a cheerful camera mascot stitching several browser screenshots into one long page.">
+              <span class="pcard__status"><strong>In development</strong><span lang="ja">開発中</span></span>
+            </div>
+            <div class="pcard__body">
+              <p class="pcard__kind">Chrome Extension · In development</p>
+              <h4 class="pcard__title">Nagamaru Capture</h4>
+              <p class="pcard__desc">A cheerful, local-first full-page screenshot tool for Chrome, designed around Japanese users and long, changing pages.</p>
+              <p class="pcard__desc-ja" lang="ja">長いページを、かわいくまるっと。遅延読み込みや無限スクロールにも配慮した、日本語UIのローカル完結キャプチャです。</p>
+              <div class="pcard__actions">
+                <span class="btn btn--soon" aria-disabled="true">In development · 開発中</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="product-group product-group--themes category--themes" id="themes" aria-labelledby="themes-title">
+        <div class="product-group__heading">
+          <h3 id="themes-title">Themes</h3>
+          <span class="product-group__count">2 collections</span>
+        </div>
+        <p class="product-group__description">A different atmosphere for Chrome and VS Code.</p>
+        <div class="products">
+          <article class="pcard">
+            <div class="pcard__media">
+              <img src="/assets/products/midnight-cockpit/hero-1280x800.webp"
+                   width="1280" height="800" loading="lazy" decoding="async"
+                   alt="Midnight Cockpit theme preview with a deep-navy Chrome frame, subdued inactive tabs, and a cyan-accented active tab.">
+            </div>
+            <div class="pcard__body">
+              <p class="pcard__kind">Chrome Theme</p>
+              <h4 class="pcard__title"><a href="/midnight-cockpit/">Tokumaru Midnight Cockpit</a></h4>
+              <p class="pcard__desc">A calm, deep-navy Chrome theme with a cyan-to-blue accent on the active tab. Colors only — no scripts, no permissions.</p>
+              <p class="pcard__desc-ja" lang="ja">深いネイビーに、アクティブタブだけシアン〜ブルー。色だけで作られた、静かな Chrome テーマです。</p>
+              <div class="pcard__actions">
+                <a class="btn btn--primary" href="/midnight-cockpit/">Overview</a>
+                <a class="btn" href="https://github.com/tokumaru-labs/tokumaru-midnight-cockpit">GitHub</a>
+                <a class="btn" href="https://chromewebstore.google.com/detail/tokumaru-midnight-cockpit/beojajgnobiaklkccnjlnpndbdcbebke">Chrome Web Store</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="pcard">
+            <div class="pcard__media">
+              <img src="/vscode-themes/images/daylight-hero.png" width="1600" height="1100" style="object-fit:contain;background:#e8edf5" loading="lazy" decoding="async" alt="Rendered Tokumaru Daylight preview with soft blue-gray surroundings and sky-blue syntax.">
+            </div>
+            <div class="pcard__body">
+              <p class="pcard__kind">VS Code Theme · Three themes</p>
+              <h4 class="pcard__title"><a href="/vscode-themes/">Tokumaru Labs VS Code Themes</a></h4>
+              <p class="pcard__desc">A quiet summer afternoon in Daylight, Citypop Midnight, and phosphor-green Radar Green. Three readable color themes in one extension.</p>
+              <p class="pcard__desc-ja" lang="ja">夏の午後を思わせるDaylight、深夜のMidnight、静かなRadar Green。ひとつの拡張で3テーマを切り替えられます。</p>
+              <div class="pcard__actions"><a class="btn btn--primary" href="/vscode-themes/">Explore the themes</a><a class="btn" href="/downloads/tokumaru-vscode-themes-0.2.1.vsix" download>VSIX</a><a class="btn" href="https://github.com/tokumaru-labs/tokumaru-labs.github.io/tree/main/vscode-themes">Source</a></div>
+            </div>
+          </article>
+
+        </div>
+      </section>
     </section>
 
     <section class="section" id="about">
