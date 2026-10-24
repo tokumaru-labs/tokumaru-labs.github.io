@@ -1,0 +1,49 @@
+name: Record download statistics
+
+on:
+  schedule:
+    - cron: '17 15 * * *' # 00:17 Asia/Tokyo; actual runs can be delayed.
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/download-stats.yml'
+      - 'scripts/download_stats.py'
+      - 'scripts/mirror_vsix.py'
+      - 'stats/products.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: download-statistics
+  cancel-in-progress: false
+
+jobs:
+  record:
+    if: github.repository == 'tokumaru-labs/tokumaru-labs.github.io' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    permissions:
+      contents: write # Mirror the reviewed VSIX and write only the statistics branch.
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Test collector and release safeguards
+        run: python -B -m unittest discover -s tests -p 'test_download_stats.py' -v
+      - name: Publish or verify the identical VSIX mirror
+        id: mirror
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -B scripts/mirror_vsix.py
+      - name: Record release counters without changing site source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -B scripts/download_stats.py --publish
+      - name: Report incomplete mirror setup
+        if: steps.mirror.outcome == 'failure'
+        run: |
+          echo 'VSIX mirror verification failed. Existing downloads are preserved; see the mirror step.' >> "$GITHUB_STEP_SUMMARY"
+          exit 1

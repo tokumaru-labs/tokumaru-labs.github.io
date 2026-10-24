@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Tokumaru Labsの公開ダウンロード数と、記録開始後の推移を確認する統計ページ。">
+<meta name="theme-color" content="#0f1720">
+<link rel="canonical" href="https://tokumaru-labs.github.io/stats/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/stats/stats.css">
+<title>Download Observatory | Tokumaru Labs</title>
+<script type="module" src="/stats/dashboard.mjs"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="topbar"><div class="topbar__inner">
+<a class="topbar__brand" href="/ja/"><span class="topbar__mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Tokumaru Labs</a>
+<span class="private-label">LAB NOTES / DOWNLOADS</span>
+</div></header>
+<main id="main" class="wrap wrap--wide">
+<div class="seg" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<header class="stats-head"><div><p class="eyebrow">DOWNLOAD OBSERVATORY</p><h1>作品の届き方を、記録する。</h1><p class="intro">公開ファイルのダウンロード数と、その変化。毎日少しずつ、記録を育てます。</p></div><span class="update-badge">毎日 00:17 ごろ · 日本時間</span></header>
+<p id="load-status" role="status" aria-live="polite">記録を読み込んでいます…</p>
+<noscript><p class="notice">グラフにはJavaScriptが必要です。<a href="https://github.com/tokumaru-labs/tokumaru-labs.github.io/blob/download-stats-data/downloads.json">集計データをGitHubで確認</a>できます。</p></noscript>
+<section id="overview" class="metric-grid" aria-label="現在の記録" hidden>
+<article class="metric"><p>計測済みの累計</p><strong id="total">—</strong><span id="coverage">—</span></article>
+<article class="metric"><p>記録開始</p><strong class="metric-date" id="started">—</strong><span>開始前の増減は復元しません</span></article>
+<article class="metric"><p>最新の観測</p><strong class="metric-date" id="updated">—</strong><span id="freshness">—</span></article>
+</section>
+<section class="panel" id="analysis" aria-labelledby="analysis-title" hidden>
+<div class="panel-heading"><div><p class="eyebrow">OBSERVATIONS</p><h2 id="analysis-title">増え方を見る</h2></div><button id="export" type="button">全記録をCSV保存</button></div>
+<div class="controls">
+<label>作品<select id="product"></select></label>
+<label>期間<select id="period"><option value="7">直近7日</option><option value="30" selected>直近30日</option><option value="all">全期間</option></select></label>
+<label>表示<select id="metric"><option value="increase">増分</option><option value="total">累計</option></select></label>
+</div>
+<div class="chart-heading"><p id="chart-summary"></p><span id="chart-unit">単位：回</span></div>
+<div id="chart" class="chart" aria-live="polite"></div>
+<p class="chart-note" id="chart-note"></p>
+<div id="insight" class="insight"></div>
+</section>
+<section class="panel" id="products-panel" aria-labelledby="products-title" hidden>
+<div class="panel-heading"><div><p class="eyebrow">BY PRODUCT</p><h2 id="products-title">作品ごとの記録</h2></div></div>
+<div class="table-scroll"><table><thead><tr><th scope="col">作品</th><th scope="col">最新の累計</th><th scope="col">前回から</th><th scope="col">状態</th></tr></thead><tbody id="product-rows"></tbody></table></div>
+</section>
+<section class="panel" id="history-panel" aria-labelledby="history-title" hidden>
+<div class="panel-heading"><div><p class="eyebrow">LOGBOOK</p><h2 id="history-title">観測履歴</h2></div><span>選択した作品・期間の最新30件</span></div>
+<div class="table-scroll"><table><thead><tr><th scope="col">観測日時（日本時間）</th><th scope="col">累計</th><th scope="col">増分</th><th scope="col">観測の状態</th></tr></thead><tbody id="history-rows"></tbody></table></div>
+</section>
+<details class="method" open><summary>この数字で分かること・分からないこと</summary>
+<ul>
+<li>GitHub Releasesの配布ファイルごとの回数です。サイト経由以外の取得、同じ人の再取得、動作確認分も含み得ます。人数・インストール数・保存完了の保証を表す数字ではありません。</li>
+<li>Chromeウェブストア、VS Code Marketplace、サイト内の予備ファイルからの取得は含みません。VSIXの過去の直接配布分も遡って数えません。</li>
+<li>増分は2回の観測の差です。深夜0時ちょうどで区切った日別件数ではありません。取得失敗や記録のない日は0回とみなさず、次の成功時に複数日分の区間として表示します。</li>
+<li>初回記録は比較の基準です。ファイルの削除・入替・カウンターの減少で比較できない区間は「比較不可」と表示します。</li>
+<li>記録は毎日00:17ごろに取得予定です。実行が遅れることもあります。2日以上更新されない場合はページ上に表示します。</li>
+</ul>
+<p>通常メニューや検索には掲載しませんが、認証はありません。このページと集計データはURLを知っていれば閲覧できます。訪問者の個人情報やクリック履歴は収集しません。</p>
+<p><a href="https://github.com/tokumaru-labs/tokumaru-labs.github.io/actions/workflows/download-stats.yml">記録処理の実行状況</a> · <a href="https://github.com/tokumaru-labs/tokumaru-labs.github.io/blob/download-stats-data/downloads.json">JSONデータ</a> · <a href="/ja/">サイトへ戻る</a></p>
+</details>
+</main>
+<footer><div class="wrap wrap--wide"><p class="foot-note">© 2026 Tokumaru Labs · 公開ダウンロード数の観測 / Cookie・訪問者トラッキングなし</p></div></footer>
+</body></html>

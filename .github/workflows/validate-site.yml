@@ -36,6 +36,10 @@ jobs:
             printf 'Validator regression tests: **FAIL**. See step log for individual cases.\n' >> "$GITHUB_STEP_SUMMARY"
             exit 1
           fi
+      - name: Test download history and release safeguards
+        run: python -B -m unittest discover -s tests -p 'test_download_stats.py' -v
+      - name: Test statistics calculations and CSV export
+        run: node --test tests/download_stats.test.mjs
       - name: Validate the checked-out site
         if: ${{ !cancelled() && steps.python.outcome == 'success' }}
         run: python scripts/validate_site.py --summary "$GITHUB_STEP_SUMMARY"
