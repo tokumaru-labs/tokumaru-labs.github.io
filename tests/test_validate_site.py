@@ -272,6 +272,15 @@ class SiteValidationTests(unittest.TestCase):
         self.write("robots.txt", f"User-agent: Googlebot\nDisallow: /after-hours/\n\nUser-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
         self.assertError("robots", "Googlebot")
 
+    def test_disallow_after_allow_and_wildcards_cannot_hide_noindex(self):
+        original = (self.root / "robots.txt").read_text()
+        for rule in ("/toku-chime/", "/toku-chime/*", "/after-hours/$"):
+            with self.subTest(rule=rule):
+                self.write("robots.txt", original + f"Disallow: {rule}\n")
+                self.assertError("robots-policy", "Disallow")
+        self.write("robots.txt", original + "Disallow: # empty is allowed\n")
+        self.assertPass()
+
     def test_exception_deletion_and_verification_token_change_fail(self):
         (self.root / "after-hours/index.html").unlink()
         self.assertError("exception", "missing")

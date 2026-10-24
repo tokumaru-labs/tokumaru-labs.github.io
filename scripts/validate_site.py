@@ -338,6 +338,19 @@ class Validator:
         except (OSError, UnicodeError) as error:
             self.check(False, "robots", "robots.txt", str(error))
             return
+        # Keep the existing unrestricted crawl policy. RobotFileParser uses
+        # first-match rules and cannot model search-engine wildcard/longest-match
+        # precedence. Reject any new nonempty Disallow instead of trusting a
+        # permissive answer that could prevent crawlers from seeing noindex.
+        disallows = []
+        for line, raw in enumerate(robot_text.splitlines(), 1):
+            key, separator, value = raw.split("#", 1)[0].partition(":")
+            if separator and key.strip().lower() == "disallow" and value.strip():
+                disallows.append((line, value.strip()))
+        self.check(not disallows, "robots-policy", "robots.txt",
+                   "Nonempty Disallow changes the site's unrestricted crawl policy; "
+                   "noindex pages must remain crawlable: " + repr(disallows),
+                   disallows[0][0] if disallows else 1)
         parser = RobotFileParser()
         parser.parse(robot_text.splitlines())
         self.check(parser.site_maps() == [ORIGIN + "/sitemap.xml"], "robots", "robots.txt",

@@ -42,7 +42,7 @@ summaryにはカテゴリ別の件数、適用した例外、外部URLの未検�
 | hreflang | `/ja/` と英語パスの対応、en/ja両方の自己参照・相互参照・実在、HTML言語、重複。新しい日英ページも自動対象 |
 | JSON-LD | 厳密なJSON構文、重複キー・NaN等を拒否。schema.orgコンテキスト、型・名称・URL。製品はSoftwareApplication、トップはOrganization。オブジェクト・配列・@graph対応 |
 | サイトマップ | XML名前空間、loc/lastmod各1件、URL一意性、公開canonicalページとの過不足。lastmodはYYYY-MM-DD形式かつ実在する暦日（うるう年含む） |
-| 非公開設定 | After Hoursのnoindex/nofollow/noarchive、Toku Chimeのnoindex、各ページのサイトマップ除外。robots.txtのクロール許可、公開ページのnoindex混入も確認 |
+| 非公開設定 | After Hoursのnoindex/nofollow/noarchive、Toku Chimeのnoindex、各ページのサイトマップ除外。robots.txtのクロール許可、公開ページのnoindex混入も確認。現在の全ページクロール許可方針を保つため、非空Disallowを明示エラーにする |
 
 外部URLは取得しません。`mailto:` / `tel:` / `data:` / `blob:` はローカルファイルとして扱いません。
 HTML以外のSVG/PDF等のフラグメントは、そのファイルの存在のみ確認します。
@@ -75,7 +75,10 @@ HTML以外のSVG/PDF等のフラグメントは、そのファイルの存在の
 - HTML構文全体・Schema.org全語彙・リッチリザルト適格性の検証器ではありません。
   JSON-LDはこのサイトの単一文字列の@typeとschema.orgコンテキストを対象にします。
 - CSS内のurl()、JavaScriptで生成したURL・アンカー、外部サービスのHTTP状態、画像のデコードや描画は対象外です。
-  robots.txtのクロール判定はPythonのRobotFileParserを使います（検索エンジン固有の全構文を再現しません）。
+  robots.txtの基本判定はPythonのRobotFileParserを使いますが、検索エンジンの最長一致・ワイルドカードを再現しません。
+  そのため、Allowより後の禁止ルールやワイルドカードの見逃しを避ける独立した方針チェックで、
+  全User-agentの非空Disallowを拒否します。空のDisallowとコメントは許可します。
+  将来クロール禁止が必要になった場合は、その目的とnoindexへの影響をレビューして検証方針も更新してください。
 - `tests/after-hours.cjs` は既存のPlaywright実動テストです。入口やタイマーの操作、表示の検証には引き続きこちらを使います。
   新CIは軽量な静的検証に限定し、Playwright依存を増やしていません。
 
