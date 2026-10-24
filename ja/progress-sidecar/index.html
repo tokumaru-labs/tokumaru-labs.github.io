@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Task Meter – Progress Sidecar｜タスクの進捗・残り時間を管理 | Tokumaru Labs</title>
+<meta name="description" content="Task Meter – Progress Sidecarは、タスクの総量・完了・残り・推定残り時間をChromeのサイドパネルで確認・更新できる拡張機能。日本語・英語に対応し、データは端末内に保存。アカウント登録は不要です。">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0f1720">
+<link rel="canonical" href="https://tokumaru-labs.github.io/ja/progress-sidecar/">
+<link rel="alternate" hreflang="en" href="https://tokumaru-labs.github.io/progress-sidecar/">
+<link rel="alternate" hreflang="ja" href="https://tokumaru-labs.github.io/ja/progress-sidecar/">
+<link rel="alternate" hreflang="x-default" href="https://tokumaru-labs.github.io/progress-sidecar/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tokumaru Labs">
+<meta property="og:title" content="Task Meter – Progress Sidecar｜タスクの進捗・残り時間を管理">
+<meta property="og:description" content="問題集や作業の総量・完了・残り・推定残り時間をひと目で確認。サイドパネルの一覧から進捗を更新でき、JSONバックアップと削除タスクの復元にも対応します。">
+<meta property="og:url" content="https://tokumaru-labs.github.io/ja/progress-sidecar/">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:image" content="https://tokumaru-labs.github.io/assets/products/progress-sidecar/screenshot-task-list-1280x800.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="800">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Task Meter – Progress Sidecar",
+  "alternateName": "Progress Sidecar",
+  "description": "タスクの総量・完了・残り・推定残り時間をChromeのサイドパネルで確認・更新できる拡張機能。日本語・英語に対応し、データは端末内に保存します。",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "softwareVersion": "0.1.2",
+  "installUrl": "https://chromewebstore.google.com/detail/task-meter-%E2%80%93-progress-sid/imeibpkpldljpgidebhpaphooihlajhf",
+  "publisher": { "@type": "Organization", "name": "Tokumaru Labs" },
+  "url": "https://tokumaru-labs.github.io/ja/progress-sidecar/"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へ移動</a>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="topbar__brand" href="/ja/">
+      <span class="topbar__mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      Tokumaru Labs
+    </a>
+    <nav class="topnav" aria-label="メインメニュー">
+      <a href="/ja/#products">ツール一覧</a>
+      <a href="/ja/#about">つくり方</a>
+      <a href="/progress-sidecar/" lang="en" hreflang="en">English</a>
+      <a href="https://github.com/tokumaru-labs">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="パンくずリスト"><a href="/ja/">Tokumaru Labs</a> / Task Meter – Progress Sidecar</nav>
+
+    <div class="seg" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+    <header class="site-head">
+      <h1 class="brand">Task Meter – Progress Sidecar</h1>
+      <p class="tagline">Chrome拡張機能 · バージョン0.1.2 · Tokumaru Labs</p>
+    </header>
+
+    <p class="lead">総量・完了・残り・推定残り時間をひと目で。問題集や作業の進み具合を、Chromeのサイドパネルで確認・更新できます。ページを離れず、一覧のまま進捗を記録できます。</p>
+    <div class="page-actions">
+      <a class="btn btn--primary" href="https://chromewebstore.google.com/detail/task-meter-%E2%80%93-progress-sid/imeibpkpldljpgidebhpaphooihlajhf">Chromeウェブストアで入手</a>
+      <a class="btn" href="#how-to">導入・使い方</a>
+    </div>
+    <p class="lang-note">パソコン版Chrome向け。操作画面は日本語・英語に対応し、アカウント登録は不要です。</p>
+
+    <img class="shot"
+         src="/assets/products/progress-sidecar/screenshot-task-list-1280x800.png"
+         width="1280" height="800" loading="lazy" decoding="async"
+         alt="Progress Sidecarのタスク一覧。各タスクの総量・完了・残り・推定残り時間と、全体の進捗を表示。">
+
+    <h2>主な機能</h2>
+    <ul class="feature-list">
+      <li><strong>タスクごとの進捗を一覧表示：</strong>総量・完了量・残りの作業量・進捗率・推定残り時間を確認できます。</li>
+      <li><strong>一覧から進捗を更新：</strong><code>−</code> / <code>＋</code>ボタンや数値の直接入力で、作業の進み具合を記録できます。</li>
+      <li><strong>複数タスクの管理：</strong>タスクを追加・編集・削除できます。削除時に作られる端末内の復元用スナップショットから、削除したタスクを復元できます。</li>
+      <li><strong>JSONバックアップ：</strong>データを書き出して保存し、読み込み時には内容の検証とプレビューを確認できます。既定のMergeでは、既存データへ追加・更新します。</li>
+      <li><strong>日本語・英語の切替：</strong>表示言語を選べます。同じ端末・Chromeプロファイルで複数のサイドパネルを開いても、表示内容を揃えます。</li>
+    </ul>
+
+    <h2 id="how-to">導入・使い方</h2>
+    <ol class="guide-steps">
+      <li><strong>Chromeウェブストアから追加</strong><a href="https://chromewebstore.google.com/detail/task-meter-%E2%80%93-progress-sid/imeibpkpldljpgidebhpaphooihlajhf">Task Meter – Progress Sidecarのストアページ</a>をパソコン版Chromeで開き、「Chromeに追加」から拡張機能を追加します。インストールにはインターネット接続が必要です。</li>
+      <li><strong>サイドパネルでタスクを登録</strong>Progress Sidecarを開き、タスク名・合計量・単位・1単位あたりの予想時間などを入力します。</li>
+      <li><strong>進んだ分を記録</strong>完了量を更新して、残りの作業量と推定残り時間を確認します。推定残り時間は、入力した1単位あたりの予想時間をもとにした目安です。</li>
+    </ol>
+
+    <h2 id="privacy">プライバシーとデータ保存</h2>
+    <ul>
+      <li>タスク・進捗・表示設定・復元用スナップショットは、使用中の端末のChromeが管理する<code>chrome.storage.local</code>にのみ保存します。</li>
+      <li><code>chrome.storage.sync</code>は使用せず、他端末への自動同期やクラウド保存はありません。複数のサイドパネルで表示を揃える機能も、他端末への同期ではありません。</li>
+      <li>拡張機能はネットワーク通信を行わず、保存した情報の外部送信・第三者への提供や販売はありません。</li>
+      <li>アカウント登録・広告・アクセス解析・トラッキング・テレメトリはありません。閲覧履歴や個人識別情報を要求・収集しません。</li>
+      <li>要求する権限は<code>sidePanel</code>と<code>storage</code>のみ。ホスト権限やウェブページへのスクリプト挿入は行いません。</li>
+    </ul>
+
+    <h3>バックアップと削除時の注意</h3>
+    <p>Exportは、利用者が操作したときだけJSONファイルを端末に保存します。Importは、利用者が選んだ端末内のJSONファイルだけを読み込みます。</p>
+    <p>拡張機能をアンインストールすると、タスクや復元用スナップショットを含むローカルデータも削除されます。残したいデータは、削除前にExportで保存してください。書き出したJSONファイルはアンインストールでは消えないため、不要になった場合は自分で削除してください。</p>
+    <p>詳しくは<a href="/progress-sidecar/privacy/">プライバシーポリシー（日本語が正本・英語併記）</a>をご覧ください。</p>
+
+    <h2>関連リンク</h2>
+    <div class="page-actions">
+      <a class="btn" href="/progress-sidecar/privacy/">プライバシーポリシー</a>
+      <a class="btn btn--primary" href="https://chromewebstore.google.com/detail/task-meter-%E2%80%93-progress-sid/imeibpkpldljpgidebhpaphooihlajhf">Chromeウェブストアで入手</a>
+    </div>
+
+    <p style="margin-top:28px;"><a href="/ja/#products">← ツール一覧へ戻る</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap" style="padding-bottom:0;">
+    <div class="foot-grid">
+      <a href="https://github.com/tokumaru-labs">GitHub Organization</a>
+      <a href="https://github.com/tokumaru-labs/tokumaru-labs.github.io/issues">お問い合わせ・不具合報告</a>
+      <a href="/progress-sidecar/privacy/">プライバシーポリシー</a>
+    </div>
+    <p class="foot-note">© 2026 Tokumaru Labs · このサイトはアクセス解析・トラッキング・Cookieを使用しません。</p>
+  </div>
+</footer>
+</body>
+</html>
