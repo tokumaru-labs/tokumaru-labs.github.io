@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "products": [
+    {"id":"toku-control","name":"TOKU CONTROL","repository":"tokumaru-labs/toku-control","asset_pattern":"^TOKU-CONTROL-v[0-9][0-9A-Za-z.+-]*-win-x64\\.zip$","page":"/ja/toku-control/","color":"#2775cf"},
+    {"id":"vscode-themes","name":"VS Code Themes · VSIX","repository":"tokumaru-labs/tokumaru-labs.github.io","asset_pattern":"^tokumaru-vscode-themes-[0-9][0-9A-Za-z.+-]*\\.vsix$","page":"/ja/vscode-themes/","color":"#a55b20"}
+  ]
+}

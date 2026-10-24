@@ -56,6 +56,7 @@ HTML以外のSVG/PDF等のフラグメントは、そのファイルの存在の
 
 | ページ・規則 | 扱いと理由 |
 | --- | --- |
+| `/stats/` | 公開集計データの裏ページ。noindex/nofollow/noarchiveとサイトマップ非掲載を必須化。認証ページではない |
 | `/after-hours/` | 隠し部屋。canonical / OG / JSON-LD / hreflangの必須化を免除。noindex/nofollow/noarchiveとサイトマップ非掲載は必須 |
 | `/toku-chime/` | 非公開アプリ。検索メタデータの必須化を免除。noindexとサイトマップ非掲載は必須 |
 | `/404.html` | エラーページ。同様に検索メタデータの必須化を免除し、noindexとサイトマップ非掲載を必須化 |

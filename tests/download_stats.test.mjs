@@ -1,0 +1,18 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {series,summary,validate,csv} from '../stats/model.mjs';
+const asset=(id,count,created='2026-10-01T00:00:00Z')=>({id,count,created_at:created});
+const sample=(day,assets,status='ok')=>({observed_at:`2026-10-${day}T15:17:00Z`,products:{p:{status,total:status==='ok'?assets.reduce((n,a)=>n+a.count,0):null,assets}}});
+const history=(...snapshots)=>({schema:1,snapshots});
+test('first cumulative value is a baseline, not new downloads',()=>assert.equal(series(history(sample(24,[asset(1,6)])),'p')[0].delta,null));
+test('ordinary growth and true zero change',()=>{const rows=series(history(sample(24,[asset(1,6)]),sample(25,[asset(1,9)]),sample(26,[asset(1,9)])),'p');assert.deepEqual(rows.map(r=>r.delta),[null,3,0]);});
+test('failure stays missing and recovery spans the gap',()=>{const rows=series(history(sample(24,[asset(1,6)]),sample(25,[],'unavailable'),sample(27,[asset(1,10)])),'p');assert.equal(rows[1].total,null);assert.equal(rows[2].delta,4);assert.match(rows[2].note,/複数日/);});
+test('new release since prior observation adds only its counter',()=>{const rows=series(history(sample(24,[asset(1,6)]),sample(25,[asset(1,8),asset(2,3,'2026-10-25T01:00:00Z')])),'p');assert.equal(rows[1].delta,5);});
+test('newly discovered historical asset is not attributed to today',()=>{const rows=series(history(sample(24,[asset(1,6)]),sample(25,[asset(1,8),asset(2,100)])),'p');assert.equal(rows[1].delta,null);assert.match(rows[1].note,/比較不可/);});
+test('deleted or replaced assets break comparison',()=>{const rows=series(history(sample(24,[asset(1,6)]),sample(25,[asset(2,9)])),'p');assert.equal(rows[1].delta,null);});
+test('counter decrease breaks comparison then restarts from new baseline',()=>{const rows=series(history(sample(24,[asset(1,10)]),sample(25,[asset(1,3)]),sample(26,[asset(1,4)])),'p');assert.deepEqual(rows.map(r=>r.delta),[null,null,1]);});
+test('empty releases never masquerade as zero',()=>{const rows=series(history(sample(24,[],'no_assets'),sample(25,[asset(1,0)])),'p');assert.equal(rows[0].total,null);assert.equal(rows[1].total,0);assert.equal(rows[1].delta,null);});
+test('interval crossing selected period is excluded from period increase',()=>{const rows=series(history(sample(20,[asset(1,6)]),sample(24,[asset(1,10)]),sample(25,[asset(1,12)])),'p');const result=summary(rows,'3',Date.parse('2026-10-26T00:00:00Z'));assert.equal(result.increase,2);assert.equal(result.intervals,1);assert.equal(result.partial,true);});
+test('old data is not presented as recent',()=>{const rows=series(history(sample(20,[asset(1,6)]),sample(21,[asset(1,10)])),'p');assert.equal(summary(rows,'7',Date.parse('2026-12-01T00:00:00Z')).shown.length,0);});
+test('validation rejects mismatched totals, missing-as-zero and duplicated time',()=>{const bad=history(sample(24,[asset(1,6)]));bad.snapshots[0].products.p.total=100;assert.throws(()=>validate(bad));const missing=history(sample(24,[],'no_assets'));missing.snapshots[0].products.p.total=0;assert.throws(()=>validate(missing));assert.throws(()=>validate(history(sample(24,[asset(1,6)]),sample(24,[asset(1,6)]))));});
+test('CSV preserves missing fields, JST dates and escapes formulas/quotes',()=>{const result=csv(history(sample(24,[asset(1,6)]),sample(25,[],'unavailable')),[{id:'p',name:'=unsafe,"text"'}]);assert.ok(result.startsWith('\uFEFF'));assert.match(result,/2026\/10\/25 00:17/);assert.match(result,/"'\=unsafe,""text"""/);assert.match(result,/,"unavailable",/);});
