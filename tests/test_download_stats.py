@@ -143,9 +143,43 @@ class MirrorTests(unittest.TestCase):
         with self.assertRaises(ValueError):mv.mirror(self.api,self.path,'commit')
         self.assertTrue(all(c[1]=='GET' for c in self.calls))
     def test_unexpected_draft_is_not_modified(self):
-        self.release.update(draft=True,name='Someone else draft');self.api.pages=lambda _:iter([])
+        self.release.update(draft=True,name='Someone else draft')
+        self.api.pages=lambda path:iter([] if path.endswith('/assets') else [self.release])
+        def request(path,method='GET',payload=None,**kw):
+            self.calls.append((path,method,payload))
+            if method=='GET':raise HTTPError('u',404,'Not found',{},None)
+            self.fail('Unexpected draft must not trigger a write')
+        self.api.request=request
         with self.assertRaises(ValueError):mv.mirror(self.api,self.path,'commit')
         self.assertTrue(all(c[1]=='GET' for c in self.calls))
+    def test_interrupted_draft_resumes_without_creating_a_second_release(self):
+        for uploaded in [False,True]:
+            with self.subTest(uploaded=uploaded):
+                self.calls=[];listing=[];draft=dict(self.release,draft=True)
+                def pages(path):
+                    listing.append(path)
+                    return iter(([self.asset] if uploaded else []) if path.endswith('/assets') else [dict(draft,tag_name='unrelated'),draft])
+                def request(path,method='GET',payload=None,**kw):
+                    self.calls.append((path,method,payload))
+                    if method=='GET':raise HTTPError('u',404,'Published release not found',{},None)
+                    if method=='POST' and path.endswith('/releases'):raise HTTPError('u',422,'Draft already exists',{},None)
+                    if 'assets?' in path:return self.asset
+                    return {}
+                self.api.pages=pages;self.api.request=request
+                mv.mirror(self.api,self.path,'commit')
+                self.assertIn(f'/repos/{ds.REPOSITORY}/releases',listing)
+                self.assertFalse(any(c[1]=='POST' and c[0].endswith('/releases') for c in self.calls))
+                self.assertEqual(sum(c[1]=='POST' for c in self.calls),0 if uploaded else 1)
+                self.assertEqual(self.calls[-1][1:],('PATCH',{'draft':False,'make_latest':'false'}))
+    def test_ambiguous_drafts_are_not_modified(self):
+        draft=dict(self.release,draft=True)
+        self.api.pages=lambda _:iter([draft,dict(draft,id=2)])
+        def request(path,method='GET',payload=None,**kw):
+            self.calls.append((path,method,payload))
+            if method=='GET':raise HTTPError('u',404,'Not found',{},None)
+            self.fail('Ambiguous drafts must not trigger a write')
+        self.api.request=request
+        with self.assertRaises(ValueError):mv.mirror(self.api,self.path,'commit')
     def test_new_release_is_draft_until_upload_verified(self):
         self.api.pages=lambda _:iter([])
         def request(path,method='GET',payload=None,**kw):

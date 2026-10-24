@@ -23,12 +23,20 @@ def mirror(api, source, commit):
     except urllib.error.HTTPError as error:
         if error.code != 404:
             raise
-        release = api.request(prefix, 'POST', {
-            'tag_name': TAG, 'target_commitish': commit, 'name': TITLE, 'draft': True,
-            'prerelease': False, 'make_latest': 'false',
-            'body': 'Byte-identical mirror of the existing website VSIX for GitHub download statistics.\n\n'
-                    'No extension changes. Marketplace distribution and the website fallback remain available.\n\n'
-                    f'SHA-256: `{DIGEST.split(":")[1]}`'})
+        # The tag endpoint only finds published releases. Resume a prior draft
+        # from the authenticated, paginated list after an interrupted upload.
+        candidates = [r for r in api.pages(prefix) if r.get('tag_name') == TAG]
+        if len(candidates) > 1:
+            raise ValueError('Multiple releases use the reserved tag; refusing modification')
+        if candidates:
+            release = candidates[0]
+        else:
+            release = api.request(prefix, 'POST', {
+                'tag_name': TAG, 'target_commitish': commit, 'name': TITLE, 'draft': True,
+                'prerelease': False, 'make_latest': 'false',
+                'body': 'Byte-identical mirror of the existing website VSIX for GitHub download statistics.\n\n'
+                        'No extension changes. Marketplace distribution and the website fallback remain available.\n\n'
+                        f'SHA-256: `{DIGEST.split(":")[1]}`'})
     release_id = int(release['id'])
     if release['draft'] and (release['name'] != TITLE or release['tag_name'] != TAG or release['prerelease']):
         raise ValueError('Unexpected draft metadata; refusing modification')
