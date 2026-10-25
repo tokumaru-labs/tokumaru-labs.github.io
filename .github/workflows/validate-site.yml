@@ -40,6 +40,8 @@ jobs:
         run: python -B -m unittest discover -s tests -p 'test_download_stats.py' -v
       - name: Test statistics calculations and CSV export
         run: node --test tests/download_stats.test.mjs
+      - name: Validate CHA.EXE archive and reproducible machine code
+        run: python -B -m unittest discover -s tests -p 'test_cha_exe.py' -v
       - name: Validate the checked-out site
         if: ${{ !cancelled() && steps.python.outcome == 'success' }}
         run: python scripts/validate_site.py --summary "$GITHUB_STEP_SUMMARY"
