@@ -3,3 +3,15 @@
 @media(max-width:640px){body{padding:16px 10px max(16px,env(safe-area-inset-bottom));align-items:flex-start}.cabinet{padding:15px 12px 0;border-radius:20px}.cabinet-top{font-size:9px;letter-spacing:2px;padding-bottom:12px}.serial{font-size:8px;letter-spacing:1px}.screen-bezel{padding:7px;border-radius:14px}.screen{padding:14px 16px 10px;border-radius:9px}.terminal-bar{font-size:9px;letter-spacing:1px;padding-bottom:8px}.intro{padding-top:19px}.eyebrow{font-size:8px;letter-spacing:1px;max-width:260px}.room-art{padding-inline:6px;margin-bottom:16px}.art-caption{font-size:7px;letter-spacing:1px;left:7px}.tools{gap:12px;grid-template-columns:1fr}.tool-card{display:grid;grid-template-columns:108px minmax(0,1fr)}.tool-art{border-bottom:0;border-right:1px solid var(--border);display:flex;align-items:center}.tool-art canvas{width:100%;height:auto;object-fit:contain;image-rendering:pixelated}.slot{top:7px;left:5px;font-size:7px;letter-spacing:0}.tool-body{padding:12px 14px}.tool-code{font-size:8px;letter-spacing:1px}h2{font-size:18px}.tool-body>p:not(.tool-code){font-size:11px;margin:8px 0 12px;line-height:1.7}.open{font-size:11px;padding-top:10px}.terminal-footer{margin-top:17px;font-size:7px;letter-spacing:.5px}.terminal-footer a{font-size:10px}.cabinet-bottom{gap:12px;padding:15px 4px;font-size:7px;letter-spacing:1px}.vents{width:60px}.maker{font-size:6px;letter-spacing:.5px}}
 @media(max-width:350px){.tool-card{grid-template-columns:82px minmax(0,1fr)}.screen{padding-inline:12px}.tool-body{padding-inline:11px}.maker{display:none}.terminal-bar>span{gap:5px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* A deliberately understated third artifact, separate from the two tools. */
+.cha-artifact{margin-top:22px;padding:15px 19px;border:1px dashed #365a3b;background:#07140b}
+.cha-artifact-label{margin:0 0 8px;color:var(--muted);letter-spacing:2px;font-size:9px}
+.cha-artifact-row{display:flex;align-items:center;justify-content:space-between;gap:22px}
+.cha-artifact h2{font-family:"Courier New",ui-monospace,monospace;font-weight:600;font-size:17px;letter-spacing:1px}
+.cha-artifact h2 span{font-size:12px;color:var(--phosphor);font-weight:400;white-space:nowrap}
+.cha-artifact-row p{font-size:11px;color:#91bd8d;margin:6px 0 0;line-height:1.65}
+.cha-artifact .cha-artifact-notice{font-size:9px;color:var(--muted)}
+.cha-artifact-download{display:inline-flex;align-items:center;gap:8px;justify-content:space-between;min-height:44px;flex-shrink:0;padding:8px 12px;border:1px solid #46734b;text-decoration:none;font-size:11px;white-space:nowrap}
+.cha-artifact-download:hover{color:var(--bright);border-color:var(--phosphor);background:#142d19}
+@media(max-width:640px){.cha-artifact{padding:13px 14px;margin-top:16px}.cha-artifact-row{align-items:flex-start;flex-direction:column;gap:10px}.cha-artifact h2{font-size:15px}.cha-artifact h2 span{font-size:11px}.cha-artifact-download{align-self:flex-start}}
