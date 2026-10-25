@@ -26,7 +26,7 @@ class TestChaExe(unittest.TestCase):
         html = (ROOT / "after-hours/index.html").read_text(encoding="utf-8")
         self.assertIn('id="cha-exe-download"', html)
         self.assertIn('href="/after-hours/assets/CHA_EXE_Im_Still_Here.zip"', html)
-        self.assertIn("Windows実機での起動は未確認", html)
+        self.assertIn("Windows CIで起動確認済み（個人PC未検証）", html)
         self.assertEqual(html.count('class="tool-card"'), 2)
         self.assertIn('name="robots" content="noindex,nofollow,noarchive"', html)
         self.assertNotIn("after-hours", (ROOT / "sitemap.xml").read_text(encoding="utf-8"))
