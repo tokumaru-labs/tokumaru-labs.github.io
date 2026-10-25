@@ -85,6 +85,8 @@ node tests/download-stats.cjs
 Optional browser-test environment variables: `STATS_CHROMIUM`, `STATS_QA_OUTPUT`.
 Browser tests stub only GitHub data and never download real release assets.
 History chart fixtures are test-only and never shipped as production data.
+Fixture timestamps and the browser clock are fixed at 2026-10-25, so the
+rolling-window assertions remain reproducible after the initial record ages.
 
 A non-writing live observation is available with:
 

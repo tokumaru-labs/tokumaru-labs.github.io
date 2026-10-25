@@ -11,8 +11,10 @@ const server=http.createServer((req,res)=>{
 });
 const initial=JSON.parse(fs.readFileSync(path.join(root,'stats/initial.json'),'utf8'));
 const DATA='https://raw.githubusercontent.com/tokumaru-labs/tokumaru-labs.github.io/download-stats-data/downloads.json';
+// Keep both fixture timestamps and browser Date independent of the host date.
+const TEST_NOW=Date.parse('2026-10-25T03:00:00Z');
 const latest=structuredClone(initial.snapshots[0]);
-const fixture=()=>{const first=structuredClone(latest),last=structuredClone(latest);first.observed_at=new Date(Date.now()-86400000).toISOString();last.observed_at=new Date().toISOString();last.products['toku-control'].total+=3;last.products['toku-control'].assets[0].count+=3;return {schema:1,snapshots:[first,last]};};
+const fixture=()=>{const first=structuredClone(latest),last=structuredClone(latest);first.observed_at=new Date(TEST_NOW-86400000).toISOString();last.observed_at=new Date(TEST_NOW).toISOString();last.products['toku-control'].total+=3;last.products['toku-control'].assets[0].count+=3;return {schema:1,snapshots:[first,last]};};
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port;
  let browser,checks=0;const errors=[];
@@ -20,6 +22,7 @@ const fixture=()=>{const first=structuredClone(latest),last=structuredClone(late
  try{
   browser=await chromium.launch({executablePath:process.env.STATS_CHROMIUM||undefined,headless:true,args:['--no-sandbox','--single-process','--disable-dev-shm-usage']});
   const page=await browser.newPage({viewport:{width:1280,height:900},acceptDownloads:true});page.on('pageerror',e=>errors.push(e.message));
+  await page.clock.setFixedTime(new Date(TEST_NOW));
   let payload=initial,rawFailure=false;
   await page.route(DATA,route=>rawFailure?route.fulfill({status:503,body:'Unavailable'}):route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(payload)}));
   const open=async()=>{await page.goto(base+'/stats/');await page.locator('#analysis').waitFor({state:'visible'});};
@@ -49,11 +52,11 @@ const fixture=()=>{const first=structuredClone(latest),last=structuredClone(late
   await page.setViewportSize({width:390,height:844});await page.screenshot({path:path.join(out,'fixture-history-mobile.png'),fullPage:true});
   rawFailure=true;await open();check((await page.locator('#load-status').innerText()).includes('初回記録'),'network failure shows labeled initial fallback');
   rawFailure=false;payload=fixture();payload.snapshots.at(-1).products['toku-control'].total=999;await open();check((await page.locator('#load-status').innerText()).includes('初回記録'),'invalid counters fall back without inventing totals');
-  payload=fixture();payload.snapshots=payload.snapshots.slice(0,1);payload.snapshots[0].observed_at=new Date(Date.now()-4*86400000).toISOString();await open();check((await page.locator('#load-status').innerText()).includes('2日以上'),'stale history is clearly labeled');
+  payload=fixture();payload.snapshots=payload.snapshots.slice(0,1);payload.snapshots[0].observed_at=new Date(TEST_NOW-4*86400000).toISOString();await open();check((await page.locator('#load-status').innerText()).includes('2日以上'),'stale history is clearly labeled');
   rawFailure=true;await page.route('**/stats/initial.json',route=>route.fulfill({status:503,body:'Unavailable'}));await page.goto(base+'/stats/');await page.waitForFunction(()=>document.getElementById('load-status').textContent.includes('読み込めません'));check(await page.locator('#overview').isHidden(),'complete failure shows no fabricated metrics');await page.unroute('**/stats/initial.json');rawFailure=false;
   const name='tokumaru-vscode-themes-0.2.1.vsix';
   const url='https://github.com/tokumaru-labs/tokumaru-labs.github.io/releases/download/vscode-themes-v0.2.1/'+name;
-  payload=fixture();payload.snapshots.at(-1).products['vscode-themes']={status:'ok',total:0,assets:[{id:9,name,url,count:0,created_at:new Date().toISOString(),digest:'sha256:56a57076068c2244ec5ebd515f1b54043b89670fc118ff440db3aabfd387ffa5'}]};
+  payload=fixture();payload.snapshots.at(-1).products['vscode-themes']={status:'ok',total:0,assets:[{id:9,name,url,count:0,created_at:new Date(TEST_NOW).toISOString(),digest:'sha256:56a57076068c2244ec5ebd515f1b54043b89670fc118ff440db3aabfd387ffa5'}]};
   for(const route of ['/','/ja/','/vscode-themes/','/ja/vscode-themes/']){
    await page.goto(base+route);await page.waitForFunction(url=>document.querySelector('a[data-release-asset]')?.href===url,url);
    check(await page.locator('a[data-release-asset]').first().getAttribute('href')===url,route+' verified mirror preferred');
