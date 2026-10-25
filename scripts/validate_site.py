@@ -20,6 +20,7 @@ ORIGIN = "https://tokumaru-labs.github.io"
 SITEMAP_NS = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
 # Exact paths, never wildcard suppressions. Present metadata is still validated.
 HIDDEN = {
+    "stats/index.html": {"noindex", "nofollow", "noarchive"},
     "after-hours/index.html": {"noindex", "nofollow", "noarchive"},
     "toku-chime/index.html": {"noindex"},
     "404.html": {"noindex"},
@@ -27,6 +28,7 @@ HIDDEN = {
 POLICY = "progress-sidecar/privacy/index.html"
 VERIFICATION = "google9e6b85ab3daa42f4.html"
 EXCEPTIONS = {
+    "stats/index.html": "Unlisted aggregate statistics: noindex/nofollow/noarchive and sitemap exclusion required; URL is public, not authenticated.",
     "after-hours/index.html": "Hidden launcher: no search metadata required; noindex/nofollow/noarchive and sitemap exclusion required.",
     "toku-chime/index.html": "Hidden app: no search metadata required; noindex and sitemap exclusion required.",
     "404.html": "Error page: no search metadata required; noindex and sitemap exclusion required.",

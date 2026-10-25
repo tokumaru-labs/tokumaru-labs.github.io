@@ -42,7 +42,8 @@ class SiteValidationTests(unittest.TestCase):
                        f'<link rel="canonical" href="{SITE}{url}">{links}{metadata}</head>'
                        '<body><main id="main"><a href="#main">Main</a>'
                        '<img src="/asset.png"></main></body></html>')
-        for path, tokens in (("404.html", "noindex, follow"),
+        for path, tokens in (("stats/index.html", "noindex,nofollow,noarchive"),
+                             ("404.html", "noindex, follow"),
                              ("after-hours/index.html", "noindex,nofollow,noarchive"),
                              ("toku-chime/index.html", "noindex")):
             self.write(path, '<html lang="ja"><head>'
@@ -89,8 +90,18 @@ class SiteValidationTests(unittest.TestCase):
 
     def test_valid_site_and_all_documented_exceptions(self):
         result = self.assertPass()
-        self.assertEqual(9, len(result.pages))
-        self.assertEqual(6, len(result.used_exceptions))
+        self.assertEqual(10, len(result.pages))
+        self.assertEqual(7, len(result.used_exceptions))
+
+    def test_statistics_page_must_remain_unindexed(self):
+        self.write("stats/index.html", '<html lang="ja"><head></head><body>Stats</body></html>')
+        self.assertError("hidden", "robots")
+
+    def test_statistics_page_cannot_enter_sitemap(self):
+        p = self.root / "sitemap.xml"
+        text = p.read_text().replace("</urlset>", '<url><loc>https://tokumaru-labs.github.io/stats/</loc><lastmod>2026-10-24</lastmod></url></urlset>')
+        p.write_text(text)
+        self.assertError("sitemap", "intentionally hidden")
 
     def test_relative_absolute_encoded_query_and_legacy_anchors(self):
         self.add_body('<a name="legacy"></a><p id="日本語"></p>'
