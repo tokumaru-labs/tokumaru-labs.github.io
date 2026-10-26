@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Arcade Counter Timer — Count-up timer and tally counter | Tokumaru Labs</title>
-<meta name="description" content="Arcade Counter Timer is a Chrome extension: a count-up timer and tally counter with local statistics and brief arcade-style milestone effects. Works offline.">
+<meta name="description" content="Arcade Counter Timer is a Chrome extension: a count-up timer and tally counter with six themes, repeatable count undo and local statistics. Works offline.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0f1720">
 <link rel="canonical" href="https://tokumaru-labs.github.io/arcade-counter-timer/">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tokumaru Labs">
 <meta property="og:title" content="Arcade Counter Timer — Count-up timer and tally counter">
-<meta property="og:description" content="A count-up timer and tally counter that turns into a small arcade machine at every milestone. Local stats, works offline.">
+<meta property="og:description" content="A count-up timer and tally counter that turns into a small arcade machine at every milestone. Six themes, repeatable count undo and local stats. Works offline.">
 <meta property="og:url" content="https://tokumaru-labs.github.io/arcade-counter-timer/">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ja_JP">
@@ -29,10 +29,10 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "Arcade Counter Timer",
-  "description": "A count-up timer and tally counter for Chrome, with popup, floating and side-panel views, local statistics and offline operation.",
+  "description": "A count-up timer and tally counter for Chrome, with popup, floating and side-panel views, six themes, persistent repeatable count undo, local statistics and offline operation.",
   "applicationCategory": "BrowserApplication",
   "operatingSystem": "Chrome",
-  "softwareVersion": "0.2.0",
+  "softwareVersion": "0.3.0",
   "installUrl": "https://chromewebstore.google.com/detail/arcade-counter-timer/cfonffmpidgimppooikhhhlceaoipkeb",
   "publisher": { "@type": "Organization", "name": "Tokumaru Labs" },
   "url": "https://tokumaru-labs.github.io/arcade-counter-timer/"
@@ -65,7 +65,7 @@
 
     <header class="site-head">
       <h1 class="brand">Arcade Counter Timer</h1>
-      <p class="tagline">Chrome Extension · version 0.2.0 · Tokumaru Labs</p>
+      <p class="tagline">Chrome Extension · version 0.3.0 · Tokumaru Labs</p>
     </header>
 
     <p class="lead">A count-up timer and tally counter for Chrome. Use it in a toolbar popup, a draggable floating panel, or Chrome's side panel, with brief arcade-style feedback at milestones.</p>
@@ -75,6 +75,8 @@
          src="/assets/products/arcade-counter-timer/screenshot-main-1280x800.png"
          width="1280" height="800" loading="lazy" decoding="async"
          alt="Arcade Counter Timer: a running count-up timer at 00:12:34 and a large count of 18, with STOP and COUNT buttons.">
+
+    <p class="lang-note">The image above shows an earlier version. See the Chrome Web Store screenshots for the 0.3.0 themes.</p>
 
     <h2>Key features</h2>
     <ul class="feature-list">
@@ -86,13 +88,22 @@
       <li>Every effect (sound, fly text, chain, CRT scanlines) can be switched off. Works entirely offline.</li>
     </ul>
 
+    <h2>New in 0.3.0</h2>
+    <ul class="feature-list">
+      <li><strong>Six themes:</strong> Space Age, Arcade, Editorial, Steampunk, Art Deco and Nixie. Every theme shares the same timer, counter and records. An existing Original preference becomes Space Age. Images and fonts are bundled for offline use.</li>
+      <li><strong>Repeatable COUNT undo:</strong> press UNDO to remove retained COUNT operations in reverse order. History survives closing a view or restarting Chrome and is shared across popup, floating and side-panel views. Each undo corrects the count's original day's statistics, even after midnight, without rewinding the timer.</li>
+    </ul>
+    <p class="lang-note">Timer, count, session and full-data resets clear undo history. Start/stop and theme changes keep it. A valid older single undo step can carry forward, but past operations cannot be reconstructed from totals.</p>
+
     <h2>Privacy</h2>
     <ul>
       <li>Works entirely offline with no account and no network communication.</li>
-      <li>Timer state and statistics are kept locally on your device.</li>
+      <li>Timer state, counts, undo history, statistics and settings are kept locally on your device.</li>
       <li>No analytics, no tracking, and no ads.</li>
     </ul>
     <p class="lang-note" lang="ja">完全オフラインで動作し、アカウント不要。タイマーと統計は端末内にのみ保存し、分析・トラッキング・広告はありません。</p>
+
+    <p>Free to install and use. Normal updates with the same extension ID retain records and settings. Update the existing extension: uninstalling it removes local data.</p>
 
     <h2>Links</h2>
     <p>
