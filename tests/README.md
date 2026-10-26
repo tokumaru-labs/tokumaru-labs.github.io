@@ -86,3 +86,96 @@ HTML以外のSVG/PDF等のフラグメントは、そのファイルの存在の
 `test_validate_site.py` は一時ディレクトリ内の小さなサイトを意図的に壊して検出を確認します。
 実サイトを変更せず、正常例、例外、リンク切れ、片方向hreflang、不正JSON、無効日付、
 非公開設定の欠落、終了コード・JSON/Markdown出力・GitHub注釈などを検証します。
+
+
+## CHA.EXE: Windows preflight and opt-in runtime test
+
+Run from a trusted checkout in an ordinary (non-administrator) Windows terminal.
+Windows PowerShell 5.1 and PowerShell 7 syntax are supported. Use native x64
+Windows and 64-bit PowerShell for execution. **Consumer Windows 10/11 physical
+devices remain unverified**; a Windows Server 2022 CI pass is not a consumer-PC pass.
+
+From the repository root, the default performs integrity checks and attempts a
+Defender custom scan, but **does not launch CHA.EXE**:
+
+```powershell
+./tests/cha_windows_smoke.ps1
+```
+
+Only after choosing to run the executable, use:
+
+```powershell
+./tests/cha_windows_smoke.ps1 -RunExecutable
+```
+
+Optional output parent and time limits:
+
+```powershell
+./tests/cha_windows_smoke.ps1 -OutputDirectory "$env:TEMP/cha-checks" -ScanTimeoutSeconds 120 -DialogTimeoutSeconds 20
+```
+
+Each invocation creates a new `cha-smoke-<GUID>` directory. The default parent is
+the OS temporary directory; a valid RUNNER_TEMP is used only on GitHub-hosted
+Windows CI. The console prints the path to `result.json`. Keep it as evidence.
+The directory also retains the package snapshot and extracted files; the script
+does not recursively delete or reuse directories. Output-path setup errors can
+occur before a report can be written.
+
+The test checks the pinned ZIP hash before extraction, the EXE hash after
+extraction, and the EXE hash again after scanning immediately before opt-in launch.
+A read-only handle prevents replacement through normal filesystem writes during
+the runtime check. Hash matches establish identity with the reviewed artifact,
+not universal safety. If the ZIP has a Zone.Identifier (Mark of the Web), that
+metadata is copied to the snapshot and every extracted file. No Unblock-File,
+execution-policy change, security exclusion, warning acceptance, antivirus
+disablement, or elevation is performed. A policy/security warning is a stop
+condition: leave it in place and retain the report; do not use Run anyway.
+
+Defender command availability, antivirus service state, engine/signature versions,
+signature update time, scan-job completion, and detections matching this unique
+binary path are recorded separately. A scan timeout (default 120 seconds), access
+error, failed scan, or unreadable detection history fails verification. Detected
+threats, including remediated detections for this path, block execution. Other
+files' threat history is not logged. Normal Defender remediation remains enabled;
+the test never restores quarantined files. The script does not update signatures
+or alter cloud-protection settings; existing Defender policy may contact Microsoft.
+
+| Report status | Meaning |
+| --- | --- |
+| PreflightPassed | Hashes verified and custom scan completed with no matching detection; EXE not launched |
+| PreflightIncomplete | Hashes verified, Defender unavailable/inactive; EXE not launched; not a scan pass |
+| Passed | Explicit execution verified the owned visible dialog, exact message and exit code 0 |
+| PassedWithDefenderUnavailable | GitHub-hosted CI runtime check passed with a separately recorded unavailable scan |
+| Failed | Integrity, scan or runtime check failed; see error and execution fields |
+
+Unavailable Defender blocks local execution, even when another antivirus is
+installed. There is no local override. CI explicitly supplies both
+`-RunExecutable -AllowUnavailableDefenderOnCI`; the latter is accepted only with
+GitHub-hosted Windows runner metadata and only for the Unavailable state. It does
+not exempt detections, errors, timeouts, or unknown results. Environment metadata
+is an operational guard, not an authentication boundary: do not spoof it locally.
+
+The runtime check enumerates windows by the launched PID, validates the visible
+CHA.EXE dialog and exact `I'M STILL HERE.` static control, sends WM_CLOSE only to
+that owned dialog, and requires exit code 0 within ten seconds. On failure it
+cleans up only its own process instance. Elevation state is recorded, not inferred
+from the absence of an elevation request. The JSON can include local paths;
+review it before sharing.
+
+Regression tests require no Pester installation and use mocks; they do not launch
+CHA.EXE or invoke a real Defender scan:
+
+```powershell
+./tests/test_cha_windows_smoke.ps1
+```
+
+CI runs those cases under both Windows PowerShell 5.1 and PowerShell 7, then runs
+the existing pinned artifact's real dialog test on Windows Server 2022. The
+JSON is printed in the job summary and uploaded as an artifact for 14 days,
+including on failure. Consumer Windows 10/11, local Defender policy behavior,
+and real SmartScreen warning presentation require separate physical-device checks.
+
+Microsoft references:
+- [Start-MpScan](https://learn.microsoft.com/en-us/powershell/module/defender/start-mpscan)
+- [Get-MpThreatDetection](https://learn.microsoft.com/en-us/powershell/module/defender/get-mpthreatdetection)
+- [Review scan results](https://learn.microsoft.com/en-us/defender-endpoint/review-scan-results-microsoft-defender-antivirus)
