@@ -179,3 +179,18 @@ Microsoft references:
 - [Start-MpScan](https://learn.microsoft.com/en-us/powershell/module/defender/start-mpscan)
 - [Get-MpThreatDetection](https://learn.microsoft.com/en-us/powershell/module/defender/get-mpthreatdetection)
 - [Review scan results](https://learn.microsoft.com/en-us/defender-endpoint/review-scan-results-microsoft-defender-antivirus)
+
+### Recorded CI verification (2026-10-26)
+
+[Actions run 40270196077](https://github.com/tokumaru-labs/tokumaru-labs.github.io/actions/runs/40270196077)
+tested implementation commit `b6094a9b9c16406b29506a3578f308572b306a1d`:
+
+- 25/25 mocked safeguard cases passed in each of Windows PowerShell 5.1 and PowerShell 7.
+- The actual Server 2022 runtime check verified the exact dialog text and exit code 0.
+- Pinned ZIP, extracted EXE and prelaunch EXE hashes matched.
+- Defender custom scan completed with no matching detections; the CI unavailable exception was **not** used.
+- The report recorded an elevated hosted-runner token and realtime protection disabled by the runner environment. The script did not change either setting; this evidence is **not** a non-administrator consumer-PC test or a realtime-protection test.
+- The JSON artifact was uploaded successfully; the independent package reproducibility tests and existing site CI also passed.
+
+Local Windows 10/11 execution and Defender/SmartScreen behavior remain unverified.
+The development execution environment was unavailable; no local EXE was launched.
