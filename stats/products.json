@@ -1,7 +1,9 @@
 {
   "schema": 1,
   "products": [
-    {"id":"toku-control","name":"TOKU CONTROL","repository":"tokumaru-labs/toku-control","asset_pattern":"^TOKU-CONTROL-v[0-9][0-9A-Za-z.+-]*-win-x64\\.zip$","page":"/ja/toku-control/","color":"#2775cf"},
-    {"id":"vscode-themes","name":"VS Code Themes · VSIX","repository":"tokumaru-labs/tokumaru-labs.github.io","asset_pattern":"^tokumaru-vscode-themes-[0-9][0-9A-Za-z.+-]*\\.vsix$","page":"/ja/vscode-themes/","color":"#a55b20"}
+    {"id":"toku-control","name":"TOKU CONTROL","label":"TOKU CONTROL · 通常ZIP","description":"通常配布のWindows ZIP取得回数。従来と同じ集計条件で、過去の履歴を引き継ぎます。","repository":"tokumaru-labs/toku-control","asset_pattern":"^TOKU-CONTROL-v[0-9][0-9A-Za-z.+-]*-win-x64\\.zip$","page":"/ja/toku-control/","color":"#2775cf"},
+    {"id":"vscode-themes","name":"VS Code Themes · VSIX","repository":"tokumaru-labs/tokumaru-labs.github.io","asset_pattern":"^tokumaru-vscode-themes-[0-9][0-9A-Za-z.+-]*\\.vsix$","page":"/ja/vscode-themes/","color":"#a55b20"},
+    {"id":"toku-control-portable","name":"TOKU CONTROL · Portable ZIP（参考）","description":"別名Portable ZIPの取得回数。通常ZIPと同じ内容ですが、独立した参考指標です。通常配布の累計には加算しません。","reference":true,"repository":"tokumaru-labs/toku-control","asset_pattern":"^TokuControl-win-Portable\\.zip$","page":"/ja/toku-control/","color":"#64748b"},
+    {"id":"toku-control-update","name":"TOKU CONTROL · 更新パッケージ（参考）","description":"更新用full.nupkgの取得回数。手動取得・再取得・動作確認分も含み得ます。利用者数や更新成功数ではなく、他の指標と合算しません。","reference":true,"repository":"tokumaru-labs/toku-control","asset_pattern":"^TokuControl-[0-9][0-9A-Za-z.+-]*-full\\.nupkg$","page":"/ja/toku-control/","color":"#7e5b9b"}
   ]
 }

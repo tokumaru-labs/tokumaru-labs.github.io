@@ -17,6 +17,8 @@ P = {'id':'control','repository':'tokumaru-labs/toku-control','asset_pattern':r'
 NOW = '2026-10-24T15:17:00Z'
 ASSET = {'id':1,'name':'app.zip','state':'uploaded','download_count':6,'created_at':'2026-10-21T00:00:00Z','browser_download_url':'https://github.com/tokumaru-labs/toku-control/releases/download/v1/app.zip','digest':'sha256:example'}
 RELEASE = {'id':10,'tag_name':'v1','draft':False,'prerelease':False}
+PRODUCTS = json.loads((ds.ROOT / 'stats/products.json').read_text())['products']
+CONTROL_METRICS = [p for p in PRODUCTS if p['repository'] == 'tokumaru-labs/toku-control']
 
 class Fake:
     def __init__(self, releases=None, assets=None):
@@ -33,6 +35,67 @@ def history(count=6):
     return {'schema':1,'snapshots':[{'observed_at':NOW,'products':{'control':{'status':'ok','total':count,'assets':[a]}}}]}
 
 class CollectorTests(unittest.TestCase):
+    def test_control_channels_are_disjoint_and_preserve_legacy_total(self):
+        # v0.3.0 public names plus decoys; counts are fixture values, not users.
+        names = [
+            ('TOKU-CONTROL-v0.2.1-win-x64.zip', 7),
+            ('TOKU-CONTROL-v0.2.2-win-x64.zip', 4),
+            ('TOKU-CONTROL-v0.2.3-win-x64.zip', 3),
+            ('TOKU-CONTROL-v0.3.0-win-x64.zip', 4),
+            ('TokuControl-win-Portable.zip', 1),
+            ('TokuControl-0.3.0-full.nupkg', 2),
+            ('TOKU-CONTROL-v0.3.0-source.zip', 99),
+            ('RELEASES', 99), ('releases.win.json', 99), ('SHA256SUMS.txt', 99),
+            ('TokuControl-0.3.0-delta.nupkg', 99),
+            ('TokuControl-0.3.0-full.nupkg.sha256', 99),
+            ('OtherApp-0.3.0-full.nupkg', 99), ('TokuControl-win-Portable.zip.bak', 99),
+        ]
+        assets = [dict(ASSET, id=i, name=name, download_count=count) for i, (name, count) in enumerate(names, 1)]
+        values = ds.collect(Fake(assets=assets), CONTROL_METRICS, NOW)['products']
+        self.assertEqual({key: p['total'] for key, p in values.items()}, {
+            'toku-control': 18, 'toku-control-portable': 1, 'toku-control-update': 2})
+        self.assertEqual([a['id'] for a in values['toku-control']['assets']], [1, 2, 3, 4])
+        all_ids = [a['id'] for p in values.values() for a in p['assets']]
+        self.assertEqual(sorted(all_ids), [1, 2, 3, 4, 5, 6])
+        self.assertEqual([p['id'] for p in PRODUCTS if not p.get('reference')], ['toku-control', 'vscode-themes'])
+    def test_reference_channels_skip_unpublished_assets_and_support_later_releases(self):
+        for product, name in [(CONTROL_METRICS[1], 'TokuControl-win-Portable.zip'),
+                              (CONTROL_METRICS[2], 'TokuControl-0.3.1-full.nupkg')]:
+            with self.subTest(product=product['id']):
+                asset = dict(ASSET, name=name, download_count=0)
+                self.assertEqual(ds.collect_product(Fake(assets=[asset]), product)['total'], 0)
+                self.assertEqual(ds.collect_product(Fake(assets=[dict(asset, state='new')]), product)['status'], 'no_assets')
+                for flag in ['draft', 'prerelease']:
+                    value = ds.collect_product(Fake(releases=[dict(RELEASE, **{flag: True})], assets=[asset]), product)
+                    self.assertEqual((value['status'], value['total']), ('no_assets', None))
+        # Identically named Portable ZIPs in two releases have distinct asset IDs.
+        api = Fake()
+        api.pages = lambda path: iter([dict(RELEASE, id=10), dict(RELEASE, id=11)] if not path.endswith('/assets') else [
+            dict(ASSET, id=10 if '/10/' in path else 11, name='TokuControl-win-Portable.zip', download_count=1)])
+        self.assertEqual(ds.collect_product(api, CONTROL_METRICS[1])['total'], 2)
+    def test_adding_reference_metrics_does_not_backfill_or_mutate_history(self):
+        old = history(18)
+        old['snapshots'][0]['products']['toku-control'] = old['snapshots'][0]['products'].pop('control')
+        saved = deepcopy(old)
+        sample = ds.collect(Fake(assets=[dict(ASSET, name='TokuControl-0.3.0-full.nupkg', download_count=2)]),
+                            CONTROL_METRICS, '2026-10-28T00:00:00Z')
+        result = ds.append_sample(old, sample)
+        self.assertEqual(old, saved)
+        self.assertEqual(result['snapshots'][:-1], saved['snapshots'])
+        self.assertNotIn('toku-control-update', result['snapshots'][0]['products'])
+        self.assertEqual(result['snapshots'][-1]['products']['toku-control-update']['total'], 2)
+    def test_reference_failure_leaves_distribution_observation_available(self):
+        collect_product = ds.collect_product
+        def get(api, product):
+            if product.get('reference'):
+                raise HTTPError('u', 503, 'Unavailable', {}, None)
+            return collect_product(api, product)
+        with patch.object(ds, 'collect_product', get):
+            result = ds.collect(Fake(assets=[dict(ASSET, name='TOKU-CONTROL-v0.3.0-win-x64.zip', download_count=4)]), CONTROL_METRICS, NOW)
+        self.assertEqual(result['products']['toku-control']['total'], 4)
+        for key in ['toku-control-portable', 'toku-control-update']:
+            self.assertEqual(result['products'][key]['status'], 'unavailable')
+            self.assertIsNone(result['products'][key]['total'])
     def test_collects_only_distribution_files(self):
         extra=deepcopy(ASSET);extra.update(id=2,name='SHA256SUMS.txt',download_count=99)
         api=Fake(assets=[ASSET,extra]);p=ds.collect_product(api,P)
