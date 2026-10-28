@@ -26,28 +26,34 @@
 <p id="load-status" role="status" aria-live="polite">記録を読み込んでいます…</p>
 <noscript><p class="notice">グラフにはJavaScriptが必要です。<a href="https://github.com/tokumaru-labs/tokumaru-labs.github.io/blob/download-stats-data/downloads.json">集計データをGitHubで確認</a>できます。</p></noscript>
 <section id="overview" class="metric-grid" aria-label="現在の記録" hidden>
-<article class="metric"><p>計測済みの累計</p><strong id="total">—</strong><span id="coverage">—</span></article>
+<article class="metric"><p>通常配布の取得累計</p><strong id="total">—</strong><span id="coverage">—</span></article>
 <article class="metric"><p>記録開始</p><strong class="metric-date" id="started">—</strong><span>開始前の増減は復元しません</span></article>
 <article class="metric"><p>最新の観測</p><strong class="metric-date" id="updated">—</strong><span id="freshness">—</span></article>
 </section>
 <section class="panel" id="analysis" aria-labelledby="analysis-title" hidden>
 <div class="panel-heading"><div><p class="eyebrow">OBSERVATIONS</p><h2 id="analysis-title">増え方を見る</h2></div><button id="export" type="button">全記録をCSV保存</button></div>
 <div class="controls">
-<label>作品<select id="product"></select></label>
+<label>作品・指標<select id="product" aria-describedby="metric-description"></select></label>
 <label>期間<select id="period"><option value="7">直近7日</option><option value="30" selected>直近30日</option><option value="all">全期間</option></select></label>
 <label>表示<select id="metric"><option value="increase">増分</option><option value="total">累計</option></select></label>
 </div>
+<p id="metric-description" class="chart-note"></p>
 <div class="chart-heading"><p id="chart-summary"></p><span id="chart-unit">単位：回</span></div>
 <div id="chart" class="chart" aria-live="polite"></div>
 <p class="chart-note" id="chart-note"></p>
 <div id="insight" class="insight"></div>
 </section>
 <section class="panel" id="products-panel" aria-labelledby="products-title" hidden>
-<div class="panel-heading"><div><p class="eyebrow">BY PRODUCT</p><h2 id="products-title">作品ごとの記録</h2></div></div>
+<div class="panel-heading"><div><p class="eyebrow">BY PRODUCT</p><h2 id="products-title">通常配布の記録</h2></div></div>
 <div class="table-scroll"><table><thead><tr><th scope="col">作品</th><th scope="col">最新の累計</th><th scope="col">前回から</th><th scope="col">状態</th></tr></thead><tbody id="product-rows"></tbody></table></div>
 </section>
+<section class="panel" id="reference-panel" aria-labelledby="reference-title" hidden>
+<div class="panel-heading"><div><p class="eyebrow">REFERENCE COUNTERS</p><h2 id="reference-title">TOKU CONTROLの参考指標</h2></div></div>
+<p class="chart-note">別名Portable ZIPと更新用full.nupkgの取得回数を個別に観測します。同一利用者の複数ファイル取得・再取得・動作確認分も含み得るため、通常配布や参考指標同士を合算しません。利用者数・更新成功数ではありません。</p>
+<div class="table-scroll"><table><thead><tr><th scope="col">指標</th><th scope="col">最新の累計</th><th scope="col">前回から</th><th scope="col">状態</th></tr></thead><tbody id="reference-rows"></tbody></table></div>
+</section>
 <section class="panel" id="history-panel" aria-labelledby="history-title" hidden>
-<div class="panel-heading"><div><p class="eyebrow">LOGBOOK</p><h2 id="history-title">観測履歴</h2></div><span>選択した作品・期間の最新30件</span></div>
+<div class="panel-heading"><div><p class="eyebrow">LOGBOOK</p><h2 id="history-title">観測履歴</h2></div><span>選択した指標・期間の最新30件</span></div>
 <div class="table-scroll"><table><thead><tr><th scope="col">観測日時（日本時間）</th><th scope="col">累計</th><th scope="col">増分</th><th scope="col">観測の状態</th></tr></thead><tbody id="history-rows"></tbody></table></div>
 </section>
 <details class="method" open><summary>この数字で分かること・分からないこと</summary>
@@ -56,6 +62,7 @@
 <li>Chromeウェブストア、VS Code Marketplace、サイト内の予備ファイルからの取得は含みません。VSIXの過去の直接配布分も遡って数えません。</li>
 <li>増分は2回の観測の差です。深夜0時ちょうどで区切った日別件数ではありません。取得失敗や記録のない日は0回とみなさず、次の成功時に複数日分の区間として表示します。</li>
 <li>初回記録は比較の基準です。ファイルの削除・入替・カウンターの減少で比較できない区間は「比較不可」と表示します。</li>
+<li>通常ZIPの集計条件と過去の履歴は継続します。参考指標の観測開始前は「未記録」で、0回にはしません。参考指標の初回取得値も比較の基準です。CSVでは指標ID・通常配布／参考の区分・説明を末尾の列に記載します。</li>
 <li>記録は毎日00:17ごろに取得予定です。実行が遅れることもあります。2日以上更新されない場合はページ上に表示します。</li>
 </ul>
 <p>通常メニューや検索には掲載しませんが、認証はありません。このページと集計データはURLを知っていれば閲覧できます。訪問者の個人情報やクリック履歴は収集しません。</p>
