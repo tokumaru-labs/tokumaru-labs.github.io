@@ -5,7 +5,9 @@ Python 3.12以降の標準ライブラリだけを使い、npm/pip install、ブ
 
 ```sh
 python -B -m unittest discover -s tests -p 'test_validate_site.py' -v
+python -B -m unittest discover -s tests -p 'test_sitemap_content.py' -v
 python -B scripts/validate_site.py
+python -B scripts/sitemap_content.py
 ```
 
 任意のチェックアウトや機械可読レポートを指定する場合:
@@ -69,10 +71,49 @@ HTML以外のSVG/PDF等のフラグメントは、そのファイルの存在の
 新規ページは原則として公開ページ扱いです。別の意図的な非公開ページや単一言語ページを追加する際は、
 広い除外ルールを作らず、この表・実装・回帰テストに個別の理由を追加してください。
 
+## lastmodの更新漏れ防止
+
+`scripts/sitemap_content.py` はサイトマップ掲載ページの内容と、レビュー済みの
+`scripts/sitemap-content.json`（内容ハッシュ・lastmod・判断理由）を比較します。
+既存CIで毎回実行し、追加のGit fetch、完全履歴、API、外部ライブラリは不要です。
+記録の欠落、ページの追加・削除、内容またはlastmodの変更があれば失敗します。
+
+対象は本文・title・検索メタデータ・JSON-LD・リンク・画像URL/altなどです。
+HTMLコメント、空白の整形、class/style、CSS、実行用JavaScriptは比較から除外します。
+JSON-LDはキー順や整形を正規化します。Gitの最終コミット日、ファイルmtime、CI実行日を
+自動的にlastmodへ転記しません。日付は**実質的な内容更新日**をレビューして決めます。
+ただし本文途中へのコメントや装飾用spanの挿入では、同じ表示でもテキストの分割が変わり、
+再確認が発生する場合があります。その場合は日付を保持し、下記の理由付き記録で確認します。
+
+製品を更新するときは、対応する日英製品ページと、カードを更新したトップページを確認します。
+本文・ダウンロードURL・構造化データなどの実質更新なら、まず `sitemap.xml` の対象日付を変更し、
+その日付と理由を明示して対象ページだけを記録します（次は2026-10-27の更新を記録する例）。
+
+```sh
+python -B scripts/sitemap_content.py --record index.html ja/index.html toku-control/index.html ja/toku-control/index.html --lastmod 2026-10-27 --reason "TOKU CONTROL v0.3.0: version, downloads and updater guides updated"
+python -B scripts/sitemap_content.py
+```
+
+記録コマンドはサイトマップの日付を自動変更せず、指定日との不一致を拒否します。
+同日中の再更新は同じ日付で記録できます。誤字修正・著作権年だけの変更などなら、日付を保持して
+`--reason` にその理由を書きます。ハッシュを通すためだけに日付を進めないでください。
+追加ページは通常の公開・hreflang検証も必要です。削除時は対応する記録も明示的に削除します。
+
+これは**更新日のレビュー漏れを検出する仕組み**であり、選んだ日付の歴史的な正しさや
+変更の重要性を自動証明するものではありません。PRで内容差分・日付・理由を確認してください。
+同じURLの画像ファイル差し替え、CSS/JSによる表示内容の変更は自動検出の対象外なので、
+実質更新なら影響するページのlastmodと記録を手動で更新します。
+小さな静的サイトのため、毎回全Git履歴を取得する方式や、全ファイル変更を日付更新とみなす方式は採用していません。
+
+初期記録はmain `ff19d0e6561d5628cbeacb027c2b8f4440124547` の全14掲載ページをGit履歴と照合しました。
+4ページ（英日トップ・TOKU CONTROL）のlastmodを2026-10-25から2026-10-27へ修正し、
+残る10ページは一致していたため保持しています。各記録の理由に根拠コミットを記載しています。
+基準はGoogleの[サイトマップのlastmod指針](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap#additional-notes-about-xml-sitemaps)に沿います。
+
 ## 限界と既存テスト
 
-- lastmodの**形式と暦日**を検証します。本文の実質更新日、Gitコミット日との一致、未来日、検索順位は判定しません。
-  軽微な整形と内容更新を機械的に同一視しないため、内容を変更したPRではlastmodもレビューしてください。
+- 基本検証器はlastmodの**形式と暦日**を検証し、上記の内容チェックでレビュー漏れを検出します。
+  Gitコミット日との機械的な一致、未来日、検索順位は判定しません。
 - HTML構文全体・Schema.org全語彙・リッチリザルト適格性の検証器ではありません。
   JSON-LDはこのサイトの単一文字列の@typeとschema.orgコンテキストを対象にします。
 - CSS内のurl()、JavaScriptで生成したURL・アンカー、外部サービスのHTTP状態、画像のデコードや描画は対象外です。

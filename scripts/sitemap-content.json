@@ -1,0 +1,72 @@
+{
+  "arcade-counter-timer/index.html": {
+    "lastmod": "2026-10-27",
+    "reason": "Initial audit: latest page content update in fd39da9c09299a37104a9d2919464c706d30a218",
+    "sha256": "df8eedb9332c841c1404a304ecca336223bc5a87ff65bcd12670b7b53e2fa5c7"
+  },
+  "index.html": {
+    "lastmod": "2026-10-27",
+    "reason": "Initial audit: latest page content update in 313a643091b6c8bad9bdc47781b7ed8d03ca5a90",
+    "sha256": "e48f6c4c1af7b817c903e2ea56686027e0823f8c64e6cce429cc8b841acbfff8"
+  },
+  "ja/arcade-counter-timer/index.html": {
+    "lastmod": "2026-10-27",
+    "reason": "Initial audit: latest page content update in fd39da9c09299a37104a9d2919464c706d30a218",
+    "sha256": "882775270092efe3f5c5a713584eaac2b39d76ba6ab1ccb3a2ef214a1a8ce4e3"
+  },
+  "ja/index.html": {
+    "lastmod": "2026-10-27",
+    "reason": "Initial audit: latest page content update in 313a643091b6c8bad9bdc47781b7ed8d03ca5a90",
+    "sha256": "b288f085e869777ffb87768614bb7be04d0c72afa27334b7b3b6cef01646b1b5"
+  },
+  "ja/progress-sidecar/index.html": {
+    "lastmod": "2026-10-24",
+    "reason": "Initial audit: latest page content update in 512d4a2ded0c95e6c9d9627060a34d9d463753d0",
+    "sha256": "23c5eeb1c29a96d0744d564fbe37db8bb56a914c696c594750e539f2ffaed796"
+  },
+  "ja/toku-control/index.html": {
+    "lastmod": "2026-10-27",
+    "reason": "Initial audit: latest page content update in 313a643091b6c8bad9bdc47781b7ed8d03ca5a90",
+    "sha256": "9833cba503588187bd026587d118c5786380c6113b140f23029dff7e6820bdc2"
+  },
+  "ja/transcript-sidecar/index.html": {
+    "lastmod": "2026-09-09",
+    "reason": "Initial audit: latest page content update in 1f2a5958afb34366af4fea6d469378e9900c37f0",
+    "sha256": "d8f80e50c9e72220f4ca483efa42687519030c090da806004dea003c226d153d"
+  },
+  "ja/vscode-themes/index.html": {
+    "lastmod": "2026-10-25",
+    "reason": "Initial audit: latest page content update in c62838f4c148b96d012d7091737c35b34f0e21b4",
+    "sha256": "21a46aef1e61a8e32aa28fd13ea0aadb8cfe63bd09c7d056bc4d9f45996dc72b"
+  },
+  "midnight-cockpit/index.html": {
+    "lastmod": "2026-09-09",
+    "reason": "Initial audit: latest page content update in 1f2a5958afb34366af4fea6d469378e9900c37f0",
+    "sha256": "28feef85bb1e519e42c3f6a3bcd8f24eabd9ccb8e4316336ca6b5df19532d0ec"
+  },
+  "progress-sidecar/index.html": {
+    "lastmod": "2026-10-24",
+    "reason": "Initial audit: latest page content update in 512d4a2ded0c95e6c9d9627060a34d9d463753d0",
+    "sha256": "27e05e7c2a185f79dbce8e9ddec422099c1a29e7d97c1613db2ec185600e5d47"
+  },
+  "progress-sidecar/privacy/index.html": {
+    "lastmod": "2026-07-23",
+    "reason": "Initial audit: latest page content update in 9887568b9d31d78585433083b2f31a4eca8697d2",
+    "sha256": "d7101482542d51453bd22d3e826090d7fd201befd88ae4f1a417d91198406925"
+  },
+  "toku-control/index.html": {
+    "lastmod": "2026-10-27",
+    "reason": "Initial audit: latest page content update in 313a643091b6c8bad9bdc47781b7ed8d03ca5a90",
+    "sha256": "ddf9cc7cdb5e7e652890ac0813ced5c89368d66a41910391d3d6b15a15449a42"
+  },
+  "transcript-sidecar/index.html": {
+    "lastmod": "2026-09-18",
+    "reason": "Initial audit: latest page content update in 1260ac7e1d6d6d157df77ac7d918ecc00ebf93bd",
+    "sha256": "6d2d3808652b84eb4d348036187f102847514ced3dda425687a84af4fc1441b0"
+  },
+  "vscode-themes/index.html": {
+    "lastmod": "2026-10-25",
+    "reason": "Initial audit: latest page content update in c62838f4c148b96d012d7091737c35b34f0e21b4",
+    "sha256": "42a2fa9a83699cf659a99e612f9a7f97a73d5a2fe66168db5bf8beffe6785bdf"
+  }
+}

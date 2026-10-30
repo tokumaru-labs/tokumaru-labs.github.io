@@ -38,6 +38,10 @@ jobs:
           fi
       - name: Test download history and release safeguards
         run: python -B -m unittest discover -s tests -p 'test_download_stats.py' -v
+      - name: Test sitemap content review safeguards
+        run: python -B -m unittest discover -s tests -p 'test_sitemap_content.py' -v
+      - name: Check sitemap content review records without Git history
+        run: python -B scripts/sitemap_content.py
       - name: Test statistics calculations and CSV export
         run: node --test tests/download_stats.test.mjs
       - name: Validate CHA.EXE archive and reproducible machine code
