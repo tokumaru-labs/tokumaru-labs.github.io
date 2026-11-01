@@ -30,6 +30,9 @@ const fixture=()=>{const first=structuredClone(latest),last=structuredClone(late
   check(await page.locator('#total').innerText()==='6','real initial cumulative value displayed');
   check((await page.locator('#chart').innerText()).includes('次の記録'),'first sample is not graphed as six new downloads');
   check((await page.locator('#product-rows').innerText()).includes('GitHub配布の開始待ち'),'untracked VSIX is not presented as zero');
+  check(await page.locator('#reference-rows tr').count()===2,'two reference metrics have their own table');
+  check((await page.locator('#reference-rows').innerText()).includes('未記録'),'legacy snapshots label reference metrics unrecorded');
+  check((await page.locator('#coverage').innerText()).includes('1 / 2作品'),'reference metrics do not enlarge product coverage');
   check((await page.locator('meta[name="robots"]').getAttribute('content'))==='noindex,nofollow,noarchive','unlisted page requests no indexing');
   for(const width of [320,390,768,1280]){
    await page.setViewportSize({width,height:900});
@@ -48,9 +51,39 @@ const fixture=()=>{const first=structuredClone(latest),last=structuredClone(late
   await page.locator('#product').selectOption('toku-control');
   const downloadPromise=page.waitForEvent('download');await page.locator('#export').click();const download=await downloadPromise;const saved=path.join(out,'observations.csv');await download.saveAs(saved);
   const csv=fs.readFileSync(saved,'utf8');check(csv.includes('TOKU CONTROL')&&csv.includes('"3"')&&csv.includes('observed_at_jst'),'CSV contains observations and growth');
+  // First reference observation is a baseline, independent of ordinary ZIP growth.
+  const reference=(id,count)=>({status:'ok',total:count,assets:[{id,count,created_at:new Date(TEST_NOW-86400000).toISOString()}]});
+  payload.snapshots.at(-1).products['toku-control-portable']=reference(81,1);
+  payload.snapshots.at(-1).products['toku-control-update']=reference(82,2);
+  await open();
+  check(await page.locator('#total').innerText()==='9','reference counters never inflate the legacy total');
+  check(await page.locator('#product-rows tr').count()===2,'ordinary distribution table keeps its two products');
+  check((await page.locator('#reference-panel').innerText()).includes('更新成功数ではありません'),'reference meaning and no-success claim are visible');
+  check(await page.locator('#reference-rows tr').nth(0).locator('td').nth(1).innerText()==='1','Portable ZIP counter displayed separately');
+  check(await page.locator('#reference-rows tr').nth(1).locator('td').nth(1).innerText()==='2','update package counter displayed separately');
+  await page.locator('#product').selectOption('toku-control-update');
+  check((await page.locator('#metric-description').innerText()).includes('full.nupkg'),'selected update metric explains the measured package');
+  await page.locator('#metric').selectOption('total');
+  check(await page.locator('#chart circle').count()===1,'reference cumulative chart has only its recorded point');
+  await page.locator('#metric').selectOption('increase');
+  check((await page.locator('#chart').innerText()).includes('次の記録'),'first reference value is not charted as an increase');
+  check((await page.locator('#history-rows').innerText()).includes('未記録'),'reference history preserves missing past observations');
+  const referenceDownloadPromise=page.waitForEvent('download');await page.locator('#export').click();
+  const referenceDownload=await referenceDownloadPromise,referenceSaved=path.join(out,'reference-observations.csv');await referenceDownload.saveAs(referenceSaved);
+  const referenceCsv=fs.readFileSync(referenceSaved,'utf8');
+  check(referenceCsv.includes('"toku-control-update","reference"')&&referenceCsv.includes('"2","","","ok"')&&referenceCsv.includes('not_recorded'),'CSV distinguishes reference baselines and unrecorded history');
+  // A second observation exposes only the independently measured increment.
+  const second=structuredClone(payload.snapshots.at(-1));second.observed_at=new Date(TEST_NOW+3600000).toISOString();
+  second.products['toku-control-update']=reference(82,3);payload.snapshots.push(second);
+  await open();await page.locator('#product').selectOption('toku-control-update');
+  check((await page.locator('#chart-summary').innerText()).includes('+1回'),'reference growth uses its own previous observation');
+  await page.locator('#product').selectOption('toku-control-portable');
+  check((await page.locator('#chart-summary').innerText()).includes('+0回'),'Portable zero growth remains independent');
+  await page.locator('#product').selectOption('toku-control-update');
   await page.setViewportSize({width:1280,height:900});await page.screenshot({path:path.join(out,'fixture-history-desktop.png'),fullPage:true});
   await page.setViewportSize({width:390,height:844});await page.screenshot({path:path.join(out,'fixture-history-mobile.png'),fullPage:true});
   rawFailure=true;await open();check((await page.locator('#load-status').innerText()).includes('初回記録'),'network failure shows labeled initial fallback');
+  check((await page.locator('#reference-rows').innerText()).includes('未記録'),'initial fallback never fabricates reference zeroes');
   rawFailure=false;payload=fixture();payload.snapshots.at(-1).products['toku-control'].total=999;await open();check((await page.locator('#load-status').innerText()).includes('初回記録'),'invalid counters fall back without inventing totals');
   payload=fixture();payload.snapshots=payload.snapshots.slice(0,1);payload.snapshots[0].observed_at=new Date(TEST_NOW-4*86400000).toISOString();await open();check((await page.locator('#load-status').innerText()).includes('2日以上'),'stale history is clearly labeled');
   rawFailure=true;await page.route('**/stats/initial.json',route=>route.fulfill({status:503,body:'Unavailable'}));await page.goto(base+'/stats/');await page.waitForFunction(()=>document.getElementById('load-status').textContent.includes('読み込めません'));check(await page.locator('#overview').isHidden(),'complete failure shows no fabricated metrics');await page.unroute('**/stats/initial.json');rawFailure=false;

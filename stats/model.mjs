@@ -28,9 +28,9 @@ export function validate(data) {
 export function series(data,id) {
   let previous=null,missed=false;
   return data.snapshots.map(sample=>{
-    const product=sample.products[id]||{status:'no_assets',total:null,assets:[]};
+    const product=sample.products[id]||{status:'not_recorded',total:null,assets:[]};
     const item={at:sample.observed_at,total:product.total,status:product.status,delta:null,note:'',from:null};
-    if(product.status!=='ok') { missed=true;item.note=product.status==='no_assets'?'GitHub配布の開始待ち':'取得失敗・欠測';return item; }
+    if(product.status!=='ok') { missed=true;item.note=product.status==='not_recorded'?'未記録（この指標の観測なし）':product.status==='no_assets'?'GitHub配布の開始待ち':'取得失敗・欠測';return item; }
     if(!previous) { item.note='初回記録（比較の基準）'; }
     else {
       item.from=previous.at;
@@ -68,7 +68,8 @@ export function summary(rows,days,now=Date.now()) {
 
 export function csv(data,products) {
   const cell=value=>'"'+String(value??'').replaceAll('"','""').replace(/^[=+@\-]/,"'$&")+'"';
-  const rows=[['product','observed_at_utc','observed_at_jst','cumulative','increase','interval_start_utc','status','note']];
-  for(const p of products) for(const r of series(data,p.id))rows.push([p.name,r.at,jst(r.at),r.total,r.delta,r.from,r.status,r.note]);
+  // Keep the original columns and product names; append metric semantics.
+  const rows=[['product','observed_at_utc','observed_at_jst','cumulative','increase','interval_start_utc','status','note','metric_id','metric_role','measurement_note']];
+  for(const p of products) for(const r of series(data,p.id))rows.push([p.name,r.at,jst(r.at),r.total,r.delta,r.from,r.status,r.note,p.id,p.reference?'reference':'distribution',p.description||'公開配布ファイルの取得回数。利用者数・インストール数ではありません。']);
   return '\uFEFF'+rows.map(r=>r.map(cell).join(',')).join('\r\n')+'\r\n';
 }

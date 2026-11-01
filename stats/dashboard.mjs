@@ -36,7 +36,8 @@ function render() {
   const metric=$('metric').value==='total'?'total':'delta';
   const all=series(data,product.id),result=summary(all,period);
   const rows=result.shown;
-  text($('chart-summary'),metric==='total'?`${product.name} · 累計の推移`:`期間内に比較できる増分：${result.intervals?formatDelta(result.increase)+'回':'まだありません'}`);
+  text($('metric-description'),product.description||'公開配布ファイルの取得回数。利用者数・インストール数ではありません。');
+  text($('chart-summary'),metric==='total'?`${product.label||product.name} · 累計の推移`:`期間内に比較できる増分：${result.intervals?formatDelta(result.increase)+'回':'まだありません'}`);
   text($('chart-note'),metric==='delta'?'各棒は前回の成功観測からの増分です。期間開始をまたぐ区間は、上の期間合計から除外します。':'各点は観測時点のGitHub累計です。欠測は線をつながず、空白にします。');
   draw(rows,metric,product.color);
   text($('insight'),result.intervals?`${result.intervals}区間を比較し、${number(result.increase)}回の増加を確認しました。${result.partial?'比較できない区間もあります。履歴の状態を確認してください。':'この件数だけで利用者数や増減の原因までは判断できません。'}`:'比較用の記録が揃ってから、増加数を表示します。初回の累計を、その日の増加数には数えません。');
@@ -52,15 +53,17 @@ async function init() {
     try {const res=await fetch(DATA_URL,{cache:'no-cache',credentials:'omit',referrerPolicy:'no-referrer',signal:AbortSignal.timeout(12000)});if(!res.ok)throw Error('History unavailable');data=validate(await res.json());}
     catch {fallback=true;const res=await fetch('/stats/initial.json',{credentials:'omit',referrerPolicy:'no-referrer'});if(!res.ok)throw Error('Initial observation unavailable');data=validate(await res.json());}
     const first=data.snapshots[0],latest=data.snapshots.at(-1),age=Date.now()-Date.parse(latest.observed_at);
-    const measured=products.map(p=>latest.products[p.id]).filter(p=>p?.status==='ok');
-    text($('total'),measured.length?number(measured.reduce((n,p)=>n+p.total,0)):'—');text($('coverage'),`${measured.length} / ${products.length}作品を計測。未取得分は合計に含みません。`);
+    const distribution=products.filter(p=>!p.reference);
+    const measured=distribution.map(p=>latest.products[p.id]).filter(p=>p?.status==='ok');
+    text($('total'),measured.length?number(measured.reduce((n,p)=>n+p.total,0)):'—');text($('coverage'),`${measured.length} / ${distribution.length}作品を計測。参考指標・未取得分は合計に含みません。`);
     text($('started'),jst(first.observed_at).slice(0,10));text($('updated'),jst(latest.observed_at));
     const warning=fallback?'自動更新データに接続できないため、保存済みの初回記録を表示しています。':age>48*3600000?'2日以上更新されていません。記録処理の実行状況を確認してください。':'最新の記録を表示しています。';
     text($('load-status'),warning);$('load-status').classList.toggle('warning',fallback||age>48*3600000);text($('freshness'),age>48*3600000?'更新の確認が必要です':'取得時点の件数です');
     for(const p of products) {
-      const option=make('option',p.name);option.value=p.id;$('product').append(option);
-      const rows=series(data,p.id),last=rows.at(-1),tr=document.createElement('tr'),name=document.createElement('td'),link=make('a',p.name);link.href=p.page;name.append(link);tr.append(name,make('td',number(last.total)),make('td',formatDelta(last.delta)),make('td',last.note));$('product-rows').append(tr);
+      const option=make('option',p.label||p.name);option.value=p.id;$('product').append(option);
+      const rows=series(data,p.id),last=rows.at(-1),tr=document.createElement('tr'),name=document.createElement('td'),link=make('a',p.label||p.name);link.href=p.page;name.append(link);tr.append(name,make('td',number(last.total)),make('td',formatDelta(last.delta)),make('td',last.note));$(p.reference?'reference-rows':'product-rows').append(tr);
     }
+    $('reference-panel').hidden=!products.some(p=>p.reference);
     for(const id of ['overview','analysis','products-panel','history-panel'])$(id).hidden=false;
     for(const id of ['product','period','metric'])$(id).addEventListener('change',render);
     $('export').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([csv(data,products)],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='tokumaru-download-observations.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});
