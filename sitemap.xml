@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://tokumaru-labs.github.io/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://tokumaru-labs.github.io/transcript-sidecar/</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://tokumaru-labs.github.io/arcade-counter-timer/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://tokumaru-labs.github.io/midnight-cockpit/</loc>
@@ -22,11 +22,11 @@
   </url>
   <url>
     <loc>https://tokumaru-labs.github.io/ja/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://tokumaru-labs.github.io/ja/arcade-counter-timer/</loc>
-    <lastmod>2026-10-23</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://tokumaru-labs.github.io/ja/transcript-sidecar/</loc>
@@ -42,6 +42,6 @@
   </url>
   <url><loc>https://tokumaru-labs.github.io/vscode-themes/</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://tokumaru-labs.github.io/ja/vscode-themes/</loc><lastmod>2026-10-25</lastmod></url>
-  <url><loc>https://tokumaru-labs.github.io/toku-control/</loc><lastmod>2026-10-25</lastmod></url>
-  <url><loc>https://tokumaru-labs.github.io/ja/toku-control/</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://tokumaru-labs.github.io/toku-control/</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://tokumaru-labs.github.io/ja/toku-control/</loc><lastmod>2026-10-27</lastmod></url>
 </urlset>

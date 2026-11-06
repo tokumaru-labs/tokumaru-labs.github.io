@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {series,summary,validate,csv} from '../stats/model.mjs';
 const asset=(id,count,created='2026-10-01T00:00:00Z')=>({id,count,created_at:created});
 const sample=(day,assets,status='ok')=>({observed_at:`2026-10-${day}T15:17:00Z`,products:{p:{status,total:status==='ok'?assets.reduce((n,a)=>n+a.count,0):null,assets}}});
@@ -16,3 +17,42 @@ test('interval crossing selected period is excluded from period increase',()=>{c
 test('old data is not presented as recent',()=>{const rows=series(history(sample(20,[asset(1,6)]),sample(21,[asset(1,10)])),'p');assert.equal(summary(rows,'7',Date.parse('2026-12-01T00:00:00Z')).shown.length,0);});
 test('validation rejects mismatched totals, missing-as-zero and duplicated time',()=>{const bad=history(sample(24,[asset(1,6)]));bad.snapshots[0].products.p.total=100;assert.throws(()=>validate(bad));const missing=history(sample(24,[],'no_assets'));missing.snapshots[0].products.p.total=0;assert.throws(()=>validate(missing));assert.throws(()=>validate(history(sample(24,[asset(1,6)]),sample(24,[asset(1,6)]))));});
 test('CSV preserves missing fields, JST dates and escapes formulas/quotes',()=>{const result=csv(history(sample(24,[asset(1,6)]),sample(25,[],'unavailable')),[{id:'p',name:'=unsafe,"text"'}]);assert.ok(result.startsWith('\uFEFF'));assert.match(result,/2026\/10\/25 00:17/);assert.match(result,/"'\=unsafe,""text"""/);assert.match(result,/,"unavailable",/);});
+
+test('new reference metrics preserve old observations and start their own baselines',()=>{
+  const old=history(sample(24,[asset(1,14)]),sample(25,[asset(1,18)]));
+  const original=structuredClone(old),normal=series(old,'p');
+  const next=sample(26,[asset(1,19)]);
+  next.products.reference={status:'ok',total:2,assets:[asset(2,2)]};
+  const data=validate(history(...old.snapshots,next));
+  assert.deepEqual(old,original);
+  assert.deepEqual(series(data,'p').slice(0,2),normal);
+  assert.equal(series(data,'p')[2].delta,1);
+  const rows=series(data,'reference');
+  assert.deepEqual(rows.map(r=>r.total),[null,null,2]);
+  assert.deepEqual(rows.map(r=>r.delta),[null,null,null]);
+  assert.equal(rows[0].status,'not_recorded');
+  assert.match(rows[0].note,/未記録/);
+  assert.match(rows[2].note,/初回記録/);
+  const recovered=structuredClone(next);recovered.observed_at='2026-10-28T15:17:00Z';
+  recovered.products.reference.total=3;recovered.products.reference.assets[0].count=3;
+  const missing=sample(27,[asset(1,19)]);missing.products.reference={status:'unavailable',total:null,assets:[]};
+  const growth=series(validate(history(...data.snapshots,missing,recovered)),'reference').at(-1);
+  assert.equal(growth.delta,1);assert.match(growth.note,/複数日/);
+});
+
+test('CSV keeps legacy columns and separates reference identity, meaning and unrecorded values',()=>{
+  const products=JSON.parse(readFileSync(new URL('../stats/products.json',import.meta.url))).products;
+  const initial=JSON.parse(readFileSync(new URL('../stats/initial.json',import.meta.url)));
+  const next=structuredClone(initial.snapshots[0]);next.observed_at='2026-10-28T00:00:00Z';
+  next.products['toku-control-portable']={status:'ok',total:1,assets:[asset(2,1)]};
+  next.products['toku-control-update']={status:'ok',total:2,assets:[asset(3,2)]};
+  const lines=csv(validate(history(...initial.snapshots,next)),products).slice(1).trim().split('\r\n');
+  assert.equal(lines[0],['product','observed_at_utc','observed_at_jst','cumulative','increase','interval_start_utc','status','note','metric_id','metric_role','measurement_note'].map(v=>'"'+v+'"').join(','));
+  assert.ok(lines[1].startsWith('"TOKU CONTROL",'));
+  assert.ok(lines[1].includes('"6","","","ok"'));
+  const references=lines.filter(line=>line.includes('"reference"'));
+  assert.equal(references.length,4);
+  assert.equal(references.filter(line=>line.includes('"","","","not_recorded"')).length,2);
+  assert.ok(references.some(line=>line.includes('"2","","","ok"')&&line.includes('"toku-control-update","reference"')&&line.includes('更新成功数ではなく')));
+  assert.ok(references.some(line=>line.includes('"1","","","ok"')&&line.includes('"toku-control-portable","reference"')&&line.includes('加算しません')));
+});
