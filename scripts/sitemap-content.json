@@ -5,8 +5,8 @@
     "sha256": "df8eedb9332c841c1404a304ecca336223bc5a87ff65bcd12670b7b53e2fa5c7"
   },
   "index.html": {
-    "lastmod": "2026-10-27",
-    "reason": "Published content baseline 2026-10-27 (313a643). PR #30 changes Chrome Web Store CTA, link order and aria-label only in an unmerged branch; review the actual date of public deployment before merging stacked PR #28. Do not infer lastmod from PR creation.",
+    "lastmod": "2026-11-06",
+    "reason": "PR #30 Chrome Web Store primary CTA, link order and aria-label on English homepage: merged as 887e405629c8d6cf0806392eb2f20886f09b03d6, GitHub Pages deploy job succeeded 2026-11-06 (run 42152494463). Last substantive update date is the actual public deployment date, not PR creation/CI date.",
     "sha256": "65ea57cf2a225f963d7dbc7cc6a191a97aad307a59f4ac55fb1259eec6f64e5d"
   },
   "ja/arcade-counter-timer/index.html": {
@@ -15,8 +15,8 @@
     "sha256": "882775270092efe3f5c5a713584eaac2b39d76ba6ab1ccb3a2ef214a1a8ce4e3"
   },
   "ja/index.html": {
-    "lastmod": "2026-10-27",
-    "reason": "Published content baseline 2026-10-27 (313a643). PR #30 changes Japanese Chrome Web Store CTA, link order and aria-label only in an unmerged branch; review the actual date of public deployment before merging stacked PR #28.",
+    "lastmod": "2026-11-06",
+    "reason": "PR #30 Chrome Web Store primary CTA, link order and aria-label on Japanese homepage: merged as 887e405629c8d6cf0806392eb2f20886f09b03d6, GitHub Pages deploy job succeeded 2026-11-06 (run 42152494463). Last substantive update date is actual public deployment date.",
     "sha256": "7f717c940cc41cc6d8cae2da4e0781401d44c9768590b43a6668e0e1a3eddfd4"
   },
   "ja/progress-sidecar/index.html": {
