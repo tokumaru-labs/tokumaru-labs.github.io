@@ -7,7 +7,19 @@ can view it; source and history are public too.
 
 ## What is measured
 
-- TOKU CONTROL: stable published release assets matching the Windows ZIP pattern.
+- TOKU CONTROL: stable published release assets matching the original Windows ZIP
+  pattern. The `toku-control` ID, CSV product name, asset filter, and history stay
+  unchanged. The dashboard labels this series as 通常ZIP.
+- Two separate **reference** series cover the additional v0.3.0 distribution paths:
+  `toku-control-portable` matches exactly `TokuControl-win-Portable.zip`, and
+  `toku-control-update` matches `TokuControl-<version>-full.nupkg`.
+  They have their own totals, intervals, chart selections, and CSV rows; they are
+  excluded from the existing distribution total and product coverage denominator.
+  No combined TOKU CONTROL total is computed. Portable ZIP has the same content
+  as the ordinary ZIP. These counters are neither unique users nor successful
+  updates; manual downloads, retries, multiple-file downloads and testing may count.
+  Update metadata, checksums, source archives and delta packages are not counted.
+  A future package naming change requires an explicit filter review.
 - VS Code Themes: stable published release VSIX assets. Marketplace installs and
   pre-existing website downloads are not included.
 - Counts come from GitHub's `download_count`, not visitors, clicks, installations,
@@ -34,6 +46,15 @@ and then marks the workflow failed. **Merging this workflow authorizes publicati
 of that byte-identical mirror.** It does not publish a new Marketplace version.
 
 History is written to `downloads.json` on `download-stats-data`, never to main.
+The existing collector already supports independent configured series, so adding
+the two reference entries reuses its pagination, release filtering, validation,
+failure handling and append-only history behavior without a collector rewrite.
+Schema 1 and all existing snapshots (including `initial.json`) remain unchanged.
+Reference keys first appear in a new observation after the updated config runs;
+old snapshots are never backfilled. Missing keys display/export as `not_recorded`
+(未記録), distinct from observed `no_assets` or `unavailable`. This derived status
+is not written back to history. The first successful reference value is a baseline,
+not that day's increase, even if the package was released before collection began.
 The first data ref is published only after a complete initial data commit exists.
 Later updates use the file's expected blob SHA to reject concurrent overwrites.
 Missing/corrupt data on an existing branch is an error, not permission to reset it.
@@ -70,6 +91,11 @@ installs with release downloads as though they were the same metric.
   period's starting boundary is shown but excluded from the period summary.
 - CSV contains every observation, UTC/JST time, cumulative count, interval start,
   increase, status, and note. Missing values are blank. Public display uses JST.
+  The original eight columns keep their names, order and existing series values.
+  Three trailing columns identify `metric_id`, `metric_role` (`distribution` or
+  `reference`), and `measurement_note`. Consumers requiring exactly eight columns
+  must allow the added columns. Do not sum the reference rows with distribution
+  rows or interpret their counts as people or successful updates.
 - No extrapolation, backfilling, visitor attribution, or conversion-rate claim.
 
 ## Validation

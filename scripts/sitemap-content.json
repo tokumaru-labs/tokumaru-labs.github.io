@@ -6,8 +6,8 @@
   },
   "index.html": {
     "lastmod": "2026-10-27",
-    "reason": "Initial audit: latest page content update in 313a643091b6c8bad9bdc47781b7ed8d03ca5a90",
-    "sha256": "e48f6c4c1af7b817c903e2ea56686027e0823f8c64e6cce429cc8b841acbfff8"
+    "reason": "Published content baseline 2026-10-27 (313a643). PR #30 changes Chrome Web Store CTA, link order and aria-label only in an unmerged branch; review the actual date of public deployment before merging stacked PR #28. Do not infer lastmod from PR creation.",
+    "sha256": "65ea57cf2a225f963d7dbc7cc6a191a97aad307a59f4ac55fb1259eec6f64e5d"
   },
   "ja/arcade-counter-timer/index.html": {
     "lastmod": "2026-10-27",
@@ -16,8 +16,8 @@
   },
   "ja/index.html": {
     "lastmod": "2026-10-27",
-    "reason": "Initial audit: latest page content update in 313a643091b6c8bad9bdc47781b7ed8d03ca5a90",
-    "sha256": "b288f085e869777ffb87768614bb7be04d0c72afa27334b7b3b6cef01646b1b5"
+    "reason": "Published content baseline 2026-10-27 (313a643). PR #30 changes Japanese Chrome Web Store CTA, link order and aria-label only in an unmerged branch; review the actual date of public deployment before merging stacked PR #28.",
+    "sha256": "7f717c940cc41cc6d8cae2da4e0781401d44c9768590b43a6668e0e1a3eddfd4"
   },
   "ja/progress-sidecar/index.html": {
     "lastmod": "2026-10-24",
@@ -31,8 +31,8 @@
   },
   "ja/transcript-sidecar/index.html": {
     "lastmod": "2026-09-09",
-    "reason": "Initial audit: latest page content update in 1f2a5958afb34366af4fea6d469378e9900c37f0",
-    "sha256": "d8f80e50c9e72220f4ca483efa42687519030c090da806004dea003c226d153d"
+    "reason": "PR #29 updated the Japanese page OG image metadata on 2026-10-31; no substantive visible content update. Keep reviewed lastmod 2026-09-09 and record the current published fingerprint.",
+    "sha256": "7ba2180f92456f5f6bc1cf7d1861a399fff07634a9db77943791d966c694265f"
   },
   "ja/vscode-themes/index.html": {
     "lastmod": "2026-10-25",
@@ -60,9 +60,9 @@
     "sha256": "ddf9cc7cdb5e7e652890ac0813ced5c89368d66a41910391d3d6b15a15449a42"
   },
   "transcript-sidecar/index.html": {
-    "lastmod": "2026-09-18",
-    "reason": "Initial audit: latest page content update in 1260ac7e1d6d6d157df77ac7d918ecc00ebf93bd",
-    "sha256": "6d2d3808652b84eb4d348036187f102847514ced3dda425687a84af4fc1441b0"
+    "lastmod": "2026-11-06",
+    "reason": "Published 2026-11-06 via PR #31 (8af690886ef46e88fe8bbfb9c27aba41f33c9bf2): clarified free extension, captions copy and TXT/Markdown export; includes PR #29 OG image update.",
+    "sha256": "f3a7d6c07f27df6e9a02e26c7964f0425269be8ef87c5847cabf4b79627b51c6"
   },
   "vscode-themes/index.html": {
     "lastmod": "2026-10-25",
