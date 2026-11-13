@@ -20,9 +20,9 @@
     "sha256": "7f717c940cc41cc6d8cae2da4e0781401d44c9768590b43a6668e0e1a3eddfd4"
   },
   "ja/progress-sidecar/index.html": {
-    "lastmod": "2026-10-24",
-    "reason": "Initial audit: latest page content update in 512d4a2ded0c95e6c9d9627060a34d9d463753d0",
-    "sha256": "23c5eeb1c29a96d0744d564fbe37db8bb56a914c696c594750e539f2ffaed796"
+    "lastmod": "2026-11-13",
+    "reason": "Correct the visible and structured Task Meter version on both product pages to the Chrome Web Store release 0.3.0.",
+    "sha256": "e3d0b0c0aad7046bb6241d03372f060e8668c022d1d5d5b00bba6ad784cbdda8"
   },
   "ja/toku-control/index.html": {
     "lastmod": "2026-10-27",
@@ -45,9 +45,9 @@
     "sha256": "28feef85bb1e519e42c3f6a3bcd8f24eabd9ccb8e4316336ca6b5df19532d0ec"
   },
   "progress-sidecar/index.html": {
-    "lastmod": "2026-10-24",
-    "reason": "Initial audit: latest page content update in 512d4a2ded0c95e6c9d9627060a34d9d463753d0",
-    "sha256": "27e05e7c2a185f79dbce8e9ddec422099c1a29e7d97c1613db2ec185600e5d47"
+    "lastmod": "2026-11-13",
+    "reason": "Correct the visible and structured Task Meter version on both product pages to the Chrome Web Store release 0.3.0.",
+    "sha256": "b8d22366fe934222122c893ef1f484f12e8b7d6e18458ac0f317cd4792fdabc7"
   },
   "progress-sidecar/privacy/index.html": {
     "lastmod": "2026-07-23",
