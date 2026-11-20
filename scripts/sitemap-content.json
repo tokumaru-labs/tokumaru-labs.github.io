@@ -30,9 +30,9 @@
     "sha256": "9833cba503588187bd026587d118c5786380c6113b140f23029dff7e6820bdc2"
   },
   "ja/transcript-sidecar/index.html": {
-    "lastmod": "2026-09-09",
-    "reason": "PR #29 updated the Japanese page OG image metadata on 2026-10-31; no substantive visible content update. Keep reviewed lastmod 2026-09-09 and record the current published fingerprint.",
-    "sha256": "7ba2180f92456f5f6bc1cf7d1861a399fff07634a9db77943791d966c694265f"
+    "lastmod": "2026-11-20",
+    "reason": "Prepare v0.4.3 caption recovery FAQ and version metadata; publish only after live verification and store availability",
+    "sha256": "503ca29394bf860f0a064fc13450fc1e36cbd7c9c4bf426e158fa7e23c264348"
   },
   "ja/vscode-themes/index.html": {
     "lastmod": "2026-10-25",
@@ -60,9 +60,9 @@
     "sha256": "ddf9cc7cdb5e7e652890ac0813ced5c89368d66a41910391d3d6b15a15449a42"
   },
   "transcript-sidecar/index.html": {
-    "lastmod": "2026-11-06",
-    "reason": "Published 2026-11-06 via PR #31 (8af690886ef46e88fe8bbfb9c27aba41f33c9bf2): clarified free extension, captions copy and TXT/Markdown export; includes PR #29 OG image update.",
-    "sha256": "f3a7d6c07f27df6e9a02e26c7964f0425269be8ef87c5847cabf4b79627b51c6"
+    "lastmod": "2026-11-20",
+    "reason": "Prepare v0.4.3 caption recovery FAQ and version metadata; publish only after live verification and store availability",
+    "sha256": "9476ab700d5d45014822646b278a7a9e210382b8d703b75b90e5bc53b1b82910"
   },
   "vscode-themes/index.html": {
     "lastmod": "2026-10-25",
