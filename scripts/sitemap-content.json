@@ -31,8 +31,8 @@
   },
   "ja/transcript-sidecar/index.html": {
     "lastmod": "2026-11-20",
-    "reason": "Prepare v0.4.3 caption recovery FAQ and version metadata; publish only after live verification and store availability",
-    "sha256": "503ca29394bf860f0a064fc13450fc1e36cbd7c9c4bf426e158fa7e23c264348"
+    "reason": "0.5.0: add local transcript search, timestamp jumps and caption recovery guidance",
+    "sha256": "d57233900ec193757651dd2321d0f99c77850918c910b8cd853cdfdee4c51399"
   },
   "ja/vscode-themes/index.html": {
     "lastmod": "2026-10-25",
@@ -61,8 +61,8 @@
   },
   "transcript-sidecar/index.html": {
     "lastmod": "2026-11-20",
-    "reason": "Prepare v0.4.3 caption recovery FAQ and version metadata; publish only after live verification and store availability",
-    "sha256": "9476ab700d5d45014822646b278a7a9e210382b8d703b75b90e5bc53b1b82910"
+    "reason": "0.5.0: add local transcript search, timestamp jumps and caption recovery guidance",
+    "sha256": "80c7e7eb78cb8405b4ea22ab9929e0f144ac81f5433a7061f200924ae078c78f"
   },
   "vscode-themes/index.html": {
     "lastmod": "2026-10-25",
