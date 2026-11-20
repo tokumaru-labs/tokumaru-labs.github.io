@@ -31,7 +31,7 @@
   "name": "Transcript Sidecar",
   "applicationCategory": "BrowserApplication",
   "operatingSystem": "Chrome",
-  "softwareVersion": "0.4.2",
+  "softwareVersion": "0.5.0",
   "publisher": { "@type": "Organization", "name": "Tokumaru Labs" },
   "url": "https://tokumaru-labs.github.io/transcript-sidecar/"
 }
@@ -63,7 +63,7 @@
 
     <header class="site-head">
       <h1 class="brand">Transcript Sidecar</h1>
-      <p class="tagline">Chrome Extension · version 0.4.2 · Tokumaru Labs</p>
+      <p class="tagline">Chrome Extension · version 0.5.0 · Tokumaru Labs</p>
     </header>
 
     <p class="lead">Free Chrome extension to view, copy, and format available YouTube captions in the Side Panel. Copy with timestamps or save readable transcripts as TXT or Markdown — no account required.</p>
@@ -88,6 +88,7 @@
       <li>One-click <strong>Copy full transcript</strong>, with artificial caption line breaks removed.</li>
       <li><strong>Readable copy</strong> that keeps the wording but adds paragraph breaks; export as <code>.txt</code> or <code>.md</code>.</li>
       <li>Copy with timestamps, or as Markdown with the video title, URL, and caption language.</li>
+      <li>Search for a word or phrase to see matching captions with the line before and after. Select a timestamp to play that passage. Copy and export still include the full transcript.</li>
       <li>Click a transcript timestamp to seek the video. Switch the interface between <strong>Japanese and English</strong> at any time.</li>
     </ul>
 
@@ -110,6 +111,8 @@
     <p>Yes. Markdown export includes the title, source URL, caption language information, and paragraph-formatted transcript.</p>
     <h3>What if the transcript does not load?</h3>
     <p>Check that the video has captions, reload the video page, and reopen the extension. Some videos and live streams do not expose usable captions. If the problem continues, use the <a href="https://github.com/tokumaru-labs/transcript-sidecar/issues">support page</a>.</p>
+    <h3>Can I use it with members-only videos?</h3>
+    <p>You must be signed in to a YouTube account that can already play the video. Enable YouTube CC in the same language selected in Transcript Sidecar, play the video, then press Reload in the Side Panel. Version 0.5.0 adds a recovery attempt for captions already used by the player when normal retrieval fails. Some videos may still be unavailable. Transcript Sidecar does not provide membership access or transcribe videos without captions, and does not require a separate Transcript Sidecar account.</p>
 
     <h2>Privacy</h2>
     <ul>
