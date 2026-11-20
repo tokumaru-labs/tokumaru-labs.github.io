@@ -45,9 +45,9 @@
     "sha256": "28feef85bb1e519e42c3f6a3bcd8f24eabd9ccb8e4316336ca6b5df19532d0ec"
   },
   "progress-sidecar/index.html": {
-    "lastmod": "2026-11-13",
-    "reason": "Correct the visible and structured Task Meter version on both product pages to the Chrome Web Store release 0.3.0.",
-    "sha256": "b8d22366fe934222122c893ef1f484f12e8b7d6e18458ac0f317cd4792fdabc7"
+    "lastmod": "2026-11-20",
+    "reason": "Add a prominent Chrome Web Store link and desktop compatibility note to the English Task Meter introduction",
+    "sha256": "60faa6f75ded35f7da2409e940578f52f6b771fde79a57e53b0a8fbe6df3581e"
   },
   "progress-sidecar/privacy/index.html": {
     "lastmod": "2026-07-23",
