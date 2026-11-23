@@ -30,9 +30,9 @@
     "sha256": "9833cba503588187bd026587d118c5786380c6113b140f23029dff7e6820bdc2"
   },
   "ja/transcript-sidecar/index.html": {
-    "lastmod": "2026-09-09",
-    "reason": "PR #29 updated the Japanese page OG image metadata on 2026-10-31; no substantive visible content update. Keep reviewed lastmod 2026-09-09 and record the current published fingerprint.",
-    "sha256": "7ba2180f92456f5f6bc1cf7d1861a399fff07634a9db77943791d966c694265f"
+    "lastmod": "2026-11-23",
+    "reason": "Updated the guides for 0.5.1 caption selection and clarified when player caption recovery can work.",
+    "sha256": "c6ab604b439bb6d528f5e5d32e3c3a91b542d3357a2412f6bb4d128df9cc7e11"
   },
   "ja/vscode-themes/index.html": {
     "lastmod": "2026-10-25",
@@ -60,9 +60,9 @@
     "sha256": "ddf9cc7cdb5e7e652890ac0813ced5c89368d66a41910391d3d6b15a15449a42"
   },
   "transcript-sidecar/index.html": {
-    "lastmod": "2026-11-06",
-    "reason": "Published 2026-11-06 via PR #31 (8af690886ef46e88fe8bbfb9c27aba41f33c9bf2): clarified free extension, captions copy and TXT/Markdown export; includes PR #29 OG image update.",
-    "sha256": "f3a7d6c07f27df6e9a02e26c7964f0425269be8ef87c5847cabf4b79627b51c6"
+    "lastmod": "2026-11-23",
+    "reason": "Updated the guides for 0.5.1 caption selection and clarified when player caption recovery can work.",
+    "sha256": "125c2d37d58e47858866109264dae3aec5fa4f6618408f65ae9b82b5350b09bd"
   },
   "vscode-themes/index.html": {
     "lastmod": "2026-10-25",
