@@ -30,9 +30,9 @@
     "sha256": "9833cba503588187bd026587d118c5786380c6113b140f23029dff7e6820bdc2"
   },
   "ja/transcript-sidecar/index.html": {
-    "lastmod": "2026-11-20",
-    "reason": "0.5.0: add local transcript search, timestamp jumps and caption recovery guidance",
-    "sha256": "d57233900ec193757651dd2321d0f99c77850918c910b8cd853cdfdee4c51399"
+    "lastmod": "2026-11-23",
+    "reason": "Updated the guides for 0.5.1 caption selection and clarified when player caption recovery can work.",
+    "sha256": "c6ab604b439bb6d528f5e5d32e3c3a91b542d3357a2412f6bb4d128df9cc7e11"
   },
   "ja/vscode-themes/index.html": {
     "lastmod": "2026-10-25",
@@ -60,9 +60,9 @@
     "sha256": "ddf9cc7cdb5e7e652890ac0813ced5c89368d66a41910391d3d6b15a15449a42"
   },
   "transcript-sidecar/index.html": {
-    "lastmod": "2026-11-20",
-    "reason": "0.5.0: add local transcript search, timestamp jumps and caption recovery guidance",
-    "sha256": "80c7e7eb78cb8405b4ea22ab9929e0f144ac81f5433a7061f200924ae078c78f"
+    "lastmod": "2026-11-23",
+    "reason": "Updated the guides for 0.5.1 caption selection and clarified when player caption recovery can work.",
+    "sha256": "125c2d37d58e47858866109264dae3aec5fa4f6618408f65ae9b82b5350b09bd"
   },
   "vscode-themes/index.html": {
     "lastmod": "2026-10-25",

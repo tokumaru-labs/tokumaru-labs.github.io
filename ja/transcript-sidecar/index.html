@@ -32,7 +32,7 @@
   "name": "Transcript Sidecar",
   "applicationCategory": "BrowserApplication",
   "operatingSystem": "Chrome",
-  "softwareVersion": "0.5.0",
+  "softwareVersion": "0.5.1",
   "publisher": { "@type": "Organization", "name": "Tokumaru Labs" },
   "url": "https://tokumaru-labs.github.io/ja/transcript-sidecar/"
 }
@@ -62,7 +62,7 @@
     <header class="site-head">
       <p class="brand">Transcript Sidecar</p>
       <h1 class="guide-title">YouTubeの字幕を、<br>コピー・保存。</h1>
-      <p class="tagline">Chrome拡張機能 · バージョン0.5.0 · Tokumaru Labs</p>
+      <p class="tagline">Chrome拡張機能 · バージョン0.5.1 · Tokumaru Labs</p>
     </header>
     <p class="lead">動画の横で字幕を読み、必要な内容をノートに残す。Transcript Sidecarは、YouTubeで利用できる字幕をChromeのサイドパネルに表示する拡張機能です。</p>
     <p>全文をコピーしたり、読みやすい段落に整えてTXT・Markdownで保存したりできます。アカウント登録・広告・トラッキングはありません。</p>
@@ -99,7 +99,7 @@
     <h2 id="how-to">字幕をコピー・保存する3ステップ</h2>
     <ol class="guide-steps">
       <li><strong>拡張機能を追加し、動画を開く</strong><a href="https://chromewebstore.google.com/detail/transcript-sidecar/flkfcafidkoihgaikkihnaggophndgng">Chromeウェブストアの掲載ページ</a>から追加します。パソコン版Chromeで、字幕のあるYouTube動画を開いてください。</li>
-      <li><strong>Transcript Sidecarを開く</strong>Chromeの拡張機能メニューからTranscript Sidecarのアイコンを選び、サイドパネルを開きます。字幕トラックを選び、必要ならJP / ENで操作画面の言語を切り替えます。</li>
+      <li><strong>Transcript Sidecarを開く</strong>拡張機能のアイコンを押してサイドパネルを開きます。YouTubeで再生中の字幕を特定できれば、その字幕を読み込みます。「字幕を選択」と表示されたら、使いたい字幕を選んでください。同じ動画で「読み込み直す」を押すと、選んだ字幕が引き続き利用できる場合はその選択を保持します。</li>
       <li><strong>コピー形式・保存形式を選ぶ</strong>全文・読みやすい段落・タイムスタンプ付きなど、目的に合う形式でコピーします。動画の出典も残したいときはMarkdown、文章をファイルで残したいときはTXTまたはMarkdownの保存を使います。</li>
     </ol>
 
@@ -117,7 +117,8 @@
     <h3>字幕が読み込まれないときは？</h3>
     <p>動画に字幕があるかを確かめ、動画ページを再読み込みしてから拡張機能を開き直してください。動画ごとの字幕の提供状況やYouTube側の変更により、取得できない場合があります。解決しない場合は<a href="https://github.com/tokumaru-labs/transcript-sidecar/issues">不具合報告ページ</a>をご利用ください。</p>
     <h3>メンバー限定動画でも使えますか？</h3>
-    <p>その動画を視聴できるYouTubeアカウントでログインしていることが必要です。YouTubeで、Transcript Sidecarで選択した言語と同じCC字幕をオンにして動画を再生し、サイドパネルの「読み込み直す」を押してください。バージョン0.5.0では、通常の取得が失敗した場合に、プレイヤーがすでに利用した字幕からの再取得を試みます。動画によっては取得できない場合があります。メンバー資格を提供したり、字幕のない動画を音声から文字起こししたりする機能ではありません。Transcript Sidecar用の別アカウントは不要です。</p>
+    <p>その動画を視聴できるYouTubeアカウントでログインしてください。Sidecar用のアカウントは不要です。YouTubeで使いたい言語の字幕（CC）をオンにして動画を再生します。必要に応じてサイドパネルでも同じ字幕を選び、「読み込み直す」を押してください。</p>
+    <p>通常の方法で読み込めないときは、プレイヤーが最近使った同じ字幕のリクエストがブラウザに残っていれば、再取得を試みます。Sidecarには、メンバー資格を付与する機能や、音声を文字起こしする機能はありません。</p>
 
     <h2 id="privacy">データの扱い</h2>
     <ul>
