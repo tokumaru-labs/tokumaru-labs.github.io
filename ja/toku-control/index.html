@@ -57,6 +57,9 @@
 <li><strong>Quick Launch：</strong>既存の7項目にコマンド プロンプトとWindows標準搭載のWindows PowerShellを追加。両シェル・メモ帳・タスク マネージャー・タスク スケジューラは、右クリック（またはShift+F10）から<strong>「管理者として実行」</strong>を選べます。WindowsのUACで確認し、キャンセルしても本体は継続します。</li>
 <li><strong>アプリ内更新（v0.3.0）：</strong>新しい正式版があると「New version available」を表示。「YES / UPDATE」で取得・検証・更新・再起動、「LATER」で今回は見送れます。+ updatesから手動確認や起動時確認のOFFもできます。</li>
 <li><strong>調整できるCRT表現：</strong>走査線・発光・色ずれ・ノイズ・減光を即時調整。RAWで効果をOFFにできます。</li></ul>
+<h2>v0.3.0以降の開発状況</h2>
+<p>このページからダウンロードできるのはv0.3.0です。開発版のSecurity Radarでは、Windowsの状態や直近のDefender検出履歴を手動で確認できます。Intel Streamでは取得をオンにした配信元のニュースを読めます。休憩時計にはねむまるの部屋・TRACE端末・宵環曼荼羅と20分集中／5分休憩のタイマーが加わり、操作盤から離した小窓をその場に置けるようになりました。</p>
+<p>Security Radarの任意機能「Autorunsc」では、このPCの自動起動登録を2回分比較できます。保存済みCSVを開くか、Microsoftから別途入手したAutorunsc 14.3を選んで通常権限で1回取得します。<a href="https://github.com/tokumaru-labs/toku-control/pull/13">Autorunscの実装と検証</a> · <a href="https://github.com/tokumaru-labs/toku-control/pull/12">これまでに統合した変更</a></p>
 <h2 id="how-to">ダウンロードして、起動する</h2><ol class="guide-steps"><li><strong>Windows版ZIPを取得</strong>上のダウンロードボタンから取得できます。<a href="https://github.com/tokumaru-labs/toku-control/releases/tag/v0.3.0">リリースページ</a>には、照合用のSHA-256チェックサムとソースコードもあります。</li>
 <li><strong>ZIPをすべて展開</strong>一番上のTokuControl.exe・Update.exe・currentフォルダーなど、展開したファイル一式を保持してください。</li>
 <li><strong>一番上のTokuControl.exeを起動</strong>SHOW ALLで小窓を整列。出力先は選択後にSET OUTPUTで切り替えます。メインの×で全体を終了します。</li></ol>
