@@ -25,9 +25,9 @@
     "sha256": "e3d0b0c0aad7046bb6241d03372f060e8668c022d1d5d5b00bba6ad784cbdda8"
   },
   "ja/toku-control/index.html": {
-    "lastmod": "2026-10-27",
-    "reason": "Initial audit: latest page content update in 313a643091b6c8bad9bdc47781b7ed8d03ca5a90",
-    "sha256": "9833cba503588187bd026587d118c5786380c6113b140f23029dff7e6820bdc2"
+    "lastmod": "2026-11-24",
+    "reason": "Document unreleased Security Radar, Autorunsc and clock features separately from the v0.3.0 download",
+    "sha256": "b733d79ced18aacdbe735b75c49afdc7b274ce8787da52cfa1a7efc33fd85221"
   },
   "ja/transcript-sidecar/index.html": {
     "lastmod": "2026-11-23",
@@ -55,9 +55,9 @@
     "sha256": "d7101482542d51453bd22d3e826090d7fd201befd88ae4f1a417d91198406925"
   },
   "toku-control/index.html": {
-    "lastmod": "2026-10-27",
-    "reason": "Initial audit: latest page content update in 313a643091b6c8bad9bdc47781b7ed8d03ca5a90",
-    "sha256": "ddf9cc7cdb5e7e652890ac0813ced5c89368d66a41910391d3d6b15a15449a42"
+    "lastmod": "2026-11-24",
+    "reason": "Document unreleased Security Radar, Autorunsc and clock features separately from the v0.3.0 download",
+    "sha256": "45f18bf533a00c622cace3c676de6e87df8dd60c3818a8e0c3308afd1b934ea9"
   },
   "transcript-sidecar/index.html": {
     "lastmod": "2026-11-23",
