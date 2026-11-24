@@ -6,8 +6,8 @@
   },
   "index.html": {
     "lastmod": "2026-11-24",
-    "reason": "TOKU CONTROL v0.4.0 Windows release, features, screenshots, download size and links.",
-    "sha256": "00e8d0584ecd62226724b797c88588686776a1d2d84c08147d3dcf118e3a883e"
+    "reason": "TOKU CONTROL v0.4.1 Windows release, About window, downloads and updated screenshots.",
+    "sha256": "16a103a5797b289ba2df42ef7497cbe8f40f5c2970e5579846399e917cf59902"
   },
   "ja/arcade-counter-timer/index.html": {
     "lastmod": "2026-10-27",
@@ -16,8 +16,8 @@
   },
   "ja/index.html": {
     "lastmod": "2026-11-24",
-    "reason": "TOKU CONTROL v0.4.0 Windows release, features, screenshots, download size and links.",
-    "sha256": "c93c999c0702482d640f34836909eef82f2af12e78f9238717c50b335a39cc41"
+    "reason": "TOKU CONTROL v0.4.1 Windows release, About window, downloads and updated screenshots.",
+    "sha256": "f00f13de1b263e5d99e48e459b172e38ed2f789807a1a2b1b75e0e6fc5348006"
   },
   "ja/progress-sidecar/index.html": {
     "lastmod": "2026-11-13",
@@ -26,8 +26,8 @@
   },
   "ja/toku-control/index.html": {
     "lastmod": "2026-11-24",
-    "reason": "TOKU CONTROL v0.4.0 Windows release, features, screenshots, download size and links.",
-    "sha256": "95e6beb9b1185a9876d5d30d06e53f1fd52255db15d775c845c1c01f652c6312"
+    "reason": "TOKU CONTROL v0.4.1 Windows release, About window, downloads and updated screenshots.",
+    "sha256": "b6d83465786b7700080b6dc566e2703983e32228bef5510dbb4a25a4abfa047e"
   },
   "ja/transcript-sidecar/index.html": {
     "lastmod": "2026-11-23",
@@ -56,8 +56,8 @@
   },
   "toku-control/index.html": {
     "lastmod": "2026-11-24",
-    "reason": "TOKU CONTROL v0.4.0 Windows release, features, screenshots, download size and links.",
-    "sha256": "9d0dcde24957342c088c473faf5ce791ee7bc9e891980e6b64cc63a4a0dcf729"
+    "reason": "TOKU CONTROL v0.4.1 Windows release, About window, downloads and updated screenshots.",
+    "sha256": "53c44b5b35ac89dc957e4954a345749db2d99c71a06c392deb2ba85960b150d5"
   },
   "transcript-sidecar/index.html": {
     "lastmod": "2026-11-23",
