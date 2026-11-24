@@ -5,9 +5,9 @@
     "sha256": "df8eedb9332c841c1404a304ecca336223bc5a87ff65bcd12670b7b53e2fa5c7"
   },
   "index.html": {
-    "lastmod": "2026-11-06",
-    "reason": "PR #30 Chrome Web Store primary CTA, link order and aria-label on English homepage: merged as 887e405629c8d6cf0806392eb2f20886f09b03d6, GitHub Pages deploy job succeeded 2026-11-06 (run 42152494463). Last substantive update date is the actual public deployment date, not PR creation/CI date.",
-    "sha256": "65ea57cf2a225f963d7dbc7cc6a191a97aad307a59f4ac55fb1259eec6f64e5d"
+    "lastmod": "2026-11-24",
+    "reason": "TOKU CONTROL v0.4.0 Windows release, features, screenshots, download size and links.",
+    "sha256": "00e8d0584ecd62226724b797c88588686776a1d2d84c08147d3dcf118e3a883e"
   },
   "ja/arcade-counter-timer/index.html": {
     "lastmod": "2026-10-27",
@@ -15,9 +15,9 @@
     "sha256": "882775270092efe3f5c5a713584eaac2b39d76ba6ab1ccb3a2ef214a1a8ce4e3"
   },
   "ja/index.html": {
-    "lastmod": "2026-11-06",
-    "reason": "PR #30 Chrome Web Store primary CTA, link order and aria-label on Japanese homepage: merged as 887e405629c8d6cf0806392eb2f20886f09b03d6, GitHub Pages deploy job succeeded 2026-11-06 (run 42152494463). Last substantive update date is actual public deployment date.",
-    "sha256": "7f717c940cc41cc6d8cae2da4e0781401d44c9768590b43a6668e0e1a3eddfd4"
+    "lastmod": "2026-11-24",
+    "reason": "TOKU CONTROL v0.4.0 Windows release, features, screenshots, download size and links.",
+    "sha256": "c93c999c0702482d640f34836909eef82f2af12e78f9238717c50b335a39cc41"
   },
   "ja/progress-sidecar/index.html": {
     "lastmod": "2026-11-13",
@@ -26,8 +26,8 @@
   },
   "ja/toku-control/index.html": {
     "lastmod": "2026-11-24",
-    "reason": "Document unreleased Security Radar, Autorunsc and clock features separately from the v0.3.0 download",
-    "sha256": "b733d79ced18aacdbe735b75c49afdc7b274ce8787da52cfa1a7efc33fd85221"
+    "reason": "TOKU CONTROL v0.4.0 Windows release, features, screenshots, download size and links.",
+    "sha256": "95e6beb9b1185a9876d5d30d06e53f1fd52255db15d775c845c1c01f652c6312"
   },
   "ja/transcript-sidecar/index.html": {
     "lastmod": "2026-11-23",
@@ -56,8 +56,8 @@
   },
   "toku-control/index.html": {
     "lastmod": "2026-11-24",
-    "reason": "Document unreleased Security Radar, Autorunsc and clock features separately from the v0.3.0 download",
-    "sha256": "45f18bf533a00c622cace3c676de6e87df8dd60c3818a8e0c3308afd1b934ea9"
+    "reason": "TOKU CONTROL v0.4.0 Windows release, features, screenshots, download size and links.",
+    "sha256": "9d0dcde24957342c088c473faf5ce791ee7bc9e891980e6b64cc63a4a0dcf729"
   },
   "transcript-sidecar/index.html": {
     "lastmod": "2026-11-23",
