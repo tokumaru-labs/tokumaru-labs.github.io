@@ -5,9 +5,9 @@
     "sha256": "df8eedb9332c841c1404a304ecca336223bc5a87ff65bcd12670b7b53e2fa5c7"
   },
   "index.html": {
-    "lastmod": "2026-11-24",
-    "reason": "TOKU CONTROL v0.4.1 Windows release, About window, downloads and updated screenshots.",
-    "sha256": "16a103a5797b289ba2df42ef7497cbe8f40f5c2970e5579846399e917cf59902"
+    "lastmod": "2026-11-27",
+    "reason": "Add verified founder contributions, dated PEqualNP records and scoped localization history.",
+    "sha256": "47327272ac3bda9b1a4f80e3dcc106fb63f8cb4b08326247320e6d0c56f5405d"
   },
   "ja/arcade-counter-timer/index.html": {
     "lastmod": "2026-10-27",
@@ -15,9 +15,9 @@
     "sha256": "882775270092efe3f5c5a713584eaac2b39d76ba6ab1ccb3a2ef214a1a8ce4e3"
   },
   "ja/index.html": {
-    "lastmod": "2026-11-24",
-    "reason": "TOKU CONTROL v0.4.1 Windows release, About window, downloads and updated screenshots.",
-    "sha256": "f00f13de1b263e5d99e48e459b172e38ed2f789807a1a2b1b75e0e6fc5348006"
+    "lastmod": "2026-11-27",
+    "reason": "Add verified founder contributions, dated PEqualNP records and scoped localization history.",
+    "sha256": "e9d1319dba7b988753d346b42bc38eb941b17c3f2206d9645fc5bb912d7c4124"
   },
   "ja/progress-sidecar/index.html": {
     "lastmod": "2026-11-13",
