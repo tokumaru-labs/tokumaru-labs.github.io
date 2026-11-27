@@ -425,6 +425,54 @@ li { margin: 4px 0; }
 .lead { font-size: 1.1rem; color: var(--ink-soft); }
 .lead-ja { color: var(--ink-faint); margin-top: 4px; }
 
+/* ---------- founder's external contributions ---------- */
+.contributions { scroll-margin-top: 24px; }
+.proof-feature {
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface-sunken);
+}
+.proof-feature__intro { padding: 26px 28px 22px; }
+.contribution-kind {
+  margin: 0 0 8px;
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.proof-feature h3 { margin: 0; font-size: 1.25rem; }
+.proof-feature__result {
+  margin: 8px 0 12px;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--navy);
+}
+.proof-feature__intro > p:not([class]) { max-width: 76ch; margin: 0 0 16px; }
+.contribution-evidence { color: var(--ink-soft); font-size: 0.875rem; margin: 16px 0 0; }
+.proof-record { padding: 18px 28px 22px; border-top: 1px solid var(--line); background: var(--surface); }
+.proof-record summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+.proof-record[open] summary { margin-bottom: 16px; }
+.proof-links { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 24px; }
+.proof-links li { margin: 0; }
+.proof-links a { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.proof-links a span:last-child { font-size: 0.875rem; color: var(--ink-soft); }
+.proof-record > a { display: inline-block; margin-top: 12px; }
+.localization-heading { margin: 32px 0 18px; }
+.localization-heading h3 { margin: 0 0 4px; font-size: 1.25rem; }
+.localization-heading p { margin: 0; color: var(--ink-soft); }
+.contribution-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.contribution-card { padding: 22px 24px; border: 1px solid var(--line); border-radius: 10px; display: flex; flex-direction: column; }
+.contribution-card h4 { margin: 0 0 8px; font-size: 1.125rem; }
+.contribution-card > p:not([class]) { margin: 0 0 18px; color: var(--ink-soft); }
+.contribution-card .contribution-evidence { margin-top: auto; }
+.contributions-note { margin: 20px 0 0; max-width: 90ch; color: var(--ink-soft); font-size: 0.875rem; }
+@media (max-width: 720px) {
+  .contribution-grid, .proof-links { grid-template-columns: 1fr; }
+  .proof-feature__intro, .proof-record, .contribution-card { padding: 20px; }
+}
+
 /* ---------- bilingual product guides ---------- */
 .page-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
 .product-figure { margin: 24px 0; }
