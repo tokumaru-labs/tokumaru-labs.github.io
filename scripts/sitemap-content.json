@@ -5,9 +5,9 @@
     "sha256": "df8eedb9332c841c1404a304ecca336223bc5a87ff65bcd12670b7b53e2fa5c7"
   },
   "index.html": {
-    "lastmod": "2026-11-24",
-    "reason": "TOKU CONTROL v0.4.1 Windows release, About window, downloads and updated screenshots.",
-    "sha256": "16a103a5797b289ba2df42ef7497cbe8f40f5c2970e5579846399e917cf59902"
+    "lastmod": "2026-11-28",
+    "reason": "Added links and a bilingual preview of Transcript Sidecar v0.6.2; the store version is v0.5.1.",
+    "sha256": "d26c17892dc4bfc694e1a03eebb6dec937fdaf4d0c2b858a2858b0ba940222ce"
   },
   "ja/arcade-counter-timer/index.html": {
     "lastmod": "2026-10-27",
@@ -15,9 +15,9 @@
     "sha256": "882775270092efe3f5c5a713584eaac2b39d76ba6ab1ccb3a2ef214a1a8ce4e3"
   },
   "ja/index.html": {
-    "lastmod": "2026-11-24",
-    "reason": "TOKU CONTROL v0.4.1 Windows release, About window, downloads and updated screenshots.",
-    "sha256": "f00f13de1b263e5d99e48e459b172e38ed2f789807a1a2b1b75e0e6fc5348006"
+    "lastmod": "2026-11-28",
+    "reason": "Added links and a bilingual preview of Transcript Sidecar v0.6.2; the store version is v0.5.1.",
+    "sha256": "b29fc0c0d6679544e1886bff28eab40ff5e115e2eb446e1aa225185bf6e52f63"
   },
   "ja/progress-sidecar/index.html": {
     "lastmod": "2026-11-13",
@@ -30,9 +30,9 @@
     "sha256": "b6d83465786b7700080b6dc566e2703983e32228bef5510dbb4a25a4abfa047e"
   },
   "ja/transcript-sidecar/index.html": {
-    "lastmod": "2026-11-23",
-    "reason": "Updated the guides for 0.5.1 caption selection and clarified when player caption recovery can work.",
-    "sha256": "c6ab604b439bb6d528f5e5d32e3c3a91b542d3357a2412f6bb4d128df9cc7e11"
+    "lastmod": "2026-11-28",
+    "reason": "Added links and a bilingual preview of Transcript Sidecar v0.6.2; the store version is v0.5.1.",
+    "sha256": "b35da8f2f46a07fe647b3886737787b0ff164c4f750193733f94a71d568b2d8c"
   },
   "ja/vscode-themes/index.html": {
     "lastmod": "2026-10-25",
@@ -60,9 +60,9 @@
     "sha256": "53c44b5b35ac89dc957e4954a345749db2d99c71a06c392deb2ba85960b150d5"
   },
   "transcript-sidecar/index.html": {
-    "lastmod": "2026-11-23",
-    "reason": "Updated the guides for 0.5.1 caption selection and clarified when player caption recovery can work.",
-    "sha256": "125c2d37d58e47858866109264dae3aec5fa4f6618408f65ae9b82b5350b09bd"
+    "lastmod": "2026-11-28",
+    "reason": "Added links and a bilingual preview of Transcript Sidecar v0.6.2; the store version is v0.5.1.",
+    "sha256": "71becdb644a0a90e3b8f8ece84758e8ded2ada0330cf3e7ee97c9d86f1486535"
   },
   "vscode-themes/index.html": {
     "lastmod": "2026-10-25",
